@@ -25,6 +25,7 @@
     "normalize.css": "^3.0.3",
     "react": "^0.13.1",
     "react-hot-loader": "^1.2.5",
+    "react-map-styles": "git://github.com/Respondly/react-map-styles",
     "remarkable": "^1.6.0",
     "sinon": "^1.15.3",
     "style-loader": "^0.12.3",
