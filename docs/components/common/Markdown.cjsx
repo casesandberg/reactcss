@@ -38,7 +38,7 @@ module.exports = class Markdown extends ReactCSS.Component
           if line.indexOf('|Code:') > -1
             place = /\|Code:(.+?)\|/.exec(line)[1]
 
-            codes[place]
+            <div key={ i }>{ codes[place] }</div>
           else
             <div key={ i } is="markdown" dangerouslySetInnerHTML={ __html: line } /> }
 
