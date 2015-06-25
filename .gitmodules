@@ -1,0 +1,3 @@
+[submodule "modules/react-material-design"]
+	path = modules/react-material-design
+	url = https://github.com/casesandberg/react-material-design
