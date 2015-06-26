@@ -34,12 +34,20 @@ module.exports = class Markdown extends ReactCSS.Component
       count++
 
     <div>
+      <style>{"
+        .markdown code{
+          background: #ddd;
+          padding: 1px 5px 3px;
+          border-radius: 2px;
+          box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
+        }
+      "}</style>
       { for line, i in lines.split('\n')
           if line.indexOf('|Code:') > -1
             place = /\|Code:(.+?)\|/.exec(line)[1]
 
             <div key={ i }>{ codes[place] }</div>
           else
-            <div key={ i } is="markdown" dangerouslySetInnerHTML={ __html: line } /> }
+            <div key={ i } is="markdown" className="markdown" dangerouslySetInnerHTML={ __html: line } /> }
 
     </div>
