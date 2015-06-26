@@ -26,8 +26,8 @@ module.exports = class Markdown extends ReactCSS.Component
 
     while match = reg.exec(markdown)
       filename = undefined
-      if match[1]
-        filename = /file[nN]ame:(.+?)"/.exec(match[1])[1]
+      # if match[1]
+      #   filename = /file[nN]ame:(.+?)"/.exec(match[1])[1]
 
       lines = lines.replace("<pre><code#{ match[1] }>#{ match[2].toString() }</code></pre>", "|Code:#{ count }|")
       codes[count] = <Code files={[{ js: match[2], fileName: filename }]} />
