@@ -125,9 +125,9 @@ module.exports = class HomeBody extends ReactCSS.Component
         <div is="sideBySide">
           <Grid>
 
-            <Markdown>{ beforeCode }</Markdown>
+            <Markdown condensed>{ beforeCode }</Markdown>
 
-            <Markdown>{ afterCode }</Markdown>
+            <Markdown condensed>{ afterCode }</Markdown>
 
           </Grid>
         </div>

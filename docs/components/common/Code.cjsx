@@ -58,6 +58,19 @@ module.exports = class Code extends ReactCSS.Component
         textAlign: 'right'
         color: 'rgba(0,0,0,.20)'
 
+    'condensed':
+      Tile:
+        condensed: true
+
+      center:
+        paddingBottom: '16px'
+        fontSize: '13px'
+        lineHeight: '16px'
+
+      numbers:
+        fontSize: '13px'
+        lineHeight: '16px'
+
   render: ->
     rendered = md.render("```\n#{ @props.files[0].js }```").trim()
     lines = rendered.split('\n').length
@@ -77,7 +90,7 @@ module.exports = class Code extends ReactCSS.Component
                 <Tabs is="Files" tabs={[ @props.files[0].fileName ]} />
               </div>
             </div> }
-        <Tile>
+        <Tile is="Tile">
           <div is="numbers">
             { for line in [1 ... lines]
                 <div key={ line } is="line">{ line }</div> }

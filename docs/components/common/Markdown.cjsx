@@ -30,7 +30,7 @@ module.exports = class Markdown extends ReactCSS.Component
       #   filename = /file[nN]ame:(.+?)"/.exec(match[1])[1]
 
       lines = lines.replace("<pre><code#{ match[1] }>#{ match[2].toString() }</code></pre>", "|Code:#{ count }|")
-      codes[count] = <Code files={[{ js: match[2], fileName: filename }]} />
+      codes[count] = <Code files={[{ js: match[2], fileName: filename }]} condensed={ @props.condensed }/>
       count++
 
     <div>
