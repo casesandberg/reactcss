@@ -40,6 +40,7 @@ module.exports = class Markdown extends ReactCSS.Component
           padding: 1px 5px 3px;
           border-radius: 2px;
           box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
+          font-size: 85%;
         }
       "}</style>
       { for line, i in lines.split('\n')
