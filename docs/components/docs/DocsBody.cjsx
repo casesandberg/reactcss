@@ -33,6 +33,20 @@ module.exports = class DocsBody extends ReactCSS.Component
       inner:
         padding: '16px'
 
+      file:
+        paddingBottom: '60px'
+
+      title:
+        fontSize: '32px'
+        fontWeight: '200'
+        color: 'rgba(0,0,0,.67)'
+        paddingBottom: '20px'
+
+      subtitle:
+        fontSize: '24px'
+        fontWeight: '400'
+        color: 'rgba(0,0,0,.67)'
+
   render: ->
     <div is="docsBody">
       <Container>
@@ -49,7 +63,16 @@ module.exports = class DocsBody extends ReactCSS.Component
 
           <div is="content">
             { for fileName, file of docs
-                <Markdown key={ fileName }>{ /---[\s\S]*?---([\s\S]*)/.exec(file)[1] }</Markdown> }
+                regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
+                title = regex[1]
+                body = regex[2]
+                if body.trim()
+                  <div is="file" key={ fileName }>
+                    <div is="subtitle">{ title }</div>
+                    <Markdown>{ body }</Markdown>
+                  </div>
+                else
+                  <div is="title">{ title }</div> }
           </div>
 
         </Grid>
