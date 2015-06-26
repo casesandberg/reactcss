@@ -17,6 +17,7 @@ module.exports = class DocsFeature extends ReactCSS.Component
 
       title:
         paddingTop: '120px'
+        paddingLeft: '240px'
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'
         WebkitFontSmoothing: 'antialiased'
