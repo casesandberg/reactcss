@@ -54,8 +54,9 @@ module.exports = class DocsBody extends ReactCSS.Component
 
           <div is="sidebar">
             { for fileName, file of docs
+                sectionNumber = if fileName.split('-')[0].indexOf('.') is -1 then fileName.split('-')[0] else ''
                 <Tile key={ fileName }>
-                  <div></div>
+                  <div>{ sectionNumber }</div>
 
                   <div>{ /title: (.+)/.exec(file)[1] }</div>
                 </Tile> }
@@ -72,7 +73,7 @@ module.exports = class DocsBody extends ReactCSS.Component
                     <Markdown>{ body }</Markdown>
                   </div>
                 else
-                  <div is="title">{ title }</div> }
+                  <div is="title" key={ fileName }>{ title }</div> }
           </div>
 
         </Grid>
