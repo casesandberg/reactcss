@@ -39,23 +39,26 @@ module.exports = class HomeBody extends ReactCSS.Component
                 class Button extends ReactCSS.Component {
 
                   classes: function(){
-                    'default': {
-                      button: {
-                        background: '#4A90E2'
+                    return {
+                      'default': {
+                        button: {
+                          background: '#4A90E2'
+                        },
+                        Icon: {
+                          fill: '#fff'
+                          name: this.props.icon
+                        }
                       },
-                      Icon: {
-                        fill: '#fff'
-                      }
-                    },
-                    'disabled-true': {
-                      button: {
-                        background: '#bbb'
-                      }
-                      span: {
-                        color: '#999'
-                      }
-                      Icon: {
-                        fill: '#999'
+                      'disabled-true': {
+                        button: {
+                          background: '#bbb'
+                        }
+                        span: {
+                          color: '#999'
+                        }
+                        Icon: {
+                          fill: '#999'
+                        }
                       }
                     }
                   };
@@ -63,7 +66,7 @@ module.exports = class HomeBody extends ReactCSS.Component
                   render: function(){
                     return (
                       <div is\="button">
-                        <Icon is\="Icon" name={ this.props.icon }>
+                        <Icon is\="Icon" />
                         <span is\="span">
                           { this.props.label }
                         </span>
@@ -100,14 +103,17 @@ module.exports = class HomeBody extends ReactCSS.Component
                       }
                       var iconProps = styles.Icon;
                       if (this.props.disabled) {
-                        iconProps = merge(styles.Icon, styles.disabledIcon)
+                        iconProps = merge( styles.Icon,
+                          styles.disabledIcon )
                       }
 
                       return (
                         <div style={ merge( styles.button,
-                          this.props.disabled && styles.disabledButton }>
-                          <Icon {...iconProps } name={ this.props.icon }>
-                          <span style={ this.props.disabled && styles.disabledSpan }>
+                          this.props.disabled && styles.disabledButton )}>
+                          <Icon {...iconProps }
+                            name={ this.props.icon } />
+                          <span style={ this.props.disabled &&
+                            styles.disabledSpan }>
                             { this.props.label }
                           </span>
                         </div>

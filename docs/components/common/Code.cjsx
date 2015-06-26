@@ -65,11 +65,11 @@ module.exports = class Code extends ReactCSS.Component
       center:
         paddingBottom: '16px'
         fontSize: '13px'
-        lineHeight: '16px'
+        lineHeight: '15px'
 
       numbers:
         fontSize: '13px'
-        lineHeight: '16px'
+        lineHeight: '15px'
 
   render: ->
     rendered = md.render("```\n#{ @props.files[0].js }```").trim()
