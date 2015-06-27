@@ -12,7 +12,7 @@ md = new Remarkable
       console.log err
 _ = require('lodash')
 
-require('../../../node_modules/highlight.js/styles/kimbie.dark.css')
+# require('../../../node_modules/highlight.js/styles/kimbie.dark.css')
 
 
 
@@ -84,6 +84,27 @@ module.exports = class Code extends ReactCSS.Component
 
     else
       <Raised>
+        <style>{"
+          .rendered{
+            color: #607D8B; // blue grey 500
+          }
+          .rendered .hljs-comment {
+            color: #B0BEC5; // blue grey 200
+          }
+          .rendered .hljs-keyword{
+            color: #EF9A9A;  // red 200
+          }
+          .rendered .hljs-string{
+            color: #689F38; // light green 700
+          }
+          .rendered .hljs-title{
+            text-decoration: underline;
+            color: #37474F; // blue grey 800
+
+          }
+        "}</style>
+
+
         { if @props.files[0].fileName
             <div is="head">
               <div is="files">

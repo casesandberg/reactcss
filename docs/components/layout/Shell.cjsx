@@ -12,7 +12,7 @@ Body = require('./Body')
 module.exports = class Shell extends ReactCSS.Component
 
   state:
-    selectedRoute: 'about' # about | documentation
+    selectedRoute: 'documentation' # about | documentation
 
   classes: ->
     'default':
