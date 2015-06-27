@@ -76,7 +76,7 @@ gulp.task('bundle', function(done) {
 });
 
 gulp.task('watch', function(done) {
-  gulp.watch([ '**/*.coffee' ], [ 'bundle', 'test' ]);
+  gulp.watch([ '**/*.coffee' ], [ 'test' ]);
 });
 
 gulp.task('docs', function(done) {
