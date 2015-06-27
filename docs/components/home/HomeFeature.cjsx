@@ -5,6 +5,7 @@ ReactCSS = require('reactcss')
 
 Container = require('../layout/Container')
 Particles = require('./Particles')
+Animate = require('../common/Animate')
 
 
 
@@ -52,12 +53,16 @@ module.exports = class HomeFeature extends ReactCSS.Component
 
         <div is="inside">
 
-          <div is="headline">Bringing Classes back to Inline Styles</div>
+          <Animate>
+            <div is="headline">Bringing Classes back to Inline Styles</div>
+          </Animate>
 
-          <div is="install">
-            <span is="dollar">$</span>
-            npm install reactcss
-          </div>
+          <Animate inStartTransform="translateY(70px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+            <div is="install">
+              <span is="dollar">$</span>
+              npm install reactcss
+            </div>
+          </Animate>
 
         </div>
 

@@ -7,6 +7,7 @@ Container = require('../layout/Container')
 Grid = require('../layout/Grid')
 Code = require('../common/Code')
 Markdown = require('../common/Markdown')
+Animate = require('../common/Animate')
 
 
 
@@ -131,9 +132,13 @@ module.exports = class HomeBody extends ReactCSS.Component
         <div is="sideBySide">
           <Grid>
 
-            <Markdown condensed>{ beforeCode }</Markdown>
+            <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+              <Markdown condensed>{ beforeCode }</Markdown>
+            </Animate>
 
-            <Markdown condensed>{ afterCode }</Markdown>
+            <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+              <Markdown condensed>{ afterCode }</Markdown>
+            </Animate>
 
           </Grid>
         </div>

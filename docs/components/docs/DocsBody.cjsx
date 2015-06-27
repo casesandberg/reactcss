@@ -8,6 +8,7 @@ Grid = require('../layout/Grid')
 Code = require('../common/Code')
 { Tile } = require('react-material-design')
 Markdown = require('../common/Markdown')
+Animate = require('../common/Animate')
 
 docs = require('../../docs')
 Remarkable = require('remarkable')
@@ -67,66 +68,68 @@ module.exports = class DocsBody extends ReactCSS.Component
 
           <div is="content">
 
-            <div is="animate">
-              { topmost = """
-                          ```
-                          // Include the library
-                          var ReactCSS = require('reactcss');
+            <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+              <div is="animate">
+                { topmost = """
+                            ```
+                            // Include the library
+                            var ReactCSS = require('reactcss');
 
-                          // Extend ReactCSS inseat of React
-                          class Component extends ReactCSS.Component{
+                            // Extend ReactCSS inseat of React
+                            class Component extends ReactCSS.Component{
 
-                            classes: function(){
-                              return{
-                                // Set a default style
-                                'default': {
-                                  box: {
-                                    background: '#eee'
+                              classes: function(){
+                                return{
+                                  // Set a default style
+                                  'default': {
+                                    box: {
+                                      background: '#eee'
+                                    },
+                                    title: {
+                                      color: 'rgba(0, 0, 0, .87)'
+                                    }
                                   },
-                                  title: {
-                                    color: 'rgba(0, 0, 0, .87)'
-                                  }
-                                },
-                                // Automatically activates if this.props.theme = 'dark'
-                                'theme-dark': {
-                                  box: {
-                                    background: '#333'
+                                  // Automatically activates if this.props.theme = 'dark'
+                                  'theme-dark': {
+                                    box: {
+                                      background: '#333'
+                                    },
+                                    title: {
+                                      color: 'rgba(255, 255, 255, .87)'
+                                    }
                                   },
-                                  title: {
-                                    color: 'rgba(255, 255, 255, .87)'
-                                  }
-                                },
-                                'hovered': {
-                                  box: {
-                                    background: 'blue'
-                                  },
-                                  title: {
-                                    color: 'rgba(255, 255, 255, .87)'
+                                  'hovered': {
+                                    box: {
+                                      background: 'blue'
+                                    },
+                                    title: {
+                                      color: 'rgba(255, 255, 255, .87)'
+                                    }
                                   }
                                 }
                               }
-                            }
 
-                            styles: function(){
-                              return this.css({
-                                // Declare classes to conditionally activate
-                                'hovered': @state.hovered
-                              })
-                            }
+                              styles: function(){
+                                return this.css({
+                                  // Declare classes to conditionally activate
+                                  'hovered': @state.hovered
+                                })
+                              }
 
-                            render: function(){
-                              return (
-                                // Attach styles using `is` with `react-map-styles`
-                                <div is\="box">
-                                  <div is\="title">{ this.props.children }</div>
-                                </div>
-                              )
+                              render: function(){
+                                return (
+                                  // Attach styles using `is` with `react-map-styles`
+                                  <div is\="box">
+                                    <div is\="title">{ this.props.children }</div>
+                                  </div>
+                                )
+                              }
                             }
-                          }
-                          ```
-                          """
-              <Markdown>{ topmost }</Markdown> }
-            </div>
+                            ```
+                            """
+                <Markdown>{ topmost }</Markdown> }
+              </div>
+            </Animate>
 
             { for fileName, file of docs
                 regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
