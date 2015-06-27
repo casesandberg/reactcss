@@ -4,6 +4,7 @@ React = require('react')
 ReactCSS = require('reactcss')
 
 Container = require('../layout/Container')
+Animate = require('../common/Animate')
 
 
 
@@ -26,7 +27,9 @@ module.exports = class DocsFeature extends ReactCSS.Component
     <div is="docsFeature">
       <Container>
 
-        <div is="title">Documentation</div>
+        <Animate>
+          <div is="title">Documentation</div>
+        </Animate>
 
       </Container>
     </div>
