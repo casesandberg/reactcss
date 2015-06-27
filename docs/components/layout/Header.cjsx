@@ -36,6 +36,6 @@ module.exports = class Header extends ReactCSS.Component
       <div is="logo">ReactCSS</div>
 
       <div is="nav">
-        <Tabs is="Tabs" selectedTab={ if @props.display is 'about' then 0 else if @props.display is 'documentation' then 1 else 0 } tabs={[{ label: 'About', onClick: @handleAbout }, { label: 'Documentation', onClick: @handleDocs }, { label: 'Github', selectable: false; onClick: 'https://github.com/respondly/reactcss', newTab: true }]} />
+        <Tabs is="Tabs" selectedTab={ if @props.display is 'about' then 0 else if @props.display is 'documentation' then 1 else 0 } tabs={[{ label: 'About', onClick: @handleAbout }, { label: 'Documentation', onClick: @handleDocs }, { label: 'Github', selectable: false; onClick: 'https://github.com/casesandberg/reactcss', newTab: true }]} />
       </div>
     </div>
