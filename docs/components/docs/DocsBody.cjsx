@@ -23,11 +23,7 @@ module.exports = class DocsBody extends ReactCSS.Component
     'default':
       docsBody: {}
 
-      sidebar:
-        width: '200px'
-
       content:
-        width: '640px'
         fontSize: '17px'
         lineHeight: '24px'
         color: 'rgba(0,0,0,.57)'
@@ -45,7 +41,7 @@ module.exports = class DocsBody extends ReactCSS.Component
   render: ->
     <div is="docsBody" className="docsBody">
       <Container>
-        <Grid uneven>
+        <Grid uneven flex="1-3">
 
           <div is="sidebar">
             { for fileName, file of docs

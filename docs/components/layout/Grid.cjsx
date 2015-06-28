@@ -21,12 +21,12 @@ module.exports = class Grid extends ReactCSS.Component
       firstColumn:
         flex: '1'
 
-    'uneven':
-      column:
-        flex: 'none'
-
+    'flex-1-3':
       firstColumn:
-        flex: 'none'
+        flex: '1'
+
+      column:
+        flex: '3'
 
   render: ->
     <div is="grid">
