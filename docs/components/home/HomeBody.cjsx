@@ -34,37 +34,37 @@ module.exports = class HomeBody extends ReactCSS.Component
   render: ->
 
     afterCode = """
-                ``` javascript
+                ```javascript
                 var ReactCSS = require('reactcss');
 
                 class Button extends ReactCSS.Component {
 
-                  classes: function(){
+                  classes(){
                     return {
                       'default': {
                         button: {
                           background: '#4A90E2'
                         },
                         Icon: {
-                          fill: '#fff'
+                          fill: '#fff',
                           name: this.props.icon
                         }
                       },
                       'disabled-true': {
                         button: {
                           background: '#bbb'
-                        }
+                        },
                         span: {
                           color: '#999'
-                        }
+                        },
                         Icon: {
                           fill: '#999'
                         }
                       }
                     }
-                  };
+                  }
 
-                  render: function(){
+                  render(){
                     return (
                       <div is\="button">
                         <Icon is\="Icon" />
@@ -73,25 +73,25 @@ module.exports = class HomeBody extends ReactCSS.Component
                         </span>
                       </div>
                     )
-                  };
-                };
+                  }
+                }
                 ```
                 """
 
     beforeCode =  """
-                  ``` javascript
+                  ```javascript
                   var merge = require('merge');
 
                   class Button extends React.Component {
 
-                    render: function(){
+                    render(){
                       var styles = {
                         button: {
                           background: '#4A90E2'
                         },
                         Icon: {
                           fill: '#fff'
-                        }
+                        },
                         disabledButton: {
                           background: '#bbb'
                         },
@@ -119,8 +119,8 @@ module.exports = class HomeBody extends ReactCSS.Component
                           </span>
                         </div>
                       )
-                    };
-                  };
+                    }
+                  }
                   ```
                   """
 
