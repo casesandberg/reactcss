@@ -7,10 +7,12 @@ var Button = require('./Button.es6');
 
 
 
+// You are going to want to extend ReactCSS.Component instead of just React.Component
 class Dialog extends ReactCSS.Component {
 
   classes() {
     return {
+      // This is our default dialog class
       'default': {
         dialog: {
           background: '#fff',
@@ -47,6 +49,7 @@ class Dialog extends ReactCSS.Component {
           background: 'red'
         }
       },
+      // This class activates when `disabled: true` is passed as props
       'disabled-true': {
         AgreeButton: {
           disabled: true
@@ -57,6 +60,8 @@ class Dialog extends ReactCSS.Component {
 
   render(){
     return (
+      // You will notice the is syntax here, via `react-map-styles` package
+      // This handles mapping the styles to the elements
       <div is="dialog">
         <div is="body">
           <div is="title">{ this.props.title }</div>
