@@ -40,7 +40,7 @@ module.exports = class DocsBody extends ReactCSS.Component
         padding: '16px'
 
       file:
-        paddingBottom: '60px'
+        paddingBottom: '40px'
 
   render: ->
     <div is="docsBody" className="docsBody">
@@ -70,6 +70,7 @@ module.exports = class DocsBody extends ReactCSS.Component
                 font-size: 32px;
                 font-weight: 200;
                 color: rgba(0,0,0,.67);
+                margin-top: 0;
               }
 
               .docsBody h2{
