@@ -30,6 +30,10 @@ config = {
           test: /\.js$/,
           loaders: ['react-hot-loader']
         }, {
+          test: /\.jsx$/,
+          exclude: /node_modules/,
+          loaders: ['react-hot-loader', 'jsx-loader', 'babel-loader', 'react-map-styles']
+        }, {
           test: /\.coffee$/,
           loaders: ['coffee-loader']
         }, {
@@ -48,7 +52,7 @@ config = {
       alias: {
         'reactcss': path.resolve(__dirname, './src/react-css.coffee')
       },
-      extensions: ['', '.js', '.coffee', '.cjsx'],
+      extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
       fallback: [path.resolve(__dirname, './modules')]
     },
     plugins: [
