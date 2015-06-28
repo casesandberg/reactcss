@@ -1,11 +1,11 @@
-```
+```javascript
 // Include the library
 var ReactCSS = require('reactcss');
 
 // Extend ReactCSS instead of React
 class Component extends ReactCSS.Component {
 
-  classes: function() {
+  classes() {
     return {
       // The default style will be applied automatically
       'default': {
@@ -39,19 +39,19 @@ class Component extends ReactCSS.Component {
     }
   }
 
-  styles: function() {
+  styles() {
     return this.css({
       // 'className': Condition to activate
       'hovered': @state.hovered
     })
   }
 
-  render: function() {
+  render() {
     return (
       // Attach styles using `is` with `react-map-styles`
-      // See below for more details on attaching
-      <div is\="box">
-        <div is\="title">{ this.props.children }</div>
+      // See below for more details on attaching styles
+      <div is="box">
+        <div is="title">{ this.props.children }</div>
       </div>
     )
   }

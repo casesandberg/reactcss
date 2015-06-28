@@ -39,7 +39,7 @@ module.exports = class HomeBody extends ReactCSS.Component
 
                 class Button extends ReactCSS.Component {
 
-                  classes(){
+                  classes() {
                     return {
                       'default': {
                         button: {
@@ -64,7 +64,7 @@ module.exports = class HomeBody extends ReactCSS.Component
                     }
                   }
 
-                  render(){
+                  render() {
                     return (
                       <div is\="button">
                         <Icon is\="Icon" />
@@ -84,7 +84,7 @@ module.exports = class HomeBody extends ReactCSS.Component
 
                   class Button extends React.Component {
 
-                    render(){
+                    render() {
                       var styles = {
                         button: {
                           background: '#4A90E2'
