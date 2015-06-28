@@ -32,10 +32,10 @@ module.exports = React.createClass({
       },
       'disabled-true': {
         button: {
-          background: '#999'
+          background: '#ccc'
         },
         span: {
-          color: '#bbb'
+          color: '#aaa'
         }
       }
     }
