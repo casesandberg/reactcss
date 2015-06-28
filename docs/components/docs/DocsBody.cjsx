@@ -42,19 +42,8 @@ module.exports = class DocsBody extends ReactCSS.Component
       file:
         paddingBottom: '60px'
 
-      title:
-        fontSize: '32px'
-        fontWeight: '200'
-        color: 'rgba(0,0,0,.67)'
-        paddingBottom: '20px'
-
-      subtitle:
-        fontSize: '24px'
-        fontWeight: '400'
-        color: 'rgba(0,0,0,.67)'
-
   render: ->
-    <div is="docsBody">
+    <div is="docsBody" className="docsBody">
       <Container>
         <Grid uneven>
 
@@ -76,17 +65,39 @@ module.exports = class DocsBody extends ReactCSS.Component
               </div>
             </Animate>
 
+            <style>{"
+              .docsBody h1{
+                font-size: 32px;
+                font-weight: 200;
+                color: rgba(0,0,0,.67);
+              }
+
+              .docsBody h2{
+                font-size: 24px;
+                font-weight: 400;
+                color: rgba(0,0,0,.67);
+              }
+            "}</style>
+
             { for fileName, file of docs
                 regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
                 title = regex[1]
                 body = regex[2]
-                if body.trim()
-                  <div is="file" key={ fileName }>
-                    <div is="subtitle">{ title }</div>
-                    <Markdown>{ body }</Markdown>
-                  </div>
-                else
-                  <div is="title" key={ fileName }>{ title }</div> }
+
+
+
+                <div key={ fileName }>
+                  { if fileName.split('-')[0].indexOf('.') is -1
+                      <h1>{ title }</h1>
+                    else
+                      <h2>{ title }</h2> }
+
+                  { if body.trim()
+                      <div is="file">
+                        <Markdown>{ body }</Markdown>
+                      </div> }
+                </div> }
+
           </div>
 
         </Grid>
