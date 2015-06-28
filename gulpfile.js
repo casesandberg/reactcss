@@ -79,6 +79,70 @@ gulp.task('bundle', function(done) {
   done();
 });
 
+gulp.task('static', function(done){
+
+  prodConfig = {
+    entry: ['./docs/index.coffee'],
+    output: {
+      path: path.join(__dirname, 'docs/build'),
+      filename: 'bundle.js',
+      publicPath: '/build/'
+    },
+    module: {
+      loaders: [{
+          test: /\.jsx$/,
+          exclude: /node_modules/,
+          loaders: ['jsx-loader', 'babel-loader', 'react-map-styles']
+        }, {
+          test: /\.coffee$/,
+          loaders: ['coffee-loader']
+        }, {
+          test: /\.cjsx$/,
+          loaders: ['coffee-jsx-loader', 'react-map-styles']
+        }, {
+          test: /\.css$/,
+          loaders: [ 'style-loader', 'css-loader' ]
+        }, {
+          test: /\.md$/,
+          loaders: [ 'html-loader' ]
+        }
+      ]
+    },
+    resolve: {
+      alias: {
+        'reactcss': path.resolve(__dirname, './src/react-css.coffee')
+      },
+      extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
+      fallback: [path.resolve(__dirname, './modules')]
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        mangle: {
+          except: ['GeneratorFunction', 'GeneratorFunctionPrototype']
+        },
+        sourceMap: false
+      })
+    ],
+    devtool: 'eval',
+    quiet: true
+  }
+
+  webpack(prodConfig, function(err, stats){
+
+    if(err) {
+      throw new Error(err);
+    }
+
+    done();
+  });
+})
+
 gulp.task('watch', function(done) {
   gulp.watch([ '**/*.coffee' ], [ 'test' ]);
 });

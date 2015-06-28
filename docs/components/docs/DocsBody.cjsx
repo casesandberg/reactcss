@@ -13,7 +13,12 @@ Animate = require('../common/Animate')
 docs = require('../../docs')
 Remarkable = require('remarkable')
 md = new Remarkable()
-sampleComponent = require('../../docs/00-sample-component.md')
+# sampleComponent = require('../../docs/00-sample-component.md')
+sampleComponent = """
+                  ```
+                  var foo = 'bar';
+                  ```
+                  """
 
 
 
