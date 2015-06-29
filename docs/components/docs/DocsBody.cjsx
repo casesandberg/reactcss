@@ -60,7 +60,7 @@ module.exports = class DocsBody extends ReactCSS.Component
 
   onScroll: (e) =>
     @changeSelection(e, @)
-    top = e.srcElement.scrollingElement.scrollTop - 150
+    top = document.body.scrollTop - 150
 
     sidebar = React.findDOMNode( @refs.DocsSidebar )
     sidebarTop = sidebar.offsetTop
@@ -72,7 +72,7 @@ module.exports = class DocsBody extends ReactCSS.Component
       @setState( sidebarFixed: false )
 
   changeSelection: (e, _this) =>
-    top = e.srcElement.scrollingElement.scrollTop - 150
+    top = document.body.scrollTop - 150
     mostVisible = ''
     for offset, id of @state.files
       if offset < top
