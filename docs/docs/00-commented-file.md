@@ -42,7 +42,7 @@ class Component extends ReactCSS.Component {
   styles() {
     return this.css({
       // 'className': Condition to activate
-      'hovered': @state.hovered
+      'hovered': this.state.hovered
     })
   }
 
