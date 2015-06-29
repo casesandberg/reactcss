@@ -3,8 +3,8 @@ id: philosophy
 title: Philosophy
 
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a finibus augue. Ut vel tortor malesuada diam tempor fringilla et et leo.
+ReactCSS encourages you to create a bunch of little components that hold unique styles for you to share around your app. Take Google's Material Design as an example: You would create one component called `Raised` that handles displaying drop shadows app-wide.
 
-Vivamus congue nisl et lorem elementum congue. Phasellus aliquam lorem quis dui dictum, ut pulvinar metus ullamcorper. Duis ut tristique lacus. Nulla eget aliquet justo, in ullamcorper arcu. Sed sagittis eleifend nulla et molestie.
+Media Queries are a hack. Period. There is no media query support with this package. We instead should be focusing on Element Queries or `Component Queries` with the idea that a component will handle displaying itself in whatever size box you give it. Look for a `react-comonent-queries` package coming soon.
 
-Fusce in auctor justo, ut dapibus lectus. Mauris molestie sapien vel nunc hendrerit, eget aliquam arcu vulputate. Donec ut sem orci. Maecenas eu euismod purus. Aliquam sed bibendum dui. Donec sit amet risus nec neque euismod ullamcorper.
+Nth-child and css selectors should be handled by the parent that is looping the component and passed down as props. This allows you to do complex things like passing a the data type of the  previous and next components to each component in a list.
