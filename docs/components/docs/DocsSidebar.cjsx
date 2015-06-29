@@ -2,8 +2,10 @@
 
 React = require('react')
 ReactCSS = require('reactcss')
+markdown = require('../../helpers/markdown')
 
 { Tile } = require('react-material-design')
+DocsSidebarItem = require('./DocsSidebarItem')
 
 
 
@@ -19,41 +21,6 @@ module.exports = class DocsSidebar extends ReactCSS.Component
         position: 'absolute'
         top: '-65px'
         left: '10px'
-
-      li:
-        paddingBottom: '8px'
-
-      number:
-        fontSize: '14px'
-        color: 'rgba(0, 0, 0, .27)'
-        fontWeight: 'bold'
-        paddingTop: '14px'
-
-      link:
-        fontSize: '14px'
-        textDecoration: 'none'
-
-      titleActive:
-        Extend: 'link'
-        fontWeight: 'bold'
-        color: '#4A90E2'
-        paddingTop: '14px'
-        display: 'block'
-
-      titleInactive:
-        Extend: 'link'
-        fontWeight: 'bold'
-        color: 'rgba(0, 0, 0, .57)'
-        paddingTop: '14px'
-        display: 'block'
-
-      active:
-        Extend: 'link'
-        color: '#4A90E2'
-
-      inactive:
-        Extend: 'link'
-        color: 'rgba(0, 0, 0, .57)'
 
     'fixed':
       sidebar:
@@ -73,25 +40,14 @@ module.exports = class DocsSidebar extends ReactCSS.Component
       </div>
 
       { for fileName, file of @props.files
-          id = /id: (.+)/.exec(file)[1]
-          title = /title: (.+)/.exec(file)[1]
-          sectionNumber = if fileName.split('-')[0].indexOf('.') is -1 then fileName.split('-')[0] else ''
-          <div is="li" key={ fileName }>
-            <Tile condensed>
-              <div is="number">{ sectionNumber }</div>
+          args = markdown.getArgs(file)
+          sectionNumber = if markdown.isSubSection(fileName) then fileName.split('-')[0] else false
 
-              { if sectionNumber
-                  if @props.active is id
-                      <a is="titleActive" href={ "##{ id }" }>{ title }</a>
-                    else
-                      <a is="titleInactive" href={ "##{ id }" }>{ title }</a>
-                else
-                  if @props.active is id
-                      <a is="active" href={ "##{ id }" }>{ title }</a>
-                    else
-                      <a is="inactive" href={ "##{ id }" }>{ title }</a> }
-
-            </Tile>
-          </div> }
+          <DocsSidebarItem key={ fileName }
+            sidebarNumber={ sectionNumber }
+            href={ "##{ args.id }" }
+            active={ @props.active is args.id }
+            bold={ true if sectionNumber }
+            label={ args.title } /> }
 
     </div>

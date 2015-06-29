@@ -44,5 +44,8 @@ module.exports = markdown =
   isCodeBlock: (string) ->
     return true if string.indexOf('|Code:') > -1
 
+  isSubSection: (string) ->
+    return true if string.split('-')[0].indexOf('.') is -1
+
   codeNumber: (string) ->
     /\|Code:(.+?)\|/.exec(string)[1]

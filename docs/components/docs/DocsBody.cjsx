@@ -2,14 +2,14 @@
 
 React = require('react')
 ReactCSS = require('reactcss')
+markdown = require('../../helpers/markdown')
 
 { Container, Grid } = require('../layout')
 { Markdown, Animate } = require('../common')
 DocsSidebar = require('./DocsSidebar')
 
-docs = require('../../docs')
-
-sampleComponent = require('../../docs/00-sample-component.md')
+docsFiles = require('../../docs')
+commentedFile = require('../../docs/00-commented-file.md')
 
 
 
@@ -82,31 +82,28 @@ module.exports = class DocsBody extends ReactCSS.Component
         <Grid uneven flex="1-3">
 
           <Animate inDelay={ 900 } ref="docsSidebar">
-            <DocsSidebar files={ docs } active={ @state.visible } fixed={ @state.sidebarFixed } />
+            <DocsSidebar files={ docsFiles } active={ @state.visible } fixed={ @state.sidebarFixed } />
           </Animate>
 
           <div is="content">
 
             <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
               <div is="animate">
-                <Markdown>{ sampleComponent }</Markdown>
+                <Markdown>{ commentedFile }</Markdown>
               </div>
             </Animate>
 
             <div ref="files">
 
-              { for fileName, file of docs
-                  regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
-                  title = regex[1]
-                  body = regex[2]
-                  id = /id: (.+)/.exec(file)[1]
+              { for fileName, file of docsFiles
+                  args = markdown.getArgs(file)
+                  body = markdown.getBody(file)
 
-
-                  <div key={ fileName } id={ id }>
-                    { if fileName.split('-')[0].indexOf('.') is -1
-                        <h1>{ title }</h1>
+                  <div key={ fileName } id={ args.id }>
+                    { if markdown.isSubSection(fileName)
+                        <h1>{ args.title }</h1>
                       else
-                        <h2>{ title }</h2> }
+                        <h2>{ args.title }</h2> }
 
                     { if body.trim()
                         <div is="file">
