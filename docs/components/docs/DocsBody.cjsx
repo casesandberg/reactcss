@@ -59,26 +59,26 @@ module.exports = class DocsBody extends ReactCSS.Component
     window.removeEventListener('scroll', @onScroll, false);
 
   onScroll: (e) =>
-    @changeSelection(e, @)
-    top = document.body.scrollTop - 150
+    @changeSelection()
+    @attachSidebar()
 
-    sidebar = React.findDOMNode( @refs.DocsSidebar )
-    sidebarTop = sidebar.offsetTop
+  attachSidebar: =>
+    sidebarTop = React.findDOMNode( @refs.docsSidebar ).getBoundingClientRect().top
 
-    if 400 < top && @state.sidebarFixed is false
+    if sidebarTop <= 0 && @state.sidebarFixed is false
       @setState( sidebarFixed: true )
 
-    if 370 > top && @state.sidebarFixed is true
+    if sidebarTop > 0 && @state.sidebarFixed is true
       @setState( sidebarFixed: false )
 
-  changeSelection: (e, _this) =>
+  changeSelection: =>
     top = document.body.scrollTop - 150
     mostVisible = ''
     for offset, id of @state.files
       if offset < top
         mostVisible = id
     if mostVisible isnt @state.visible
-      _this.setState( visible: mostVisible )
+      @setState( visible: mostVisible )
 
 
   render: ->
@@ -86,8 +86,8 @@ module.exports = class DocsBody extends ReactCSS.Component
       <Container>
         <Grid uneven flex="1-3">
 
-          <Animate inDelay={ 900 }>
-            <DocsSidebar ref="DocsSidebar" files={ docs } active={ @state.visible } fixed={ @state.sidebarFixed } />
+          <Animate inDelay={ 900 } ref="docsSidebar">
+            <DocsSidebar files={ docs } active={ @state.visible } fixed={ @state.sidebarFixed } />
           </Animate>
 
           <div is="content">
