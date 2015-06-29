@@ -27,6 +27,7 @@ module.exports = class DocsSidebar extends ReactCSS.Component
         fontSize: '14px'
         color: 'rgba(0, 0, 0, .27)'
         fontWeight: 'bold'
+        paddingTop: '14px'
 
       link:
         fontSize: '14px'
@@ -36,11 +37,15 @@ module.exports = class DocsSidebar extends ReactCSS.Component
         Extend: 'link'
         fontWeight: 'bold'
         color: '#4A90E2'
+        paddingTop: '14px'
+        display: 'block'
 
       titleInactive:
         Extend: 'link'
         fontWeight: 'bold'
         color: 'rgba(0, 0, 0, .57)'
+        paddingTop: '14px'
+        display: 'block'
 
       active:
         Extend: 'link'

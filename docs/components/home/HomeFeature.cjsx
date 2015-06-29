@@ -27,7 +27,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
         WebkitFontSmoothing: 'antialiased'
 
       install:
-        marginTop: '60px'
+        marginTop: '80px'
         display: 'inline-block'
         padding: '0 18px'
         height: '54px'

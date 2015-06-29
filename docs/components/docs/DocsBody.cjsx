@@ -58,7 +58,7 @@ module.exports = class DocsBody extends ReactCSS.Component
     window.removeEventListener('scroll', @onScroll, false);
 
   onScroll: (e) =>
-    @changeSelection(e, @)
+    # @changeSelection(e, @)
     top = e.srcElement.scrollingElement.scrollTop - 150
 
     sidebar = React.findDOMNode( @refs.DocsSidebar )
