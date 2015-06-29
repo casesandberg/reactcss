@@ -82,7 +82,9 @@ module.exports = class DocsBody extends ReactCSS.Component
       <Container>
         <Grid uneven flex="1-3">
 
-          <DocsSidebar ref="DocsSidebar" files={ docs } active={ @state.visible } fixed={ @state.sidebarFixed } />
+          <Animate inDelay={ 900 }>
+            <DocsSidebar ref="DocsSidebar" files={ docs } active={ @state.visible } fixed={ @state.sidebarFixed } />
+          </Animate>
 
           <div is="content">
 

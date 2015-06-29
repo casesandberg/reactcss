@@ -56,8 +56,8 @@ module.exports = class DocsSidebar extends ReactCSS.Component
           id = /id: (.+)/.exec(file)[1]
           title = /title: (.+)/.exec(file)[1]
           sectionNumber = if fileName.split('-')[0].indexOf('.') is -1 then fileName.split('-')[0] else ''
-          <div is="li">
-            <Tile key={ fileName } condensed>
+          <div is="li" key={ fileName }>
+            <Tile condensed>
               <div is="number">{ sectionNumber }</div>
 
               { if sectionNumber
