@@ -32,6 +32,7 @@ module.exports = class Markdown extends ReactCSS.Component
           border-radius: 2px;
           box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
           font-size: 85%;
+          vertical-align: bottom;
         }
 
         .docsBody p{
@@ -55,7 +56,7 @@ module.exports = class Markdown extends ReactCSS.Component
           margin-top: 20px;
           margin-bottom: 10px;
         }
-        
+
         .docsBody h3{
           font-weight: normal;
           font-size: 20px;
