@@ -32,7 +32,7 @@ module.exports = class DocsBody extends ReactCSS.Component
       content:
         fontSize: '17px'
         lineHeight: '24px'
-        color: 'rgba(0,0,0,.57)'
+        color: 'rgba(0,0,0,.47)'
 
       animate:
         marginTop: '-240px'
@@ -99,9 +99,9 @@ module.exports = class DocsBody extends ReactCSS.Component
 
             <style>{"
               .docsBody h1{
-                font-size: 32px;
+                font-size: 38px;
                 font-weight: 200;
-                color: rgba(0,0,0,.67);
+                color: rgba(0,0,0,.77);
                 margin: 0;
                 padding-top: 20px;
               }
@@ -109,9 +109,14 @@ module.exports = class DocsBody extends ReactCSS.Component
               .docsBody h2{
                 font-size: 24px;
                 font-weight: 400;
-                color: rgba(0,0,0,.67);
+                color: rgba(0,0,0,.57);
                 padding-top: 20px;
                 margin-top: 0;
+              }
+              .docsBody h3{
+                font-weight: normal;
+                font-size: 20px;
+                color: rgba(0,0,0,.67);
               }
             "}</style>
 
