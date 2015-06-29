@@ -21,13 +21,13 @@ module.exports = class HomeFeature extends ReactCSS.Component
         textAlign: 'center'
 
       headline:
-        paddingTop: '120px'
+        paddingTop: '130px'
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'
         WebkitFontSmoothing: 'antialiased'
 
       install:
-        marginTop: '80px'
+        marginTop: '70px'
         display: 'inline-block'
         padding: '0 18px'
         height: '54px'
@@ -54,7 +54,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
         <div is="inside">
 
           <Animate>
-            <div is="headline">Bringing Classes back to Inline Styles</div>
+            <div is="headline">Bringing Classes to Inline Styles</div>
           </Animate>
 
           <Animate inStartTransform="translateY(70px)" inEndTransform="translateY(0)" inDelay={ 400 }>
