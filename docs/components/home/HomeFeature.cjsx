@@ -3,9 +3,9 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-Container = require('../layout/Container')
+{ Container } = require('../layout')
+{ Animate } = require('../common')
 Particles = require('./Particles')
-Animate = require('../common/Animate')
 
 
 

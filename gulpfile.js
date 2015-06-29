@@ -124,9 +124,10 @@ gulp.task('static', function(done){
       new webpack.optimize.DedupePlugin(),
       // new webpack.optimize.UglifyJsPlugin({
       //   mangle: {
-      //     except: ['GeneratorFunction', 'GeneratorFunctionPrototype']
-      //   },
-      //   sourceMap: false
+      //     except: ['exports', 'require']
+      // },
+      //   sourceMap: false,
+      //   output: {comments: false}
       // }),
       new webpack.optimize.CommonsChunkPlugin("common.js")
     ],

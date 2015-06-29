@@ -2,7 +2,7 @@
 
 React = require('react')
 
-Shell = require('../layout/Shell')
+{ Shell } = require('../layout')
 HomeBody = require('./HomeBody')
 HomeFeature = require('./HomeFeature')
 

@@ -3,8 +3,8 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-Container = require('../layout/Container')
-Animate = require('../common/Animate')
+{ Container } = require('../layout')
+{ Animate } = require('../common')
 
 
 

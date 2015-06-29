@@ -3,17 +3,12 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-Container = require('../layout/Container')
-Grid = require('../layout/Grid')
-Code = require('../common/Code')
-{ Tile } = require('react-material-design')
-Markdown = require('../common/Markdown')
-Animate = require('../common/Animate')
+{ Container, Grid } = require('../layout')
+{ Markdown, Animate } = require('../common')
 DocsSidebar = require('./DocsSidebar')
 
 docs = require('../../docs')
-Remarkable = require('remarkable')
-md = new Remarkable()
+
 sampleComponent = require('../../docs/00-sample-component.md')
 
 
