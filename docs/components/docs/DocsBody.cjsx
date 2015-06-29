@@ -9,16 +9,12 @@ Code = require('../common/Code')
 { Tile } = require('react-material-design')
 Markdown = require('../common/Markdown')
 Animate = require('../common/Animate')
+DocsSidebar = require('./DocsSidebar')
 
 docs = require('../../docs')
 Remarkable = require('remarkable')
 md = new Remarkable()
 sampleComponent = require('../../docs/00-sample-component.md')
-# sampleComponent = """
-#                   ```
-#                   var foo = 'bar';
-#                   ```
-#                   """
 
 
 
@@ -48,15 +44,7 @@ module.exports = class DocsBody extends ReactCSS.Component
       <Container>
         <Grid uneven flex="1-3">
 
-          <div is="sidebar">
-            { for fileName, file of docs
-                sectionNumber = if fileName.split('-')[0].indexOf('.') is -1 then fileName.split('-')[0] else ''
-                <Tile key={ fileName } condensed>
-                  <div>{ sectionNumber }</div>
-
-                  <div>{ /title: (.+)/.exec(file)[1] }</div>
-                </Tile> }
-          </div>
+          <DocsSidebar files={ docs } active="getting-started-install" />
 
           <div is="content">
 
@@ -71,13 +59,16 @@ module.exports = class DocsBody extends ReactCSS.Component
                 font-size: 32px;
                 font-weight: 200;
                 color: rgba(0,0,0,.67);
-                margin-top: 0;
+                margin: 0;
+                padding-top: 20px;
               }
 
               .docsBody h2{
                 font-size: 24px;
                 font-weight: 400;
                 color: rgba(0,0,0,.67);
+                padding-top: 20px;
+                margin-top: 0;
               }
             "}</style>
 
@@ -85,10 +76,10 @@ module.exports = class DocsBody extends ReactCSS.Component
                 regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
                 title = regex[1]
                 body = regex[2]
+                id = /id: (.+)/.exec(file)[1]
 
 
-
-                <div key={ fileName }>
+                <div key={ fileName } id={ id }>
                   { if fileName.split('-')[0].indexOf('.') is -1
                       <h1>{ title }</h1>
                     else
