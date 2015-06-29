@@ -15,9 +15,4 @@ module.exports = class Body extends ReactCSS.Component
       body: {}
 
   render: ->
-    <div is="body">
-      { if @props.display is 'about'
-          <HomeBody />
-        else if @props.display is 'documentation'
-          <DocsBody /> }
-    </div>
+    <div is="body">{ React.createElement(@props.component) }</div>

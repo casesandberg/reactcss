@@ -3,9 +3,9 @@
 React = require('react')
 require('../node_modules/normalize.css/normalize.css')
 
-Home = require('./components/home/Home')
+Docs = require('./components/docs/Docs')
 
 React.render(
-  React.createElement(Home),
+  React.createElement(Docs),
   document.getElementById('root')
 )
