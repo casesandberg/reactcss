@@ -4,6 +4,7 @@ React = require('react')
 ReactCSS = require('reactcss')
 Remarkable = require('remarkable')
 md = new Remarkable()
+markdown = require('../../helpers/markdown')
 
 Code = require('./Code')
 
@@ -15,23 +16,15 @@ module.exports = class Markdown extends ReactCSS.Component
     'default':
       markdown: {}
 
+  shouldComponentUpdate: ->
+    return false
+
   render: ->
-    markdown = md.render(@props.children)
-    lines = markdown
-
+    newLines = @props.children
     codes = []
-    count = 0
-
-    reg = new RegExp(/<pre><code(.*)>([\s\S]*?)<\/code><\/pre>/g)
-
-    while match = reg.exec(markdown)
-      filename = undefined
-      # if match[1]
-      #   filename = /file[nN]ame:(.+?)"/.exec(match[1])[1]
-
-      lines = lines.replace("<pre><code#{ match[1] }>#{ match[2].toString() }</code></pre>", "|Code:#{ count }|")
-      codes[count] = <Code files={[{ js: match[2], fileName: filename }]} condensed={ @props.condensed }/>
-      count++
+    for codeBlock, i in markdown.isCode(@props.children)
+      newLines = newLines.replace(codeBlock[1], "|Code:#{ i }|")
+      codes[i] = <Code file={ codeBlock[2] } condensed={ @props.condensed }/>
 
     <div>
       <style>{"
@@ -43,12 +36,12 @@ module.exports = class Markdown extends ReactCSS.Component
           font-size: 85%;
         }
       "}</style>
-      { for line, i in lines.split('\n')
-          if line.indexOf('|Code:') > -1
-            place = /\|Code:(.+?)\|/.exec(line)[1]
 
-            <div key={ i }>{ codes[place] }</div>
+
+      { for line, i in newLines.split('\n')
+          if markdown.isCodeBlock(line)
+            <div key={ i }>{ codes[ markdown.codeNumber(line) ] }</div>
           else
-            <div key={ i } is="markdown" className="markdown" dangerouslySetInnerHTML={ __html: line } /> }
+            <div key={ i } is="markdown" className="markdown" dangerouslySetInnerHTML={ __html: md.render(line) } /> }
 
     </div>

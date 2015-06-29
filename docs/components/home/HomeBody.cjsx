@@ -35,6 +35,9 @@ module.exports = class HomeBody extends ReactCSS.Component
 
     afterCode = """
                 ```javascript
+                ---
+                fileName: After.jsx
+                ---
                 var ReactCSS = require('reactcss');
 
                 class Button extends ReactCSS.Component {
@@ -80,6 +83,9 @@ module.exports = class HomeBody extends ReactCSS.Component
 
     beforeCode =  """
                   ```javascript
+                  ---
+                  fileName: Before.jsx
+                  ---
                   var merge = require('merge');
 
                   class Button extends React.Component {

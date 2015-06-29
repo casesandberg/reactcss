@@ -11,6 +11,7 @@ md = new Remarkable
     catch err
       console.log err
 _ = require('lodash')
+markdown = require('../../helpers/markdown')
 
 # require('../../../node_modules/highlight.js/styles/kimbie.dark.css')
 
@@ -74,13 +75,17 @@ module.exports = class Code extends ReactCSS.Component
         lineHeight: '15px'
 
   render: ->
-    rendered = md.render("```\n#{ @props.files[0].js }```").trim()
-    lines = rendered.split('\n').length
+    code = markdown.getBody(@props.file)
+
+    args = markdown.getArgs(@props.file)
+
+    colorCoded = md.render("```\n#{ code }```").trim()
+    lines = colorCoded.split('\n').length
 
     if lines is 2
       <div is="shortCodeBlock">
         <Raised>
-          <div is="shortCode" className="rendered" dangerouslySetInnerHTML={ __html: _.unescape(rendered) } />
+          <div is="shortCode" className="rendered" dangerouslySetInnerHTML={ __html: _.unescape(colorCoded) } />
         </Raised>
       </div>
 
@@ -107,10 +112,10 @@ module.exports = class Code extends ReactCSS.Component
         "}</style>
 
 
-        { if @props.files[0].fileName
+        { if args.fileName
             <div is="head">
               <div is="files">
-                <Tabs is="Files" tabs={[ @props.files[0].fileName ]} />
+                <Tabs is="Files" tabs={[ args.fileName ]} />
               </div>
             </div> }
         <Tile is="Tile">
@@ -127,7 +132,7 @@ module.exports = class Code extends ReactCSS.Component
                 margin: 0;
               }
             "}</style>
-            <div className="rendered" dangerouslySetInnerHTML={ __html: _.unescape(rendered) } />
+            <div className="rendered" dangerouslySetInnerHTML={ __html: _.unescape(colorCoded) } />
           </div>
         </Tile>
       </Raised>
