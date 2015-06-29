@@ -63,11 +63,13 @@ module.exports = class Code extends ReactCSS.Component
         condensed: true
 
       center:
+        paddingTop: '16px'
         paddingBottom: '16px'
         fontSize: '13px'
         lineHeight: '15px'
 
       numbers:
+        paddingTop: '16px'
         fontSize: '13px'
         lineHeight: '15px'
 
