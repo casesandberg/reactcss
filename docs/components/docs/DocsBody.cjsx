@@ -58,23 +58,26 @@ module.exports = class DocsBody extends ReactCSS.Component
     window.removeEventListener('scroll', @onScroll, false);
 
   onScroll: (e) =>
-    top = e.srcElement.scrollingElement.scrollTop
-    mostVisible = ''
-    for offset, id of @state.files
-      if offset < top
-        mostVisible = id
-
-    if mostVisible isnt @state.visible
-      @setState( visible: mostVisible )
+    @changeSelection(e, @)
+    top = e.srcElement.scrollingElement.scrollTop - 150
 
     sidebar = React.findDOMNode( @refs.DocsSidebar )
     sidebarTop = sidebar.offsetTop
 
-    if 380 < top && @state.sidebarFixed is false
+    if 400 < top && @state.sidebarFixed is false
       @setState( sidebarFixed: true )
 
-    if 400 > top && @state.sidebarFixed is true
+    if 370 > top && @state.sidebarFixed is true
       @setState( sidebarFixed: false )
+
+  changeSelection: (e, _this) =>
+    top = e.srcElement.scrollingElement.scrollTop - 150
+    mostVisible = ''
+    for offset, id of @state.files
+      if offset < top
+        mostVisible = id
+    if mostVisible isnt @state.visible
+      _this.setState( visible: mostVisible )
 
 
   render: ->
