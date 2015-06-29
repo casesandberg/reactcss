@@ -1,5 +1,19 @@
+Remarkable = require('remarkable')
+hljs = require('highlight.js')
+regularMd = new Remarkable()
+codeMd = new Remarkable
+  highlight: (str) ->
+    try
+      return hljs.highlightAuto(str).value
+    catch err
+      console.log err
+
 
 module.exports = markdown =
+
+  render: (text) -> regularMd.render(text)
+
+  renderCode: (text) -> codeMd.render(text)
 
   getArgs: (code) ->
     args = {}

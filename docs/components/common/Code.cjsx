@@ -2,18 +2,7 @@
 
 React = require('react')
 ReactCSS = require('reactcss')
-Remarkable = require('remarkable')
-hljs = require('highlight.js')
-md = new Remarkable
-  highlight: (str) ->
-    try
-      return hljs.highlightAuto(str).value
-    catch err
-      console.log err
-_ = require('lodash')
 markdown = require('../../helpers/markdown')
-
-# require('../../../node_modules/highlight.js/styles/kimbie.dark.css')
 
 
 
@@ -79,7 +68,7 @@ module.exports = class Code extends ReactCSS.Component
 
     args = markdown.getArgs(@props.file)
 
-    colorCoded = md.render("```\n#{ code }```").trim()
+    colorCoded = markdown.renderCode("```\n#{ code }```").trim()
     lines = colorCoded.split('\n').length
 
     if lines is 2
@@ -132,7 +121,7 @@ module.exports = class Code extends ReactCSS.Component
                 margin: 0;
               }
             "}</style>
-            <div className="rendered" dangerouslySetInnerHTML={ __html: _.unescape(colorCoded) } />
+            <div className="rendered" dangerouslySetInnerHTML={ __html: colorCoded } />
           </div>
         </Tile>
       </Raised>

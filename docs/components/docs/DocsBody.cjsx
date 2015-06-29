@@ -98,35 +98,6 @@ module.exports = class DocsBody extends ReactCSS.Component
               </div>
             </Animate>
 
-            <style>{"
-              .docsBody p{
-                margin: 15px 0;
-              }
-
-              .docsBody h1{
-                font-size: 38px;
-                font-weight: 200;
-                color: rgba(0,0,0,.77);
-                margin: 0;
-                padding-top: 80px;
-                padding-bottom: 10px;
-              }
-
-              .docsBody h2{
-                font-size: 26px;
-                font-weight: 200;
-                color: rgba(0,0,0,.57);
-                padding-top: 20px;
-                margin-top: 20px;
-                margin-bottom: 10px;
-              }
-              .docsBody h3{
-                font-weight: normal;
-                font-size: 20px;
-                color: rgba(0,0,0,.67);
-              }
-            "}</style>
-
             <div ref="files">
 
               { for fileName, file of docs

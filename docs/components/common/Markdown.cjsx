@@ -2,8 +2,6 @@
 
 React = require('react')
 ReactCSS = require('reactcss')
-Remarkable = require('remarkable')
-md = new Remarkable()
 markdown = require('../../helpers/markdown')
 
 Code = require('./Code')
@@ -35,6 +33,34 @@ module.exports = class Markdown extends ReactCSS.Component
           box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
           font-size: 85%;
         }
+
+        .docsBody p{
+          margin: 15px 0;
+        }
+
+        .docsBody h1{
+          font-size: 38px;
+          font-weight: 200;
+          color: rgba(0,0,0,.77);
+          margin: 0;
+          padding-top: 80px;
+          padding-bottom: 10px;
+        }
+
+        .docsBody h2{
+          font-size: 26px;
+          font-weight: 200;
+          color: rgba(0,0,0,.57);
+          padding-top: 20px;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        
+        .docsBody h3{
+          font-weight: normal;
+          font-size: 20px;
+          color: rgba(0,0,0,.67);
+        }
       "}</style>
 
 
@@ -42,6 +68,6 @@ module.exports = class Markdown extends ReactCSS.Component
           if markdown.isCodeBlock(line)
             <div key={ i }>{ codes[ markdown.codeNumber(line) ] }</div>
           else
-            <div key={ i } is="markdown" className="markdown" dangerouslySetInnerHTML={ __html: md.render(line) } /> }
+            <div key={ i } is="markdown" className="markdown" dangerouslySetInnerHTML={ __html: markdown.render(line) } /> }
 
     </div>
