@@ -82,10 +82,10 @@ gulp.task('bundle', function(done) {
 gulp.task('static', function(done){
 
   prodConfig = {
-    entry: ['./docs/index.coffee'],
+    entry: { home:'./docs/index.coffee', documentation: './docs/documentation/index.coffee' },
     output: {
       path: path.join(__dirname, 'docs/build'),
-      filename: 'bundle.js',
+      filename: '[name].js',
       publicPath: '/build/'
     },
     module: {
@@ -122,12 +122,13 @@ gulp.task('static', function(done){
         }
       }),
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-        mangle: {
-          except: ['GeneratorFunction', 'GeneratorFunctionPrototype']
-        },
-        sourceMap: false
-      })
+      // new webpack.optimize.UglifyJsPlugin({
+      //   mangle: {
+      //     except: ['GeneratorFunction', 'GeneratorFunctionPrototype']
+      //   },
+      //   sourceMap: false
+      // }),
+      new webpack.optimize.CommonsChunkPlugin("common.js")
     ],
     devtool: 'eval',
     quiet: true
