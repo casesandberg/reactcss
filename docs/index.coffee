@@ -3,7 +3,7 @@
 React = require('react')
 require('../node_modules/normalize.css/normalize.css')
 
-Home = require('./components/docs/Docs')
+Home = require('./components/home/Home')
 
 React.render(
   React.createElement(Home),

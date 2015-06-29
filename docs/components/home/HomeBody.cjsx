@@ -6,6 +6,9 @@ ReactCSS = require('reactcss')
 { Container, Grid } = require('../layout')
 { Markdown, Animate } = require('../common')
 
+beforeCode = require('../../docs/00-home-before.md')
+afterCode = require('../../docs/00-home-after.md')
+
 
 
 module.exports = class HomeBody extends ReactCSS.Component
@@ -29,107 +32,7 @@ module.exports = class HomeBody extends ReactCSS.Component
         color: 'rgba(0, 0, 0, .37)'
 
   render: ->
-
-    afterCode = """
-                ```javascript
-                ---
-                fileName: After.jsx
-                ---
-                var ReactCSS = require('reactcss');
-
-                class Button extends ReactCSS.Component {
-
-                  classes() {
-                    return {
-                      'default': {
-                        button: {
-                          background: '#4A90E2'
-                        },
-                        Icon: {
-                          fill: '#fff',
-                          name: this.props.icon
-                        }
-                      },
-                      'disabled-true': {
-                        button: {
-                          background: '#bbb'
-                        },
-                        span: {
-                          color: '#999'
-                        },
-                        Icon: {
-                          fill: '#999'
-                        }
-                      }
-                    }
-                  }
-
-                  render() {
-                    return (
-                      <div is\="button">
-                        <Icon is\="Icon" />
-                        <span is\="span">
-                          { this.props.label }
-                        </span>
-                      </div>
-                    )
-                  }
-                }
-                ```
-                """
-
-    beforeCode =  """
-                  ```javascript
-                  ---
-                  fileName: Before.jsx
-                  ---
-                  var merge = require('merge');
-
-                  class Button extends React.Component {
-
-                    render() {
-                      var styles = {
-                        button: {
-                          background: '#4A90E2'
-                        },
-                        Icon: {
-                          fill: '#fff'
-                        },
-                        disabledButton: {
-                          background: '#bbb'
-                        },
-                        disabledSpan: {
-                          color: '#999'
-                        },
-                        disabledIcon: {
-                          fill: '#999'
-                        }
-                      }
-                      var iconProps = styles.Icon;
-                      if (this.props.disabled) {
-                        iconProps = merge( styles.Icon,
-                          styles.disabledIcon )
-                      }
-
-                      return (
-                        <div style={ merge( styles.button,
-                          this.props.disabled && styles.disabledButton )}>
-                          <Icon {...iconProps }
-                            name={ this.props.icon } />
-                          <span style={ this.props.disabled &&
-                            styles.disabledSpan }>
-                            { this.props.label }
-                          </span>
-                        </div>
-                      )
-                    }
-                  }
-                  ```
-                  """
-
     <div is="homeBody">
-
-
       <Container>
 
         <div is="sideBySide">
