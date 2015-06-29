@@ -1,0 +1,5 @@
+---
+id: philosophy
+title: Philosophy
+
+---
