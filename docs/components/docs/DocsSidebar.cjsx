@@ -14,6 +14,9 @@ module.exports = class DocsSidebar extends ReactCSS.Component
       sidebar:
         paddingTop: '20px'
 
+      li:
+        paddingBottom: '8px'
+
       number:
         fontSize: '14px'
         color: 'rgba(0, 0, 0, .27)'
@@ -53,20 +56,22 @@ module.exports = class DocsSidebar extends ReactCSS.Component
           id = /id: (.+)/.exec(file)[1]
           title = /title: (.+)/.exec(file)[1]
           sectionNumber = if fileName.split('-')[0].indexOf('.') is -1 then fileName.split('-')[0] else ''
-          <Tile key={ fileName } condensed>
-            <div is="number">{ sectionNumber }</div>
+          <div is="li">
+            <Tile key={ fileName } condensed>
+              <div is="number">{ sectionNumber }</div>
 
-            { if sectionNumber
-                if @props.active is id
-                    <a is="titleActive" href={ "##{ id }" }>{ title }</a>
-                  else
-                    <a is="titleInactive" href={ "##{ id }" }>{ title }</a>
-              else
-                if @props.active is id
-                    <a is="active" href={ "##{ id }" }>{ title }</a>
-                  else
-                    <a is="inactive" href={ "##{ id }" }>{ title }</a> }
+              { if sectionNumber
+                  if @props.active is id
+                      <a is="titleActive" href={ "##{ id }" }>{ title }</a>
+                    else
+                      <a is="titleInactive" href={ "##{ id }" }>{ title }</a>
+                else
+                  if @props.active is id
+                      <a is="active" href={ "##{ id }" }>{ title }</a>
+                    else
+                      <a is="inactive" href={ "##{ id }" }>{ title }</a> }
 
-          </Tile> }
+            </Tile>
+          </div> }
 
     </div>
