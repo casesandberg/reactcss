@@ -12,8 +12,7 @@ module.exports = class DocsSidebar extends ReactCSS.Component
   classes: ->
     'default':
       sidebar:
-        position: 'fixed'
-        top: '20px'
+        paddingTop: '20px'
 
       number:
         fontSize: '14px'
@@ -41,6 +40,11 @@ module.exports = class DocsSidebar extends ReactCSS.Component
       inactive:
         Extend: 'link'
         color: 'rgba(0, 0, 0, .57)'
+
+    'fixed':
+      sidebar:
+        top: '0'
+        position: 'fixed'
 
   render: ->
     <div is="sidebar">

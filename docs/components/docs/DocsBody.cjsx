@@ -20,6 +20,11 @@ sampleComponent = require('../../docs/00-sample-component.md')
 
 module.exports = class DocsBody extends ReactCSS.Component
 
+  state:
+    visible: ''
+    files: {}
+    sidebarFixed: false
+
   classes: ->
     'default':
       docsBody: {}
@@ -39,12 +44,45 @@ module.exports = class DocsBody extends ReactCSS.Component
       file:
         paddingBottom: '40px'
 
+  componentDidMount: ->
+    window.addEventListener('scroll', @onScroll, false);
+
+    files = {}
+    for file in React.findDOMNode( @refs.files ).children
+      files[file.offsetTop] = file.id
+
+    @setState( files: files )
+
+
+  componentWillUnmount: ->
+    window.removeEventListener('scroll', @onScroll, false);
+
+  onScroll: (e) =>
+    top = e.srcElement.scrollingElement.scrollTop
+    mostVisible = ''
+    for offset, id of @state.files
+      if offset < top
+        mostVisible = id
+
+    if mostVisible isnt @state.visible
+      @setState( visible: mostVisible )
+
+    sidebar = React.findDOMNode( @refs.DocsSidebar )
+    sidebarTop = sidebar.offsetTop
+
+    if 380 < top && @state.sidebarFixed is false
+      @setState( sidebarFixed: true )
+
+    if 400 > top && @state.sidebarFixed is true
+      @setState( sidebarFixed: false )
+
+
   render: ->
     <div is="docsBody" className="docsBody">
       <Container>
         <Grid uneven flex="1-3">
 
-          <DocsSidebar files={ docs } active="getting-started-install" />
+          <DocsSidebar ref="DocsSidebar" files={ docs } active={ @state.visible } fixed={ @state.sidebarFixed } />
 
           <div is="content">
 
@@ -72,24 +110,27 @@ module.exports = class DocsBody extends ReactCSS.Component
               }
             "}</style>
 
-            { for fileName, file of docs
-                regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
-                title = regex[1]
-                body = regex[2]
-                id = /id: (.+)/.exec(file)[1]
+            <div ref="files">
+
+              { for fileName, file of docs
+                  regex = /---[\s\S]*?title: (.+)[\s\S]*?---([\s\S]*)/.exec(file)
+                  title = regex[1]
+                  body = regex[2]
+                  id = /id: (.+)/.exec(file)[1]
 
 
-                <div key={ fileName } id={ id }>
-                  { if fileName.split('-')[0].indexOf('.') is -1
-                      <h1>{ title }</h1>
-                    else
-                      <h2>{ title }</h2> }
+                  <div key={ fileName } id={ id }>
+                    { if fileName.split('-')[0].indexOf('.') is -1
+                        <h1>{ title }</h1>
+                      else
+                        <h2>{ title }</h2> }
 
-                  { if body.trim()
-                      <div is="file">
-                        <Markdown>{ body }</Markdown>
-                      </div> }
-                </div> }
+                    { if body.trim()
+                        <div is="file">
+                          <Markdown>{ body }</Markdown>
+                        </div> }
+                  </div> }
+            </div>
 
           </div>
 
