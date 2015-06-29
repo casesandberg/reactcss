@@ -3,9 +3,6 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-HomeBody = require('../home/HomeBody')
-DocsBody = require('../docs/DocsBody')
-
 
 
 module.exports = class Body extends ReactCSS.Component
