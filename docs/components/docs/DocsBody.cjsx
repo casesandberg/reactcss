@@ -27,7 +27,8 @@ module.exports = class DocsBody extends ReactCSS.Component
 
   classes: ->
     'default':
-      docsBody: {}
+      docsBody:
+        paddingBottom: '80px'
 
       content:
         fontSize: '17px'
@@ -42,7 +43,7 @@ module.exports = class DocsBody extends ReactCSS.Component
         padding: '16px'
 
       file:
-        paddingBottom: '40px'
+        paddingBottom: '10px'
 
   componentDidMount: ->
     window.addEventListener('scroll', @onScroll, false);
@@ -58,7 +59,7 @@ module.exports = class DocsBody extends ReactCSS.Component
     window.removeEventListener('scroll', @onScroll, false);
 
   onScroll: (e) =>
-    # @changeSelection(e, @)
+    @changeSelection(e, @)
     top = e.srcElement.scrollingElement.scrollTop - 150
 
     sidebar = React.findDOMNode( @refs.DocsSidebar )
@@ -98,20 +99,26 @@ module.exports = class DocsBody extends ReactCSS.Component
             </Animate>
 
             <style>{"
+              .docsBody p{
+                margin: 15px 0;
+              }
+
               .docsBody h1{
                 font-size: 38px;
                 font-weight: 200;
                 color: rgba(0,0,0,.77);
                 margin: 0;
-                padding-top: 20px;
+                padding-top: 80px;
+                padding-bottom: 10px;
               }
 
               .docsBody h2{
-                font-size: 24px;
-                font-weight: 400;
+                font-size: 26px;
+                font-weight: 200;
                 color: rgba(0,0,0,.57);
                 padding-top: 20px;
-                margin-top: 0;
+                margin-top: 20px;
+                margin-bottom: 10px;
               }
               .docsBody h3{
                 font-weight: normal;

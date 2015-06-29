@@ -17,7 +17,7 @@ module.exports = class DocsSidebar extends ReactCSS.Component
 
       star:
         position: 'absolute'
-        top: '-50px'
+        top: '-65px'
         left: '10px'
 
       li:
@@ -62,7 +62,7 @@ module.exports = class DocsSidebar extends ReactCSS.Component
         position: 'fixed'
 
       star:
-        bottom: '20px'
+        bottom: '30px'
         top: 'auto'
 
   render: ->

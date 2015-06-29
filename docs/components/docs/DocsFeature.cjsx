@@ -17,7 +17,7 @@ module.exports = class DocsFeature extends ReactCSS.Component
         height: '100%'
 
       title:
-        paddingTop: '120px'
+        paddingTop: '130px'
         paddingLeft: '27.25%'
         marginLeft: '20px'
         fontSize: '34px'
