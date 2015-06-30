@@ -44,7 +44,7 @@ module.exports = class Shell extends ReactCSS.Component
         minHeight: '100%'
 
       header:
-        zIndex: '2'
+        zIndex: '3'
         Absolute: '0 0 auto 0'
 
       body:
