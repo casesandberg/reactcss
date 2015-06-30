@@ -4,7 +4,8 @@ regularMd = new Remarkable()
 codeMd = new Remarkable
   highlight: (str) ->
     try
-      return hljs.highlightAuto(str).value
+      return hljs.highlight('javascript', str).value;
+      # return hljs.highlightAuto(str).value
     catch err
       console.log err
 
