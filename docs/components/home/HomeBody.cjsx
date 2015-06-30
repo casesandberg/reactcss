@@ -63,17 +63,17 @@ module.exports = class HomeBody extends ReactCSS.Component
           <Grid>
             <div is="block">
               <div is="headline">Class-based Data</div>
-              <div is="copy">Use a farmiliar class-based data structure that is similar to traditional css and can be applied conditionally.</div>
+              <div is="copy">Use a class-based data structure, similar to traditional modifier css, that can be applied conditionally.</div>
             </div>
 
             <div is="block">
               <div is="headline">Styles In One Place</div>
-              <div is="copy">Keep all of the styles together. This helps separate the style logic from the display logic and business logic.</div>
+              <div is="copy">Keep html and components styles together. Separate the style logic from the display and business logic.</div>
             </div>
 
             <div is="block">
               <div is="headline">Easy to Attach</div>
-              <div is="copy">Use the "is" syntax to automatically attach inline styles to html elements and spreads to custom components.</div>
+              <div is="copy">Use the "is" syntax to effortlessly attach inline styles to html elements and spreads to custom components.</div>
             </div>
           </Grid>
         </div>

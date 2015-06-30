@@ -7,36 +7,36 @@ var merge = require('merge');
 class Button extends React.Component {
 
   render() {
-    var styles = {
+    var style = {
       button: {
         background: '#4A90E2'
       },
       Icon: {
         fill: '#fff'
       },
-      disabledButton: {
+      disButton: {
         background: '#bbb'
       },
-      disabledSpan: {
+      disSpan: {
         color: '#999'
       },
-      disabledIcon: {
+      disIcon: {
         fill: '#999'
       }
     }
-    var iconProps = styles.Icon;
+    var iconProps = style.Icon;
     if (this.props.disabled) {
-      iconProps = merge( styles.Icon,
-        styles.disabledIcon )
+      iconProps = merge( style.Icon,
+        style.disIcon )
     }
 
     return (
-      <div style={ merge( styles.button,
-        this.props.disabled && styles.disabledButton )}>
+      <div style={ merge( style.button,
+      this.props.disabled && style.disButton)}>
         <Icon {...iconProps }
           name={ this.props.icon } />
         <span style={ this.props.disabled &&
-          styles.disabledSpan }>
+          style.disSpan }>
           { this.props.label }
         </span>
       </div>
