@@ -9,6 +9,9 @@ ReactCSS = require('reactcss')
 
 module.exports = class Header extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   classes: ->
     'default':
       header:
@@ -27,6 +30,19 @@ module.exports = class Header extends ReactCSS.Component
 
       Tabs:
         align: 'center'
+
+    'mobile-header':
+      header:
+        display: 'block'
+
+      logo:
+        float: 'left'
+
+      nav:
+        float: 'right'
+
+  styles: -> @css
+    'mobile-header': @context.mobile
 
   render: ->
     <div is="header">

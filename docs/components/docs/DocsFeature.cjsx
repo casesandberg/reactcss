@@ -10,6 +10,9 @@ ReactCSS = require('reactcss')
 
 module.exports = class DocsFeature extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   classes: ->
     'default':
       docsFeature:
@@ -23,6 +26,13 @@ module.exports = class DocsFeature extends ReactCSS.Component
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'
         WebkitFontSmoothing: 'antialiased'
+
+    'mobile-header':
+      title:
+        paddingLeft: '0'
+
+  styles: -> @css
+    'mobile-header': @context.mobile
 
   render: ->
     <div is="docsFeature">

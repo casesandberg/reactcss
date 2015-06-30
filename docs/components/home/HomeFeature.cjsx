@@ -21,6 +21,8 @@ module.exports = class HomeFeature extends ReactCSS.Component
         textAlign: 'center'
 
       headline:
+        paddingLeft: '10px'
+        paddingRight: '10px'
         paddingTop: '130px'
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'

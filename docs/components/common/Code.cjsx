@@ -13,6 +13,9 @@ markdown = require('../../helpers/markdown')
 
 module.exports = class Code extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   @propTypes =
     files: React.PropTypes.array
 
@@ -62,6 +65,9 @@ module.exports = class Code extends ReactCSS.Component
         paddingTop: '16px'
         fontSize: '13px'
         lineHeight: '15px'
+
+  styles: -> @css
+    'condensed': @context.mobile
 
   render: ->
     code = markdown.getBody(@props.file)

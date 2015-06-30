@@ -19,7 +19,13 @@ module.exports = class HomeBody extends ReactCSS.Component
         marginTop: '-48px'
 
       callouts:
-        padding: '60px 0'
+        padding: '40px 0 20px'
+
+      code:
+        paddingBottom: '20px'
+
+      block:
+        paddingBottom: '40px'
 
       headline:
         fontSize: '22px'
@@ -39,11 +45,15 @@ module.exports = class HomeBody extends ReactCSS.Component
           <Grid>
 
             <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
-              <Markdown condensed>{ beforeCode }</Markdown>
+              <div is="code">
+                <Markdown condensed>{ beforeCode }</Markdown>
+              </div>
             </Animate>
 
             <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
-              <Markdown condensed>{ afterCode }</Markdown>
+              <div is="code">
+                <Markdown condensed>{ afterCode }</Markdown>
+              </div>
             </Animate>
 
           </Grid>
@@ -51,17 +61,17 @@ module.exports = class HomeBody extends ReactCSS.Component
 
         <div is="callouts">
           <Grid>
-            <div>
+            <div is="block">
               <div is="headline">Class-based Data</div>
               <div is="copy">Use a farmiliar class-based data structure that is similar to traditional css and can be applied conditionally.</div>
             </div>
 
-            <div>
+            <div is="block">
               <div is="headline">Styles In One Place</div>
               <div is="copy">Keep all of the styles together. This helps separate the style logic from the display logic and business logic.</div>
             </div>
 
-            <div>
+            <div is="block">
               <div is="headline">Easy to Attach</div>
               <div is="copy">Use the "is" syntax to automatically attach inline styles to html elements and spreads to custom components.</div>
             </div>

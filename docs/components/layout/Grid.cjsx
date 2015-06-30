@@ -7,6 +7,9 @@ ReactCSS = require('reactcss')
 
 module.exports = class Grid extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   classes: ->
     'default':
       grid:
@@ -28,6 +31,21 @@ module.exports = class Grid extends ReactCSS.Component
       column:
         flex: '18'
         marginLeft: '20px'
+
+    'mobile':
+      grid:
+        display: 'block'
+
+      column:
+        marginLeft: '0'
+
+    'docs-mobile':
+      firstColumn:
+        display: 'none'
+
+  styles: -> @css
+    'mobile': @context.mobile
+    'docs-mobile': @context.mobile && @props.flex is '1-3'
 
   render: ->
     <div is="grid">
