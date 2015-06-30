@@ -19,6 +19,8 @@ module.exports = class HomeFeature extends ReactCSS.Component
 
       inside:
         textAlign: 'center'
+        zIndex: '2'
+        position: 'relative'
 
       headline:
         paddingLeft: '10px'
@@ -39,6 +41,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
         fontSize: '20px'
         color: 'rgba(255, 255, 255, .87)'
         fontWeight: '200'
+        background: '#4A90E2'
 
       dollar:
         paddingRight: '10px'
