@@ -3,7 +3,7 @@ id: attaching-styles
 title: Attaching Styles
 
 ---
-To attach styles you use inline styles for html elements and spreads for custom components. You just map them to the name you used in the css for that element `this.styles().element`:
+Use inline styles to attach styles to html elements and spreads for custom components. Map the variable to the name used in the css for that element `this.styles().element`:
 ```
 render() {
   return (
@@ -21,7 +21,7 @@ render() {
 ```
 
 ## react-map-styles
-To make things easier there is a react-map-styles plugin that you can use with Webpack that introduces the `is` syntax for rapid development. You just pass is the name of the element you declared in your css. Using a lowercase name adds the css as an inline tyles, while an uppercase name applies a spread to custom components:
+To make things easier, there is the `react-map-styles` plugin. Pass is the name of the element declared in the style to the `is` prop. Use a lowercase name to set an inline style, and an uppercase name to apply a spread to custom components:
 ```
 render() {
   return (

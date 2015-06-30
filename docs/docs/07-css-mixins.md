@@ -3,7 +3,7 @@ id: css-mixins
 title: CSS Mixins
 
 ---
-Mixins are similar to mixins that you would use in any other CSS preprocessor. They take any key that matches a function in the mixin library and transforms it using the value. Take boxShadow for example:
+ReactCSS Mixins are similar to the mixins that you would use in any other CSS preprocessor. They take any key that matches a function in the mixin library and transforms it using the value. Take `boxShadow`, which adds vendor support, as an example:
 ```
 'default':{
   card: {
@@ -11,7 +11,7 @@ Mixins are similar to mixins that you would use in any other CSS preprocessor. T
   }
 }
 ```
-is transformed because it matches `boxShadow` in the mixin library to add vendor support:
+is transformed because it matches `boxShadow` in the mixin library:
 ```
 boxShadow: function(value){
   if(value){
@@ -27,11 +27,11 @@ boxShadow: function(value){
 ```
 ## List of Mixins
 * `boxShadow` `borderRadius` `transition` `transform` - Vendor prefixes.
-* `Absolute` - Set the value as a string of 'topValue rightValue bottomValue leftValue' and it transform to position: absolute with those top, right, bottom and left values.
+* `Absolute` - Set the value to 'topValue rightValue bottomValue leftValue' which transforms to position: absolute with the corresponding top, right, bottom and left values.
 * `Extend` - Used for copying styles from another element in that class. Set the value as a string with the name of the element that you want to copy the styles from.
 
 ## Creating Your Own Mixins
-To create your own mixins to use in your projects you just have to create a mixins context object where the key matches the key to replace and the value is a function that returns an object of the finalized css. All components below this one will be able to use the mixin:
+To create new mixins, add a mixins context object where the key matches the key to replace and the value is a function that returns an object of the finalized css. All components below this will be able to use the mixin:
 
 ```
 class Root extends ReactCSS.Component {
