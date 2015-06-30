@@ -52,7 +52,7 @@ module.exports = class Header extends ReactCSS.Component
 
   render: ->
     docsLabel = if @context.mobile then 'Docs' else 'Documentation'
-    <div is="header" className="flexbox">
+    <div is="header">
       <div is="logo">ReactCSS</div>
 
       <div is="nav">
