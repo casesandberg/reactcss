@@ -7,6 +7,7 @@ markdown = require('../../helpers/markdown')
 { Container, Grid } = require('../layout')
 { Markdown, Animate } = require('../common')
 DocsSidebar = require('./DocsSidebar')
+DocsBodyTitle = require('./DocsBodyTitle')
 
 docsFiles = require('../../docs')
 commentedFile = require('../../docs/00-commented-file.md')
@@ -100,10 +101,10 @@ module.exports = class DocsBody extends ReactCSS.Component
                   body = markdown.getBody(file)
 
                   <div key={ fileName } id={ args.id }>
-                    { if markdown.isSubSection(fileName)
-                        <h1>{ args.title }</h1>
-                      else
-                        <h2>{ args.title }</h2> }
+                    <DocsBodyTitle
+                      isHeadline={ true if markdown.isSubSection(fileName) }
+                      title={ args.title }
+                      link={ args.id } />
 
                     { if body.trim()
                         <div is="file">
