@@ -48,7 +48,7 @@ module.exports = class Grid extends ReactCSS.Component
     'docs-mobile': @context.mobile && @props.flex is '1-3'
 
   render: ->
-    <div is="grid">
+    <div is="grid" className="flexbox">
 
       { for child, i in @props.children
 
