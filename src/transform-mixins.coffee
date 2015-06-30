@@ -18,6 +18,14 @@ localProps =
       WebkitBorderRadius: value
       borderRadius: value
 
+  flex: (value) ->
+    if value?
+      WebkitBoxFlex: value
+      MozBoxFlex: value
+      WebkitFlex: value
+      msFlex: value
+      flex: value
+
   boxShadow: (value) ->
     if value?
       msBoxShadow: value
