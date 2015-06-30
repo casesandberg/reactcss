@@ -46,4 +46,8 @@ module.exports = (declaredClasses) ->
 
   activateClass('public')
 
-  return combine(arrayOfStyles)
+  customMixins = {}
+  if @context?.mixins
+    customMixins = @context.mixins
+
+  return combine(arrayOfStyles, customMixins)

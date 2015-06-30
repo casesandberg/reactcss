@@ -1,6 +1,7 @@
 'use strict'
 
 _ = require('lodash')
+merge = require('merge')
 
 
 
@@ -59,7 +60,7 @@ localProps =
 transform = (styleObject, customFuncs, parent) ->
 
   # These custom props will eventually live in a file or config somewhere
-  customProps = customFuncs || localProps
+  customProps = merge(customFuncs, localProps)
   obj = {}
 
   for key, value of styleObject
