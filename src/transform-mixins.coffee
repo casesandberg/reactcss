@@ -35,6 +35,14 @@ localProps =
       WebkitUserSelect: value
       userSelect: value
 
+  flex: (value) ->
+    if value?
+      WebkitBoxFlex: value
+      MozBoxFlex: value
+      WebkitFlex: value
+      msFlex: value
+      flex: value
+
   transition: (value) ->
     if value?
       msTransition: value
