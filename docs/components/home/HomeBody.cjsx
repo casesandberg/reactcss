@@ -21,7 +21,12 @@ module.exports = class HomeBody extends ReactCSS.Component
       callouts:
         padding: '40px 0 20px'
 
+      star:
+        position: 'absolute'
+        right: '0'
+
       code:
+        position: 'relative'
         paddingBottom: '20px'
 
       block:
@@ -52,6 +57,9 @@ module.exports = class HomeBody extends ReactCSS.Component
 
             <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
               <div is="code">
+                <div is="star">
+                  <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+                </div>
                 <Markdown condensed>{ afterCode }</Markdown>
               </div>
             </Animate>
