@@ -4,7 +4,7 @@
 * **Keep styles in one place:** Html and components styles stay together. Separate the style logic from the display and business logic.
 * **Simple to attach to elements:** Use the "is" syntax to effortlessly attach inline styles to html elements and spreads to custom components.
 
-## Clean, Simple Code
+#### Sample Component
 ```javascript
 var ReactCSS = require('reactcss');
 
