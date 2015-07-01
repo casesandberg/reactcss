@@ -24,6 +24,7 @@ module.exports = class Header extends ReactCSS.Component
         fontSize: '22px'
         fontWeight: '200'
         color: 'rgba(255, 255, 255, .87)'
+        textDecoration: 'none'
 
       nav:
         float: 'right'
@@ -53,7 +54,7 @@ module.exports = class Header extends ReactCSS.Component
   render: ->
     docsLabel = if @context.mobile then 'Docs' else 'Documentation'
     <div is="header" className="flexbox-fix">
-      <div is="logo">ReactCSS</div>
+      <a href="/" is="logo">ReactCSS</a>
 
       <div is="nav">
         <Tabs is="Tabs" selectedTab={ if @props.display is 'about' then 0 else if @props.display is 'documentation' then 1 else 0 }
