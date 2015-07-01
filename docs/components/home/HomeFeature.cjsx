@@ -45,11 +45,8 @@ module.exports = class HomeFeature extends ReactCSS.Component
         position: 'relative'
         zIndex: '2'
 
-      npm:
-        paddingLeft: '21px'
-
       dollar:
-        position: 'absolute'
+        paddingRight: '10px'
         color: 'rgba(255, 255, 255, .27)'
         userSelect: 'none'
 
@@ -71,7 +68,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
           <Animate inStartTransform="translateY(70px)" inEndTransform="translateY(0)" inDelay={ 400 }>
             <div is="install">
               <span is="dollar">$</span>
-              <span is="npm">npm install reactcss</span>
+              npm install reactcss
             </div>
           </Animate>
 
