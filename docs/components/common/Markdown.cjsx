@@ -50,6 +50,7 @@ module.exports = class Markdown extends ReactCSS.Component
 
         .docsBody h2{
           font-size: 26px;
+          line-height: 32px;
           font-weight: 200;
           color: rgba(0,0,0,.57);
           padding-top: 20px;
