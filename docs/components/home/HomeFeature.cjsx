@@ -21,7 +21,6 @@ module.exports = class HomeFeature extends ReactCSS.Component
         textAlign: 'center'
         zIndex: '2'
         position: 'relative'
-        background: 'rgba(150, 0, 0, .2)'
 
       headline:
         paddingLeft: '10px'
@@ -30,10 +29,12 @@ module.exports = class HomeFeature extends ReactCSS.Component
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'
         WebkitFontSmoothing: 'antialiased'
-        background: 'rgba(0, 150, 0, .2)'
 
       install:
-        marginTop: '70px'
+        position: 'absolute'
+        bottom: '-120px'
+        left: '50%'
+        transform: 'translateX(-50%)'
         display: 'inline-block'
         padding: '0 18px'
         height: '54px'
@@ -44,8 +45,8 @@ module.exports = class HomeFeature extends ReactCSS.Component
         color: 'rgba(255, 255, 255, .87)'
         fontWeight: '200'
         background: '#4A90E2'
-        position: 'relative'
         zIndex: '2'
+        minWidth: '180px'
 
       dollar:
         paddingRight: '10px'
@@ -55,7 +56,6 @@ module.exports = class HomeFeature extends ReactCSS.Component
       particles:
         Absolute: 'auto 0 0 0'
         height: '130px'
-        background: 'rgba(0, 0, 150, .2)'
 
   render: ->
     <div is="homeFeature">
