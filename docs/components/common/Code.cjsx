@@ -101,8 +101,6 @@ module.exports = class Code extends ReactCSS.Component
             color: #689F38; // light green 700
           }
           .rendered .hljs-title{
-            color: #37474F; // blue grey 800
-            text-decoration: underline;
           }
         "}</style>
 
