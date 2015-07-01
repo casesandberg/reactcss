@@ -140,7 +140,7 @@ class Tabs extends React.Component
     # slide the indicator
     @refs.indicator.getDOMNode().style.left = selectedLeft
     @refs.indicator.getDOMNode().style.width = selectedNode.offsetWidth
-    @refs.indicator.getDOMNode().style.WebkitTransform = 'translateY(0)'
+    @refs.indicator.getDOMNode().style.webkitTransform = 'translateY(0)'
     @refs.indicator.getDOMNode().style.transform = 'translateY(0)'
 
   componentDidMount: -> @slide()
