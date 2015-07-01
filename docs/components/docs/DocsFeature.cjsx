@@ -30,6 +30,8 @@ module.exports = class DocsFeature extends ReactCSS.Component
     'mobile-header':
       title:
         paddingLeft: '0'
+        marginLeft: '0'
+        textAlign: 'center'
 
   styles: -> @css
     'mobile-header': @context.mobile
