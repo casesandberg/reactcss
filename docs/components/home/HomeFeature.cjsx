@@ -21,6 +21,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
         textAlign: 'center'
         zIndex: '2'
         position: 'relative'
+        background: 'rgba(150, 0, 0, .2)'
 
       headline:
         paddingLeft: '10px'
@@ -29,6 +30,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'
         WebkitFontSmoothing: 'antialiased'
+        background: 'rgba(0, 150, 0, .2)'
 
       install:
         marginTop: '70px'
@@ -53,6 +55,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
       particles:
         Absolute: 'auto 0 0 0'
         height: '130px'
+        background: 'rgba(0, 0, 150, .2)'
 
   render: ->
     <div is="homeFeature">
