@@ -50,6 +50,7 @@ module.exports = class Code extends ReactCSS.Component
         display: 'inline-block'
         textAlign: 'right'
         color: 'rgba(0,0,0,.20)'
+        userSelect: 'none'
 
     'condensed':
       Tile:
