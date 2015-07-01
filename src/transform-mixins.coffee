@@ -43,6 +43,16 @@ localProps =
       msFlex: value
       flex: value
 
+  flexBasis: (value) ->
+    if value?
+      WebkitFlexBasis: value
+      flexBasis: value
+
+  justifyContent: (value) ->
+    if value?
+      WebkitJustifyContent: value
+      justifyContent: value
+
   transition: (value) ->
     if value?
       msTransition: value
