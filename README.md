@@ -6,8 +6,8 @@
 
 ## Clean, Simple Code
 
-### BEFORE
-```
+##### BEFORE
+```javascript
 var merge = require('merge');
 
 class Button extends React.Component {
@@ -51,8 +51,8 @@ class Button extends React.Component {
 }
 ```
 
-### AFTER
-```
+##### AFTER
+```javascript
 var ReactCSS = require('reactcss');
 
 class Button extends ReactCSS.Component {
@@ -102,7 +102,7 @@ npm install reactcss --save
 ```
 
 ### Extend ReactCSS
-```
+```javascript
 var ReactCSS = require('reactcss');
 
 class Button extends ReactCSS.Component {
@@ -111,7 +111,7 @@ class Button extends ReactCSS.Component {
 ```
 
 ### Put in a Default Class
-```
+```javascript
 var ReactCSS = require('reactcss');
 
 class Button extends ReactCSS.Component {
@@ -140,7 +140,7 @@ class Button extends ReactCSS.Component {
 
 ### Attach styles to HTML
 See [react-map-styles](http://github.com/casesandberg/react-map-styles)
-```
+```javascript
 var ReactCSS = require('reactcss');
 
 class Button extends ReactCSS.Component {
