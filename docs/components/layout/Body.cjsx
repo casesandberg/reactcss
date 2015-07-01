@@ -14,7 +14,7 @@ module.exports = class Body extends ReactCSS.Component
   render: ->
     <div is="body">
       <style>{'
-        .flexbox {
+        .flexbox-fix {
           display: -webkit-box;
           display: -moz-box;
           display: -ms-flexbox;
@@ -22,6 +22,6 @@ module.exports = class Body extends ReactCSS.Component
           display: flex;
         }
       '}</style>
-      
+
       { React.createElement(@props.component) }
     </div>
