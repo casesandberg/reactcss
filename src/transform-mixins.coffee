@@ -26,6 +26,15 @@ localProps =
       WebkitBoxShadow: value
       boxShadow: value
 
+  userSelect: (value) ->
+    if value?
+      WebkitTouchCallout: value
+      KhtmlUserSelect: value
+      MozUserSelect: value
+      msUserSelect: value
+      WebkitUserSelect: value
+      userSelect: value
+
   transition: (value) ->
     if value?
       msTransition: value
