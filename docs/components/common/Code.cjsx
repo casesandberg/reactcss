@@ -79,16 +79,18 @@ module.exports = class Code extends ReactCSS.Component
 
     for file, i in files
       args = markdown.getArgs(file)
-      if files.length > 1
-        obj =
-          label: args.fileName
-          onClick: (e, value) => @setState( visibleCode: value )
-          callbackValue: i
-      else
-        obj =
-          label: args.fileName
+      if args.fileName
+        if files.length > 1
+          obj =
+            label: args.fileName
+            onClick: (e, value) => @setState( visibleCode: value )
+            callbackValue: i
+        else
+          obj =
+            label: args.fileName
 
-      filenames.push obj
+        filenames.push obj
+
 
     <Raised>
 
@@ -109,11 +111,12 @@ module.exports = class Code extends ReactCSS.Component
         }
       "}</style>
 
-      <div is="head">
-        <div is="files">
-          <Tabs is="Files" tabs={ filenames } />
-        </div>
-      </div>
+      { if filenames.length
+          <div is="head">
+            <div is="files">
+              <Tabs is="Files" tabs={ filenames } />
+            </div>
+          </div> }
 
 
       { code = markdown.getBody( files[@state.visibleCode] )
