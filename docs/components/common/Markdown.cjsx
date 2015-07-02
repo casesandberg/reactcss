@@ -18,9 +18,15 @@ module.exports = class Markdown extends ReactCSS.Component
     return false
 
   render: ->
-    newLines = @props.children
+    children = @props.children
+
+    # codeblocks on top of eachother
+    children = children.replace('```\n```', '======')
+
+    newLines = children
+
     codes = []
-    for codeBlock, i in markdown.isCode(@props.children)
+    for codeBlock, i in markdown.isCode(children)
       newLines = newLines.replace(codeBlock[1], "|Code:#{ i }|")
       codes[i] = <Code file={ codeBlock[2] } condensed={ @props.condensed }/>
 

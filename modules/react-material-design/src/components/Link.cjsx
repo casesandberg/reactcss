@@ -24,7 +24,7 @@ module.exports = class Link extends React.Component
   @defaultProps =
     newTab: false
 
-  handleClick: (e) => @props.onClick?(e)
+  handleClick: (e) => @props.onClick?(e, @props.callbackValue)
 
   render: ->
     if _.isString(@props.onClick)

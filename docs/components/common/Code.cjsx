@@ -19,6 +19,9 @@ module.exports = class Code extends ReactCSS.Component
   @propTypes =
     files: React.PropTypes.array
 
+  state:
+    visibleCode: 0
+
   classes: ->
     'default':
       shortCodeBlock:
@@ -71,61 +74,71 @@ module.exports = class Code extends ReactCSS.Component
     'condensed': @context.mobile
 
   render: ->
-    code = markdown.getBody(@props.file)
+    files = @props.file.split('======')
+    filenames = []
 
-    args = markdown.getArgs(@props.file)
+    for file, i in files
+      args = markdown.getArgs(file)
+      if files.length > 1
+        obj =
+          label: args.fileName
+          onClick: (e, value) => @setState( visibleCode: value )
+          callbackValue: i
+      else
+        obj =
+          label: args.fileName
 
-    colorCoded = markdown.renderCode("```\n#{ code }```").trim()
-    lines = colorCoded.split('\n').length
+      filenames.push obj
 
-    if lines is 2
-      <div is="shortCodeBlock">
-        <Raised>
-          <div is="shortCode" className="rendered" dangerouslySetInnerHTML={ __html: _.unescape(colorCoded) } />
-        </Raised>
+    <Raised>
+
+      <style>{"
+        .rendered{
+          color: #607D8B; // blue grey 500
+        }
+        .rendered .hljs-comment {
+          color: #B0BEC5; // blue grey 200
+        }
+        .rendered .hljs-keyword{
+          color: #EF9A9A;  // red 200
+        }
+        .rendered .hljs-string{
+          color: #689F38; // light green 700
+        }
+        .rendered .hljs-title{
+        }
+      "}</style>
+
+      <div is="head">
+        <div is="files">
+          <Tabs is="Files" tabs={ filenames } />
+        </div>
       </div>
 
-    else
-      <Raised>
-        <style>{"
-          .rendered{
-            color: #607D8B; // blue grey 500
-          }
-          .rendered .hljs-comment {
-            color: #B0BEC5; // blue grey 200
-          }
-          .rendered .hljs-keyword{
-            color: #EF9A9A;  // red 200
-          }
-          .rendered .hljs-string{
-            color: #689F38; // light green 700
-          }
-          .rendered .hljs-title{
-          }
-        "}</style>
+
+      { code = markdown.getBody( files[@state.visibleCode] )
+
+      args = markdown.getArgs( files[@state.visibleCode] )
+      colorCoded = markdown.renderCode("```\n#{ code }```").trim()
+      lines = colorCoded.split('\n').length
+
+      <Tile is="Tile">
+        <div is="numbers">
+          { for line in [1 ... lines]
+              <div key={ line } is="line">{ line }</div> }
+        </div>
+        <div is="center">
+          <style>{"
+            .rendered pre{
+              margin: 0;
+            }
+            .rendered p{
+              margin: 0;
+            }
+          "}</style>
+          <div className="rendered" dangerouslySetInnerHTML={ __html: colorCoded } />
+        </div>
+      </Tile> }
 
 
-        { if args.fileName
-            <div is="head">
-              <div is="files">
-                <Tabs is="Files" tabs={[ args.fileName ]} />
-              </div>
-            </div> }
-        <Tile is="Tile">
-          <div is="numbers">
-            { for line in [1 ... lines]
-                <div key={ line } is="line">{ line }</div> }
-          </div>
-          <div is="center">
-            <style>{"
-              .rendered pre{
-                margin: 0;
-              }
-              .rendered p{
-                margin: 0;
-              }
-            "}</style>
-            <div className="rendered" dangerouslySetInnerHTML={ __html: colorCoded } />
-          </div>
-        </Tile>
-      </Raised>
+    </Raised>

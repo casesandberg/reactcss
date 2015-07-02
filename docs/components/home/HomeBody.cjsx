@@ -13,6 +13,9 @@ afterCode = require('../../docs/00-home-after.md')
 
 module.exports = class HomeBody extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   classes: ->
     'default':
       sideBySide:
@@ -49,24 +52,35 @@ module.exports = class HomeBody extends ReactCSS.Component
       <Container>
 
         <div is="sideBySide">
-          <Grid>
+          { if @context.mobile
 
-            <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
-              <div is="code">
-                <Markdown condensed>{ beforeCode }</Markdown>
-              </div>
-            </Animate>
-
-            <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
-              <div is="code">
+              <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
                 <div is="star">
-                  <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+                  <iframe style={ paddingTop: '5px' } src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=small" scrolling="0" width="120px" height="30px" frameBorder="0"></iframe>
                 </div>
-                <Markdown condensed>{ afterCode }</Markdown>
-              </div>
-            </Animate>
+                <Markdown condensed>{ afterCode +  beforeCode}</Markdown>
+              </Animate>
 
-          </Grid>
+            else
+
+              <Grid>
+
+                <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+                  <div is="code">
+                    <Markdown condensed>{ beforeCode }</Markdown>
+                  </div>
+                </Animate>
+
+                <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+                  <div is="code">
+                    <div is="star">
+                      <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+                    </div>
+                    <Markdown condensed>{ afterCode }</Markdown>
+                  </div>
+                </Animate>
+
+              </Grid> }
         </div>
 
         <div is="callouts">
