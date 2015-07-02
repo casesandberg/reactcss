@@ -24,9 +24,12 @@ module.exports = class Particles extends ReactCSS.Component
     wrapWidth = wrapNode.clientWidth
     wrapHeight = wrapNode.clientHeight
 
-    # Set width and height
-    canvasNode.width = wrapWidth
-    canvasNode.height = wrapHeight
+    # Set width and height 2x scaled back for retina
+    canvasNode.width = wrapWidth * 2
+    canvasNode.height = wrapHeight * 2
+    canvasNode.style.width = wrapWidth + 'px'
+    canvasNode.style.height = wrapHeight + 'px'
+    canvasContext.scale(2,2)
 
     canvasContext.clearRect(0, 0, wrapWidth, wrapHeight);
 
