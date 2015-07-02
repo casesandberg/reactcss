@@ -23,7 +23,9 @@ module.exports = class HomeBody extends ReactCSS.Component
 
       star:
         position: 'absolute'
-        right: '0'
+        right: '-35px'
+        zIndex: '2'
+        top: '9px'
 
       code:
         position: 'relative'
