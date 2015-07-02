@@ -50,7 +50,7 @@ config = {
     },
     resolve: {
       alias: {
-        'reactcss': path.resolve(__dirname, './src/react-css.coffee')
+        'reactcss': path.resolve(__dirname, './lib/react-css.js')
       },
       extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
       fallback: [path.resolve(__dirname, './modules')]
@@ -73,7 +73,7 @@ gulp.task('test', function(){
 gulp.task('bundle', function(done) {
   gulp.src('./src/**/*.coffee')
     .pipe(coffee({bare: true}))
-    .pipe(concat('react-css.js'))
+    // .pipe(concat('react-css.js'))
     .pipe(uglify())
     .pipe(gulp.dest('lib'));
   done();
@@ -110,7 +110,7 @@ gulp.task('static', function(done){
     },
     resolve: {
       alias: {
-        'reactcss': path.resolve(__dirname, './src/react-css.coffee')
+        'reactcss': path.resolve(__dirname, './lib/react-css.js')
       },
       extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
       fallback: [path.resolve(__dirname, './modules')]
