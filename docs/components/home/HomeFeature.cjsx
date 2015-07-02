@@ -11,6 +11,9 @@ Particles = require('./Particles')
 
 module.exports = class HomeFeature extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   classes: ->
     'default':
       homeFeature:
@@ -31,10 +34,7 @@ module.exports = class HomeFeature extends ReactCSS.Component
         WebkitFontSmoothing: 'antialiased'
 
       install:
-        position: 'absolute'
-        bottom: '-120px'
-        left: '50%'
-        transform: 'translateX(-50%)'
+        marginTop: '70px'
         display: 'inline-block'
         padding: '0 18px'
         height: '54px'
@@ -46,7 +46,6 @@ module.exports = class HomeFeature extends ReactCSS.Component
         fontWeight: '200'
         background: '#4A90E2'
         zIndex: '2'
-        minWidth: '180px'
 
       dollar:
         paddingRight: '10px'
@@ -56,6 +55,13 @@ module.exports = class HomeFeature extends ReactCSS.Component
       particles:
         Absolute: 'auto 0 0 0'
         height: '130px'
+
+    'mobile':
+      install:
+        marginTop: '50px'
+
+  styles: -> @css
+    'mobile': @context.mobile
 
   render: ->
     <div is="homeFeature">
