@@ -1,7 +1,17 @@
 {
   "name": "reactcss",
   "version": "0.3.0",
+  "description": "Bringing Classes to Inline Styles",
+  "author": "case <case@casesandberg.com>",
   "main": "lib/react-css.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/casesandberg/reactcss"
+  },
+  "keywords": [
+    "react",
+    "reactcss"
+  ],
   "dependencies": {
     "lodash": "^3.6.0",
     "merge": "^1.2.0"
@@ -38,5 +48,6 @@
   "scripts": {
     "test": "mocha --compilers coffee:coffee-script/register",
     "tdd": "mocha --compilers coffee:coffee-script/register --watch"
-  }
+  },
+  "license": "MIT"
 }
