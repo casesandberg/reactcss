@@ -1,6 +1,6 @@
 {
   "name": "reactcss",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Bringing Classes to Inline Styles",
   "author": "case <case@casesandberg.com>",
   "main": "lib/react-css.js",
