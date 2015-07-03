@@ -14,7 +14,8 @@
   ],
   "dependencies": {
     "lodash": "^3.6.0",
-    "merge": "^1.2.0"
+    "merge": "^1.2.0",
+    "react": "^0.13.1"
   },
   "devDependencies": {
     "babel-core": "^5.6.15",
@@ -36,7 +37,6 @@
     "markdown-loader": "^0.1.2",
     "mocha": "^2.2.1",
     "normalize.css": "^3.0.3",
-    "react": "^0.13.1",
     "react-hot-loader": "^1.2.5",
     "react-map-styles": "git://github.com/casesandberg/react-map-styles",
     "remarkable": "^1.6.0",
