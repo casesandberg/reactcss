@@ -1,7 +1,7 @@
 'use strict'
 
 _ = require('lodash')
-checkClassStructure = require('../src/check-class-structure')
+checkClassStructure = require('./check-class-structure')
 combine = require('./combine')
 
 
