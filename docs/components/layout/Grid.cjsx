@@ -27,10 +27,12 @@ module.exports = class Grid extends ReactCSS.Component
     'flex-1-3':
       firstColumn:
         flex: '7'
+        minWidth: '240px'
 
       column:
         flex: '18'
         marginLeft: '20px'
+        maxWidth: '619px'
 
     'mobile':
       grid:
