@@ -2,6 +2,7 @@
 ---
 fileName: After.jsx
 ---
+var React = require('react');
 var ReactCSS = require('reactcss');
 
 class Button extends ReactCSS.Component {

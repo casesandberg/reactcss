@@ -2,6 +2,7 @@
 ---
 fileName: Before.jsx
 ---
+var React = require('react');
 var merge = require('merge');
 
 class Button extends React.Component {

@@ -1,5 +1,6 @@
 ```javascript
 // Include the library
+var React = require('react');
 var ReactCSS = require('reactcss');
 
 // Extend ReactCSS instead of React
