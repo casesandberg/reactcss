@@ -3,55 +3,7 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-
-
-Node = (x, y, size, id) ->
-  @id = id
-  @position = [x, y]
-  @size = size
-
-Node.prototype =
-
-  distanceTo: (otherNode) ->
-    diff = [ @position[0] - otherNode.position[0], @position[1] - otherNode.position[1] ]
-    return Math.abs( Math.sqrt((diff[0] * diff[0]) + (diff[1] * diff[1])) )
-
-  isConnectedTo: (otherNode) ->
-    @connected?[otherNode.id] is true or otherNode.connected?[@id] is true
-
-  connectTo: (otherNode, context) ->
-    if not @connected
-      @connected = {}
-
-    if not otherNode.connected
-      otherNode.connected = {}
-
-    @connected[otherNode.id] = true
-    otherNode.connected[@id] = true
-
-    @drawLineTo(otherNode, context)
-
-  drawLineTo: (otherNode, context) ->
-    context.beginPath()
-    context.moveTo( @position[0], @position[1] )
-    context.lineTo( otherNode.position[0], otherNode.position[1] )
-    context.strokeStyle = '#427CC0'
-    context.stroke()
-
-  draw: (context) ->
-    context.beginPath()
-    context.arc(
-      @position[0],
-      @position[1],
-      @size,
-      0,
-      Math.PI * 2
-    )
-    context.fillStyle = '#427CC0'
-    context.fill()
-    context.lineWidth = 2
-    context.strokeStyle = '#4A90E2'
-    context.stroke()
+Node = require('../../helpers/Node')
 
 
 
@@ -64,8 +16,6 @@ module.exports = class Particles extends ReactCSS.Component
 
   componentDidMount: -> @paint()
 
-  # componentDidUpdate: -> @paint()
-
   paint: ->
     canvasNode = React.findDOMNode(@refs.canvas)
     canvasContext = canvasNode.getContext('2d')
@@ -74,9 +24,12 @@ module.exports = class Particles extends ReactCSS.Component
     wrapWidth = wrapNode.clientWidth
     wrapHeight = wrapNode.clientHeight
 
-    # Set width and height
-    canvasNode.width = wrapWidth
-    canvasNode.height = wrapHeight
+    # Set width and height 2x scaled back for retina
+    canvasNode.width = wrapWidth * 2
+    canvasNode.height = wrapHeight * 2
+    canvasNode.style.width = wrapWidth + 'px'
+    canvasNode.style.height = wrapHeight + 'px'
+    canvasContext.scale(2,2)
 
     canvasContext.clearRect(0, 0, wrapWidth, wrapHeight);
 
@@ -90,7 +43,14 @@ module.exports = class Particles extends ReactCSS.Component
 
     for column in [-1 .. (tilesWide + 2)]
       for row in [0 .. (tilesTall + 1)]
-        nodes.push( new Node( randomBetween(0, tileSize) + (tileSize * column), randomBetween(0, tileSize) + (tileSize * row) + 10, randomBetween(2 + row, 4 + row), "#{ column }-#{ row }" ) )
+        nodes.push( new Node(
+          randomBetween(0, tileSize) + (tileSize * column),
+          randomBetween(0, tileSize) + (tileSize * row) + 10,
+          randomBetween(2 + row, 4 + row),
+          "#{ column }-#{ row }",
+          '#427CC0',
+          '#4A90E2' )
+        )
 
     # Lets draw the lines first
     for node in nodes

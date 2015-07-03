@@ -3,11 +3,15 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-Container = require('../layout/Container')
+{ Container } = require('../layout')
+{ Animate } = require('../common')
 
 
 
 module.exports = class DocsFeature extends ReactCSS.Component
+
+  @contextTypes:
+    mobile: React.PropTypes.bool
 
   classes: ->
     'default':
@@ -16,16 +20,29 @@ module.exports = class DocsFeature extends ReactCSS.Component
         height: '100%'
 
       title:
-        paddingTop: '120px'
+        paddingTop: '130px'
+        paddingLeft: '27.25%'
+        marginLeft: '20px'
         fontSize: '34px'
         color: 'rgba(255, 255, 255, .87)'
         WebkitFontSmoothing: 'antialiased'
+
+    'mobile-header':
+      title:
+        paddingLeft: '0'
+        marginLeft: '0'
+        textAlign: 'center'
+
+  styles: -> @css
+    'mobile-header': @context.mobile
 
   render: ->
     <div is="docsFeature">
       <Container>
 
-        <div is="title">Documentation</div>
+        <Animate>
+          <div is="title">Documentation</div>
+        </Animate>
 
       </Container>
     </div>

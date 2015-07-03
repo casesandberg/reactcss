@@ -3,9 +3,9 @@
 React = require('react')
 require('../node_modules/normalize.css/normalize.css')
 
-Shell = require('./components/layout/Shell')
+Home = require('./components/home/Home')
 
 React.render(
-  React.createElement(Shell),
+  React.createElement(Home),
   document.getElementById('root')
 )

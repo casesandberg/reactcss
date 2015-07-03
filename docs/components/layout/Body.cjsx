@@ -3,9 +3,6 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-HomeBody = require('../home/HomeBody')
-DocsBody = require('../docs/DocsBody')
-
 
 
 module.exports = class Body extends ReactCSS.Component
@@ -16,8 +13,15 @@ module.exports = class Body extends ReactCSS.Component
 
   render: ->
     <div is="body">
-      { if @props.display is 'about'
-          <HomeBody />
-        else if @props.display is 'documentation'
-          <DocsBody /> }
+      <style>{'
+        .flexbox-fix {
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+        }
+      '}</style>
+
+      { React.createElement(@props.component) }
     </div>

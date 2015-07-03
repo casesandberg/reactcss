@@ -9,15 +9,22 @@ ReactCSS = require('reactcss')
 
 module.exports = class Header extends ReactCSS.Component
 
+  @contextTypes:
+    mobile: React.PropTypes.bool
+
   classes: ->
     'default':
       header:
-        padding: '14px'
+        padding: '14px 14px 14px 0'
         display: 'flex'
         justifyContent: 'space-between'
 
       logo:
+        padding: '12px 0 12px 24px'
+        fontSize: '22px'
+        fontWeight: '200'
         color: 'rgba(255, 255, 255, .87)'
+        textDecoration: 'none'
 
       nav:
         float: 'right'
@@ -28,14 +35,33 @@ module.exports = class Header extends ReactCSS.Component
       Tabs:
         align: 'center'
 
-  handleAbout: => @props.onChange?('about')
-  handleDocs: => @props.onChange?('documentation')
+    'mobile-header':
+      header:
+        padding: '7px'
+        display: 'block'
+
+      logo:
+        float: 'left'
+        fontSize: '18px'
+        paddingLeft: '12px'
+
+      nav:
+        float: 'right'
+
+  styles: -> @css
+    'mobile-header': @context.mobile
 
   render: ->
-    <div is="header">
-      <div is="logo">ReactCSS</div>
+    docsLabel = if @context.mobile then 'Docs' else 'Documentation'
+    <div is="header" className="flexbox-fix">
+      <a href="/" is="logo">ReactCSS</a>
 
       <div is="nav">
-        <Tabs is="Tabs" selectedTab={ if @props.display is 'about' then 0 else if @props.display is 'documentation' then 1 else 0 } tabs={[{ label: 'About', onClick: @handleAbout }, { label: 'Documentation', onClick: @handleDocs }, { label: 'Github', selectable: false; onClick: 'https://github.com/respondly/reactcss', newTab: true }]} />
+        <Tabs is="Tabs" selectedTab={ if @props.display is 'about' then 0 else if @props.display is 'documentation' then 1 else 0 }
+
+        tabs={[
+          { label: 'About', onClick: '/' },
+          { label: docsLabel, onClick: '/documentation' },
+          { label: 'Github', selectable: false; onClick: 'https://github.com/casesandberg/reactcss', newTab: true }]} />
       </div>
     </div>

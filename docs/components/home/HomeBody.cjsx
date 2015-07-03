@@ -3,14 +3,18 @@
 React = require('react')
 ReactCSS = require('reactcss')
 
-Container = require('../layout/Container')
-Grid = require('../layout/Grid')
-Code = require('../common/Code')
-Markdown = require('../common/Markdown')
+{ Container, Grid } = require('../layout')
+{ Markdown, Animate } = require('../common')
+
+beforeCode = require('../../docs/00-home-before.md')
+afterCode = require('../../docs/00-home-after.md')
 
 
 
 module.exports = class HomeBody extends ReactCSS.Component
+
+  @contextTypes:
+    mobile: React.PropTypes.bool
 
   classes: ->
     'default':
@@ -18,7 +22,20 @@ module.exports = class HomeBody extends ReactCSS.Component
         marginTop: '-48px'
 
       callouts:
-        padding: '60px 0'
+        padding: '40px 0 20px'
+
+      star:
+        position: 'absolute'
+        right: '-35px'
+        zIndex: '2'
+        top: '9px'
+
+      code:
+        position: 'relative'
+        paddingBottom: '20px'
+
+      block:
+        paddingBottom: '40px'
 
       headline:
         fontSize: '22px'
@@ -31,122 +48,56 @@ module.exports = class HomeBody extends ReactCSS.Component
         color: 'rgba(0, 0, 0, .37)'
 
   render: ->
-
-    afterCode = """
-                ``` fileName:After/Button.jsx
-                var ReactCSS = require('reactcss');
-
-                class Button extends ReactCSS.Component {
-
-                  classes: function(){
-                    'default': {
-                      button: {
-                        background: '#4A90E2'
-                      },
-                      Icon: {
-                        fill: '#fff'
-                      }
-                    },
-                    'disabled-true': {
-                      button: {
-                        background: '#bbb'
-                      }
-                      span: {
-                        color: '#999'
-                      }
-                      Icon: {
-                        fill: '#999'
-                      }
-                    }
-                  };
-
-                  render: function(){
-                    return (
-                      <div is\="button">
-                        <Icon is\="Icon" name={ this.props.icon }>
-                        <span is\="span">
-                          { this.props.label }
-                        </span>
-                      </div>
-                    )
-                  };
-                };
-                ```
-                """
-
-    beforeCode =  """
-                  ``` fileName:Before/Button.jsx
-                  var merge = require('merge');
-
-                  class Button extends React.Component {
-
-                    render: function(){
-                      var styles = {
-                        button: {
-                          background: '#4A90E2'
-                        },
-                        Icon: {
-                          fill: '#fff'
-                        }
-                        disabledButton: {
-                          background: '#bbb'
-                        },
-                        disabledSpan: {
-                          color: '#999'
-                        },
-                        disabledIcon: {
-                          fill: '#999'
-                        }
-                      }
-                      var iconProps = styles.Icon;
-                      if (this.props.disabled) {
-                        iconProps = merge(styles.Icon, styles.disabledIcon)
-                      }
-
-                      return (
-                        <div style={ merge( styles.button,
-                          this.props.disabled && styles.disabledButton }>
-                          <Icon {...iconProps } name={ this.props.icon }>
-                          <span style={ this.props.disabled && styles.disabledSpan }>
-                            { this.props.label }
-                          </span>
-                        </div>
-                      )
-                    };
-                  };
-                  ```
-                  """
-
     <div is="homeBody">
-
-
       <Container>
 
         <div is="sideBySide">
-          <Grid>
+          { if @context.mobile
 
-            <Markdown>{ beforeCode }</Markdown>
+              <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+                <div is="star">
+                  <iframe style={ paddingTop: '5px' } src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=small" scrolling="0" width="120px" height="30px" frameBorder="0"></iframe>
+                </div>
+                <Markdown condensed>{ afterCode +  beforeCode}</Markdown>
+              </Animate>
 
-            <Markdown>{ afterCode }</Markdown>
+            else
 
-          </Grid>
+              <Grid>
+
+                <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+                  <div is="code">
+                    <Markdown condensed>{ beforeCode }</Markdown>
+                  </div>
+                </Animate>
+
+                <Animate inStartTransform="translateY(20px)" inEndTransform="translateY(0)" inDelay={ 400 }>
+                  <div is="code">
+                    <div is="star">
+                      <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+                    </div>
+                    <Markdown condensed>{ afterCode }</Markdown>
+                  </div>
+                </Animate>
+
+              </Grid> }
         </div>
 
         <div is="callouts">
           <Grid>
-            <div>
+            <div is="block">
               <div is="headline">Class-based Data</div>
-              <div is="copy">Use a farmiliar class-based data structure that is similar to traditional css and can be applied conditionally.</div>
+              <div is="copy">Use a class-based data structure, similar to traditional modifier css, that can be applied conditionally.</div>
             </div>
 
-            <div>
+            <div is="block">
               <div is="headline">Styles In One Place</div>
-              <div is="copy">Keep all of the styles together. This helps separate the style logic from the display logic and business logic.</div>
+              <div is="copy">Keep html and components styles together. Separate the style logic from the display and business logic.</div>
             </div>
 
-            <div>
+            <div is="block">
               <div is="headline">Easy to Attach</div>
-              <div is="copy">Use the "is" syntax to automatically attach inline styles to html elements and spreads to custom components.</div>
+              <div is="copy">Use the "is" syntax to effortlessly attach inline styles to html elements and spreads to custom components.</div>
             </div>
           </Grid>
         </div>
