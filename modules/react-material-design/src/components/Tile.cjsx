@@ -29,6 +29,7 @@ class Tile extends React.Component
       content:
         background: 'none'
         flex: '1'
+        maxWidth: '95%'
 
       secondary:
         flexBasis: '42'

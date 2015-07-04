@@ -64,6 +64,7 @@ module.exports = class Code extends ReactCSS.Component
         paddingBottom: '16px'
         fontSize: '13px'
         lineHeight: '15px'
+        overflowX: 'scroll'
 
       numbers:
         paddingTop: '16px'
