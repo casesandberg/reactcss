@@ -16,6 +16,7 @@ module.exports = class DocsSidebar extends ReactCSS.Component
       sidebar:
         paddingTop: '20px'
         position: 'relative'
+        width: '100%'
 
       star:
         position: 'absolute'
