@@ -1,14 +1,12 @@
 'use strict';
 
-var React = require('react')
-var ReactCSS = require('reactcss');
+const React = require('react');
+const ReactCSS = require('reactcss');
 
-var Button = require('./Button.es6');
-
-
+const Button = require('./Button.es6');
 
 // You are going to want to extend ReactCSS.Component instead of just React.Component
-class Dialog extends ReactCSS.Component {
+export default class Dialog extends ReactCSS.Component {
 
   classes() {
     return {
@@ -18,48 +16,50 @@ class Dialog extends ReactCSS.Component {
           background: '#fff',
           boxShadow: '0 6px 20px rgba(0,0,0,.19), 0 8px 17px rgba(0,0,0,.2)',
           borderRadius: '2px',
-          maxWidth: '400px'
+          maxWidth: '400px',
         },
         body: {
-          padding: '24px'
+          padding: '24px',
         },
         title: {
           fontSize: '20px',
           fontWeight: '500',
           paddingBottom: '20px',
-          color: 'rgba(0,0,0,.87)'
+          color: 'rgba(0,0,0,.87)',
         },
         desc: {
           fontSize: '17px',
           lineHeight: '22px',
           color: 'rgba(0,0,0,.47)',
-          margin: '0'
+          margin: '0',
         },
         actions: {
           margin: '0',
           padding: '8px',
           display: 'flex',
           justifyContent: 'flex-end',
-          listStyleType: 'none'
+          listStyleType: 'none',
         },
         button: {
-          marginLeft: '8px'
+          marginLeft: '8px',
         },
         CancelButton: {
-          background: 'red'
-        }
+          background: 'red',
+        },
       },
+
       // This class activates when `disabled: true` is passed as props
       'disabled-true': {
         AgreeButton: {
-          disabled: true
-        }
-      }
-    }
+          disabled: true,
+        },
+      },
+    };
   }
 
-  render(){
+  render() {
     return (
+
       // You will notice the is syntax here, via `react-map-styles` package
       // This handles mapping the styles to the elements
       <div is="dialog">
@@ -72,8 +72,6 @@ class Dialog extends ReactCSS.Component {
           <li is="button"><Button is="AgreeButton" label="Yes, I Agree" /></li>
         </ul>
       </div>
-    )
+    );
   }
 }
-
-module.exports = Dialog
