@@ -16,8 +16,6 @@ module.exports = function(declaredClasses) {
 
   const arrayOfStyles = [];
 
-  console.log(this);
-
   if (!this.classes) {
     throw console.warn(`Define this.classes on \`${ this.constructor.name }\``);
   }

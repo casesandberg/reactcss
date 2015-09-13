@@ -68,28 +68,6 @@ describe 'React Inline', ->
 
 
 
-  it 'include the `public` class at the end', ->
-
-    @classes = ->
-      'public':
-        card:
-          opacity: '0'
-
-      'visible':
-        card:
-          opacity: '1'
-
-    before =
-      'visible': true
-
-    after =
-      card:
-        opacity: '0'
-
-    expect(inline.call(@, before)).to.eql(after)
-
-
-
   it 'include any true props that match class names', ->
     @props =
       isSelected: true
