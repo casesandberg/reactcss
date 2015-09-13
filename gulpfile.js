@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gutil');
 
 // Test
 var mocha = require('gulp-mocha');
@@ -67,13 +68,14 @@ config = {
 };
 
 
-gulp.task('test', function(){
-  return gulp.src('./test/**/*.coffee')
-             .pipe(mocha({
-               compilers: {
-                 js: babel,
-               }
-             }));
+gulp.task('test', function() {
+  return gulp.src('./test/**/*.js')
+    .pipe(mocha({
+      compilers: {
+        js: babel,
+      },
+    }))
+    .on('error', gutil.log);
 });
 
 gulp.task('bundle', function() {
@@ -150,7 +152,7 @@ gulp.task('static', function(done){
 })
 
 gulp.task('watch', function(done) {
-  gulp.watch(['**/*.coffee','./src/**/*.js'], ['test']);
+  gulp.watch(['./test/**/*.js','./src/**/*.js'], ['test']);
 });
 
 gulp.task('docs', function(done) {

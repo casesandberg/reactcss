@@ -32,6 +32,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-mocha": "^2.0.1",
     "gulp-uglify": "^1.2.0",
+    "gutil": "^1.6.4",
     "highlight.js": "^8.6.0",
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
