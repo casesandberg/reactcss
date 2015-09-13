@@ -150,7 +150,7 @@ gulp.task('static', function(done){
 })
 
 gulp.task('watch', function(done) {
-  gulp.watch([ '**/*.coffee' ], [ 'test' ]);
+  gulp.watch(['**/*.coffee','./src/**/*.js'], ['test']);
 });
 
 gulp.task('docs', function(done) {

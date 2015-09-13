@@ -136,7 +136,7 @@ const transform = (styleObject, customFuncs, parent) => {
       obj[key] = transform(value, customFuncs, styleObject);
     } else {
       // Check to see if a custom prop exists for it
-      if (customProps[key] !== null) {
+      if (customProps[key]) {
         // let loop though and save the results from the function
         var customResults = customProps[key](value, parent);
         for (var customKey in customResults) {

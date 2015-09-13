@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const checkClassStructure = require('./check-class-structure');
-var combine = require('./combine');
+let combine = require('./combine');
 
 /*
   Inline CSS function. This is the half-way point until multiple inheritance exists
@@ -10,24 +10,26 @@ var combine = require('./combine');
   @returns object
 */
 
-module.exports = (declaredClasses) => {
+module.exports = function(declaredClasses) {
   // What?
   combine = require('./combine');
 
   const arrayOfStyles = [];
 
-  if (this.classes == null) {
-    throw console.warn("Define this.classes on `#{ @constructor.name }`");
+  console.log(this);
+
+  if (!this.classes) {
+    throw console.warn(`Define this.classes on \`${ this.constructor.name }\``);
   }
 
   // Checks structure and warns if its odd
   checkClassStructure(this.classes());
 
   const activateClass = (name, options) => {
-    if (this.classes()[name] !== null) {
+    if (this.classes()[name]) {
       arrayOfStyles.push(this.classes()[name]);
-    } else if (name && options !== null && options.warn === true) {
-      console.warn("The `#{name}` css class does not exist on `#{@constructor.name}`");
+    } else if (name && options && options.warn === true) {
+      console.warn(`The \`${ name }\` css class does not exist on \`${ this.constructor.name }\``);
     }
   };
 
@@ -40,7 +42,7 @@ module.exports = (declaredClasses) => {
       if (value === true) {
         activateClass(prop);
         activateClass(`${ prop }-true`);
-      } else if (value !== null) {
+      } else if (value) {
         activateClass(`${ prop }-${ value }`);
       } else {
         activateClass(`${ prop }-false`);
@@ -58,7 +60,7 @@ module.exports = (declaredClasses) => {
   }
 
   let customMixins = {};
-  if (this.context !== null && this.context.mixins) {
+  if (this.context && this.context.mixins) {
     customMixins = this.context.mixins;
   }
 
