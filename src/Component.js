@@ -3,23 +3,21 @@
 const React = require('react');
 const inline = require('./inline');
 
-module.exports = class ReactCSSComponent extends React.Component {
-
-  constructor() {
-    super();
-
-    // For New Mixins
-    this.contextTypes = {
-      mixins: React.PropTypes.object,
-    };
-  }
+class ReactCSSComponent extends React.Component {
 
   css(obj) {
-    inline.call(this, obj);
+    return inline.call(this, obj);
   }
 
   styles() {
-    this.css();
+    return this.css();
   }
 
 };
+
+// For New Mixins
+ReactCSSComponent.contextTypes = {
+  mixins: React.PropTypes.object,
+};
+
+module.exports = ReactCSSComponent;
