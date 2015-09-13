@@ -8,6 +8,7 @@ var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 require('coffee-script/register');
+var babel = require('gulp-babel');
 
 // Docs
 var path = require('path');
@@ -70,13 +71,11 @@ gulp.task('test', function(){
              .pipe(mocha());
 });
 
-gulp.task('bundle', function(done) {
-  gulp.src('./src/**/*.coffee')
-    .pipe(coffee({bare: true}))
-    // .pipe(concat('react-css.js'))
+gulp.task('bundle', function() {
+  return gulp.src('./src/**/*.js')
+    .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest('lib'));
-  done();
 });
 
 gulp.task('static', function(done){
