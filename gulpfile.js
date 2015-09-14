@@ -1,5 +1,7 @@
 'use strict';
 
+require('babel-core/register');
+
 var gulp = require('gulp');
 var gutil = require('gutil');
 
@@ -9,7 +11,6 @@ var mocha = require('gulp-mocha');
 // Bundle
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-require('babel-core/register');
 var babel = require('gulp-babel');
 
 // Docs
@@ -18,24 +19,24 @@ var WebpackDevServer = require('webpack-dev-server');
 var dev = require('./webpack.dev.js');
 var prod = require('./webpack.prod.js');
 
-gulp.task('test', function() {
+gulp.task('test-once', function() {
   return gulp.src('./test/**/*.js')
     .pipe(mocha({ compilers: { js: babel } }))
     .on('error', gutil.log);
 });
 
-gulp.task('tdd', function(done) {
+gulp.task('test', function(done) {
   gulp.watch(['./test/**/*.js','./src/**/*.js'], ['test']);
 });
 
-gulp.task('bundle', function() {
+gulp.task('lib', function() {
   return gulp.src('./src/**/*.js')
     .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest('lib'));
 });
 
-gulp.task('build-docs', function(done) {
+gulp.task('docs-prod', function(done) {
   webpack(prod, function(err, stats) {
     if (err) {
       throw new Error(err);
@@ -64,4 +65,4 @@ gulp.task('docs', function(done) {
   });
 });
 
-gulp.task('default', ['tdd']);
+gulp.task('default', ['test']);
