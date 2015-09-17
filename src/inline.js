@@ -49,6 +49,16 @@ module.exports = function(declaredClasses) {
     }
   }
 
+  // React Bounds
+  // http://casesandberg.github.io/react-bounds/
+  // Activate classes that match active bounds
+  if (this.props && this.props.activeBounds) {
+    for (var i = 0; i < this.props.activeBounds.length; i++) {
+      var boundName = this.props.activeBounds[i];
+      activateClass(boundName);
+    }
+  }
+
   for (var name in declaredClasses) {
     let condition = declaredClasses[name];
 
