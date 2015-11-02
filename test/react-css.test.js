@@ -24,11 +24,11 @@ describe('ReactCSS', function() {
       }
 
       render() {
-        return React.createElement('div');
+        return <div />;
       }
     }
 
-    var someComponent = TestUtils.renderIntoDocument(React.createElement(SomeComponent, {}, 'baz'));
+    var someComponent = TestUtils.renderIntoDocument(<SomeComponent>baz</SomeComponent>);
 
     expect(someComponent.styles()).to.eql({
       body: {
@@ -55,11 +55,11 @@ describe('ReactCSS', function() {
       }
 
       render() {
-        return React.createElement('div');
+        return <div />;
       }
     }
 
-    var someComponent = TestUtils.renderIntoDocument(React.createElement(SomeComponent, { color: 'red' }));
+    var someComponent = TestUtils.renderIntoDocument(<SomeComponent color="red" />);
 
     expect(someComponent.styles()).to.eql({
       card: {
