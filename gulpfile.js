@@ -26,7 +26,7 @@ gulp.task('test-once', function() {
 });
 
 gulp.task('test', function(done) {
-  gulp.watch(['./test/**/*.js','./src/**/*.js'], ['test-once']);
+  gulp.watch(['./test/**/*.js', './src/**/*.js'], ['test-once']);
 });
 
 gulp.task('lib', function() {
