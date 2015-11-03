@@ -5,60 +5,77 @@ import classNames from 'classnames';
 const is = string => {
 
   function replace(classes, prop) {
-    if (classes.replace(/\s+/g, '') === "") {
-      string = string.replace(prop, '');
+    classes = classes.trim();
+
+    var outputSpreads = [];
+    var outputStyle = [];
+
+    for (var className of classes.split(' ')) {
+      if (className !== '') {
+        if (className[0] === className[0].toUpperCase()) {
+          outputSpreads.push(`{...this.styles().${ className }}`);
+        } else {
+          outputStyle.push(`this.styles().${ className }`);
+        }
+      }
     }
 
-    // if it is capitalized, set spread
-    else if (classes[0] === classes[0].toUpperCase()) {
-      string = string.replace(prop, `{...this.styles().${ classes }}`);
+    var outputString = '';
+
+    if (outputSpreads.length) {
+      outputString += outputSpreads.join(' ');
     }
 
-    // otherwise just give it an inline style
-    else {
-      string = string.replace(prop, `style={this.styles().${ classes }}`);
+    if (outputSpreads.length && outputStyle.length) {
+      outputString += ' ';
     }
+
+    if (outputStyle.length) {
+      if (outputStyle.length > 1) {
+        outputString += `style={ReactCSS.merge(${outputStyle.join(', ')})}`;
+      } else {
+        outputString += `style={${outputStyle[0]}}`;
+      }
+    }
+
+    string = string.replace(prop, outputString);
   }
 
   let isProp;
   while (isProp = /(is=(?:"|')(.*?)(?:"|'))/.exec(string)) {
-
-    // The is block that should be replaced. Looks like: `is="message"`
     let prop = isProp[1];
-
-    // The name of the value that we want to be returning from the style function.
     let elementName = isProp[2];
-
     replace(elementName, prop);
   }
 
   // Lets parse some JS too
   while (isProp = /(is=(?:{)(?!{)(.*?)(?:}))/.exec(string)) {
-    // The is block that should be replaced. Looks like: `is="message"`
     let prop = isProp[1];
-
-    // The name of the value that we want to be returning from the style function.
     let elementName = isProp[2];
 
     try {
       var classes = eval('(function() { return ' + isProp[2] + '})();');
     } catch (e) {
       if (e instanceof SyntaxError) {
-        console.log(e.message);
+        console.warn('"is" eval error: ', e.message);
       }
     }
 
     replace(classes, prop);
   }
 
-  // Lets parse some JS too
+  // Lets parse some JS objects too
   while (isProp = /(is=(?:{)(?={)(.*?})(?:}))/.exec(string)) {
-    // The is block that should be replaced. Looks like: `is="message"`
     let prop = isProp[1];
-
-    // The name of the value that we want to be returning from the style function.
     let elementName = isProp[2];
-    let classes = eval('(function() { return ' + isProp[2] + '})();');
+
+    try {
+      var classes = eval('(function() { return ' + isProp[2] + '})();');
+    } catch (e) {
+      if (e instanceof SyntaxError) {
+        console.warn('"is" eval error: ', e.message);
+      }
+    }
 
     replace(classNames(classes), prop);
   }
