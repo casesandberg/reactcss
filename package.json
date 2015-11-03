@@ -13,6 +13,7 @@
     "reactcss"
   ],
   "dependencies": {
+    "classnames": "^2.2.0",
     "lodash": "^3.6.0",
     "merge": "^1.2.0",
     "react": "^0.14.0"
@@ -38,12 +39,14 @@
     "jsx-loader": "^0.13.2",
     "markdown-loader": "^0.1.2",
     "mocha": "^2.2.1",
+    "mocha-sinon": "^1.1.4",
     "normalize.css": "^3.0.3",
     "react-addons-test-utils": "^0.14.0",
     "react-hot-loader": "^1.2.5",
     "react-map-styles": "git://github.com/casesandberg/react-map-styles",
     "remarkable": "^1.6.0",
     "sinon": "^1.15.3",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.12.3",
     "testdom": "^2.0.0",
     "webpack": "^1.8.11",
