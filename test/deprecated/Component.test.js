@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-var { Component } = require('../src/react-css');
+var { Component } = require('../../src/react-css');
 
 describe('Component', () => {
 

@@ -1,7 +1,7 @@
 'use strict';
 
 const React = require('react');
-const inline = require('./inline');
+const inline = require('../inline');
 
 class ReactCSSComponent extends React.Component {
 
@@ -20,4 +20,7 @@ ReactCSSComponent.contextTypes = {
   mixins: React.PropTypes.object,
 };
 
-module.exports = ReactCSSComponent;
+module.exports = () => {
+  console.warn('Extending ReactCSS.Component is deprecated in ReactCSS 1.0.0');
+  return ReactCSSComponent;
+};
