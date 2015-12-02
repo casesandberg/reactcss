@@ -42,6 +42,7 @@
     "mocha-sinon": "^1.1.4",
     "normalize.css": "^3.0.3",
     "react-addons-test-utils": "^0.14.0",
+    "react-dom": "^0.14.3",
     "react-hot-loader": "^1.2.5",
     "react-map-styles": "git://github.com/casesandberg/react-map-styles",
     "remarkable": "^1.6.0",
@@ -56,5 +57,8 @@
     "test": "mocha --compilers coffee:coffee-script/register",
     "tdd": "mocha --compilers coffee:coffee-script/register --watch"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "babel": {
+    "stage": 0
+  }
 }
