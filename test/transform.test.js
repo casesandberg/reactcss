@@ -2,6 +2,7 @@
 
 const React = require('react');
 import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 const TestUtils = require('react-addons-test-utils');
 const expect = require('chai').expect;
 require('testdom')('<html><body></body></html>');
@@ -121,6 +122,30 @@ describe('transform', function() {
       background: '#fafafa',
       border: '2px solid #333',
     });
+  });
+
+  it('should `renderToStaticMarkup`', function() {
+
+    class SomeComponent extends React.Component {
+      classes() {
+        return {
+          'default': {
+            body: {
+              background: '#fafafa',
+            },
+          },
+        };
+      }
+
+      render() {
+        return <div is="body" />;
+      }
+    }
+
+    var Component = ReactCSS(SomeComponent);
+    var component = ReactDOMServer.renderToStaticMarkup(<Component />);
+
+    expect(component).to.eql('<div style="background:#fafafa;"></div>');
   });
 
 });
