@@ -4,7 +4,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: { home:'./docs/index.coffee', documentation: './docs/documentation/index.coffee' },
+  entry: { home:'./docs/index.js', documentation: './docs/documentation/index.coffee' },
   output: {
     path: path.join(__dirname, 'docs/build'),
     filename: '[name].js',
