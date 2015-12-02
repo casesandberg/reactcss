@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  Component: require('./Component'),
+  Component: require('./deprecated/Component'),
   inline: require('./inline'),
   mixin: {
     css: require('./inline'),

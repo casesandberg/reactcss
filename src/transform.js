@@ -6,9 +6,8 @@ import _ from 'lodash';
 const inline = require('./inline');
 
 const transformElement = (_this, element, classes) => {
-  let newChildren;
-  let newElement;
   let newProps = {};
+  let newChildren;
 
   // If there are children
   const children = element.props.children;
@@ -27,7 +26,7 @@ const transformElement = (_this, element, classes) => {
     newProps = Object.assign({}, element.props, { style: _this.styles() && _this.styles()[element.props.is], is: undefined });
   }
 
-  return React.cloneElement(element, newProps, newChildren && newChildren);
+  return React.cloneElement(element, newProps, newChildren);
 };
 
 export default function (Component) {
