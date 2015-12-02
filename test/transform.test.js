@@ -85,4 +85,42 @@ describe('transform', function() {
     expect(component.render().props.children[1].props.style).to.eql(component.styles().subhead);
   });
 
+  it('should get the merged values from activations', function() {
+
+    class SomeComponent extends React.Component {
+      classes() {
+        return {
+          'default': {
+            body: {
+              background: '#fafafa',
+            },
+          },
+          'outline': {
+            body: {
+              border: '2px solid #333',
+            },
+          },
+        };
+      }
+
+      activations() {
+        return {
+          'outline': true,
+        };
+      }
+
+      render() {
+        return <div is="body" />;
+      }
+    }
+
+    var Component = ReactCSS(SomeComponent);
+    var component = TestUtils.renderIntoDocument(<Component />);
+
+    expect(component.render().props.style).to.eql({
+      background: '#fafafa',
+      border: '2px solid #333',
+    });
+  });
+
 });

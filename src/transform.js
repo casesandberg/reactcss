@@ -33,7 +33,7 @@ const transformElement = (_this, element, classes) => {
 export default function (Component) {
   return class extends Component {
     styles() {
-      return inline.call(this, super.classes());
+      return inline.call(this, super.activations && super.activations());
     }
 
     render() {
