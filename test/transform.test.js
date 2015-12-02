@@ -10,10 +10,22 @@ const ReactCSS = require('../src/transform');
 
 describe('transform', function() {
 
-  it('should replace the is with style prop', function() {
+  it('shouldnt replace other props', function() {
+    class SomeComponent extends React.Component {
+      render() {
+        return <div is="body" foo="bar" />;
+      }
+    }
+
+    var Component = ReactCSS(SomeComponent);
+    var component = TestUtils.renderIntoDocument(<Component />);
+
+    expect(component.render().props.foo).to.exist;
+  });
+
+  it('should replace the is with style prop basic', function() {
 
     class SomeComponent extends React.Component {
-
       classes() {
         return {
           'default': {
@@ -24,31 +36,53 @@ describe('transform', function() {
         };
       }
 
-      activations() {
-        return {
-          'foo-bar': true,
-        };
-      }
-
       render() {
         return <div is="body" foo="bar" />;
       }
     }
 
     var Component = ReactCSS(SomeComponent);
-
-    // check to see that is doesnt exist
     var component = TestUtils.renderIntoDocument(<Component />);
-    expect(ReactDOM.findDOMNode(component)._attributes.is).to.not.exist;
 
-    // check that random prop exists
-    // expect(ReactDOM.findDOMNode(component)._attributes.foo).to.exist;
-
-    // check to see that style has been set. This is hacky.
-    var body = ReactDOM.findDOMNode(component)._attributes.style._valueForAttrModified;
-    expect(body).to.eql('background:#fafafa;');
+    expect(component.render().props.is).to.not.exist;
+    expect(component.render().props.style).to.eql(component.styles().body);
   });
 
-  // check that setting inline styles and using the is syntax merges them.
+  it('should replace the is with style prop nested', function() {
+
+    class SomeComponent extends React.Component {
+      classes() {
+        return {
+          'default': {
+            body: {
+              background: '#333',
+            },
+            header: {
+              fontSize: '27px',
+            },
+            subhead: {
+              fontSize: '17px',
+            },
+          },
+        };
+      }
+
+      render() {
+        return (
+          <div is="body">
+            <div is="header">Header</div>
+            <div is="subhead">Subhead</div>
+          </div>
+        );
+      }
+    }
+
+    var Component = ReactCSS(SomeComponent);
+    var component = TestUtils.renderIntoDocument(<Component />);
+
+    expect(component.render().props.style).to.eql(component.classes().default.body);
+    expect(component.render().props.children[0].props.style).to.eql(component.styles().header);
+    expect(component.render().props.children[1].props.style).to.eql(component.styles().subhead);
+  });
 
 });
