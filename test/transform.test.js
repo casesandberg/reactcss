@@ -1,12 +1,6 @@
 'use strict';
 
-const React = require('react');
-import ReactDOM from 'react-dom';
-import ReactDOMServer from 'react-dom/server';
-const TestUtils = require('react-addons-test-utils');
-const expect = require('chai').expect;
-require('testdom')('<html><body></body></html>');
-
+import { React, ReactDOM, ReactDOMServer, TestUtils, expect } from './helpers';
 import ReactCSS from '../src/transform';
 
 describe('transform', function() {

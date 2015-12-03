@@ -1,6 +1,6 @@
 'use strict';
 
-const expect = require('chai').expect;
+import { expect } from './helpers';
 const inline = require('../src/inline');
 
 describe('React Inline', () => {
@@ -35,7 +35,7 @@ describe('React Inline', () => {
         'base': {
           card: {
             position: 'absolute',
-          }
+          },
         },
         'outlined': {
           card: {

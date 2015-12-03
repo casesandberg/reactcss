@@ -1,30 +1,32 @@
 'use strict';
 
-const expect = require('chai').expect;
+import { expect } from './helpers';
 const combine = require('../src/combine');
 
 describe('Combine', () => {
 
   it('merge and expand css', () => {
-    const before = [{
-      page: {
-        position: 'relative',
-        background: '#fafafa',
+    const before = [
+      {
+        page: {
+          position: 'relative',
+          background: '#fafafa',
+        },
+        header: {
+          font: '24px Roboto 600 rgba(0,0,0,.87)',
+        },
+      }, {
+        page: {
+          background: '#333',
+        },
+        header: {
+          color: 'rgba(255,255,255,.87)',
+        },
+        card: {
+          borderRadius: '2',
+        },
       },
-      header: {
-        font: '24px Roboto 600 rgba(0,0,0,.87)',
-      },
-    }, {
-      page: {
-        background: '#333',
-      },
-      header: {
-        color: 'rgba(255,255,255,.87)',
-      },
-      card: {
-        borderRadius: '2',
-      },
-    },];
+    ];
 
     const after = {
       page: {
@@ -50,29 +52,31 @@ describe('Combine', () => {
   it('handle conditional styles', () => {
     const two = 2;
 
-    const before = [{
-      page: {
-        position: 'relative',
-        background: '#fafafa',
+    const before = [
+      {
+        page: {
+          position: 'relative',
+          background: '#fafafa',
+        },
+        header: {
+          font: '24px Roboto 600 rgba(0,0,0,.87)',
+        },
+      }, two === 3 ? {
+        page: {
+          background: '#333',
+        },
+        header: {
+          color: 'rgba(255,255,255,.87)',
+        },
+        card: {
+          BorderRadius: '2',
+        },
+      } : void 0, {
+        element: {
+          padding: '10px',
+        },
       },
-      header: {
-        font: '24px Roboto 600 rgba(0,0,0,.87)',
-      },
-    }, two === 3 ? {
-      page: {
-        background: '#333',
-      },
-      header: {
-        color: 'rgba(255,255,255,.87)',
-      },
-      card: {
-        BorderRadius: '2',
-      },
-    } : void 0, {
-      element: {
-        padding: '10px',
-      },
-    },];
+    ];
 
     const after = {
       page: {
