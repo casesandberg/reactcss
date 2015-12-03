@@ -23,7 +23,7 @@ const transformElement = (_this, element, classes) => {
 
   // If there is an `is` prop and has classes
   if (element.props.is && classes) {
-    newProps = Object.assign({}, element.props, { style: _this.styles() && _this.styles()[element.props.is], is: undefined });
+    newProps = Object.assign({}, element.props, { style: _this.styles && _this.styles() && _this.styles()[element.props.is], is: undefined });
   }
 
   return React.cloneElement(element, newProps, newChildren);
