@@ -62,8 +62,5 @@
     "test": "mocha --compilers coffee:coffee-script/register",
     "tdd": "mocha --compilers coffee:coffee-script/register --watch"
   },
-  "license": "MIT",
-  "babel": {
-    "stage": 0
-  }
+  "license": "MIT"
 }

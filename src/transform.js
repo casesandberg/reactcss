@@ -29,7 +29,7 @@ const transformElement = (_this, element, classes) => {
   return React.cloneElement(element, newProps, newChildren);
 };
 
-export default function (Component) {
+export function ReactCSS(Component) {
   return class extends Component {
     styles() {
       return inline.call(this, super.activations && super.activations());
@@ -40,3 +40,5 @@ export default function (Component) {
     }
   };
 };
+
+export default ReactCSS;

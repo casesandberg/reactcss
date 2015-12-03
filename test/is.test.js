@@ -1,7 +1,7 @@
 'use strict';
 
-const expect = require('chai').expect;
-const is = require('../src/is');
+import { expect } from 'chai';
+import is from '../src/is';
 
 describe('is', () => {
 
