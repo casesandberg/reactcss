@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactCSS from 'reactcss';
 
-export class Container extends ReactCSS.Component {
+export class Container extends React.Component {
 
   classes() {
     return {
@@ -22,4 +22,4 @@ export class Container extends ReactCSS.Component {
   }
 }
 
-export default Container;
+export default ReactCSS(Container);

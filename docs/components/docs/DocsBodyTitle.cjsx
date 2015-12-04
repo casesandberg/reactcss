@@ -1,11 +1,11 @@
 'use strict'
 
-React = require('react')
-ReactCSS = require('reactcss')
+import React from 'react';
+import ReactCSS from 'reactcss';
 
 
 
-module.exports = class DocsBodyTitle extends ReactCSS.Component
+export classDocsBodyTitle extends ReactCSS.Component
 
   state:
     hover: false

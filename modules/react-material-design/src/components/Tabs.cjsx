@@ -127,7 +127,7 @@ class Tabs extends React.Component
     containerLeft = containerNode.scrollLeft
     containerRight = containerNode.offsetWidth + containerNode.scrollLeft
 
-    selectedNode = @refs["tab-#{ @state.selectedTab }"]?
+    selectedNode = @refs["tab-#{ @state.selectedTab }"]
     selectedLeft = selectedNode.getBoundingClientRect().left - containerNode.getBoundingClientRect().left + containerNode.scrollLeft
     selectedRight = selectedLeft + selectedNode.offsetWidth
 

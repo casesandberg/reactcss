@@ -6,7 +6,7 @@ export class Body extends React.Component {
 
   render() {
     return (
-      <div is="body">
+      <div>
         <style>{`
           .flexbox-fix {
             display: -webkit-box;

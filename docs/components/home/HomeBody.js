@@ -9,7 +9,7 @@ import { Markdown, Animate } from '../common';
 import beforeCode from '../../docs/00-home-before.md';
 import afterCode from '../../docs/00-home-after.md';
 
-export class HomeBody extends ReactCSS.Component {
+export class HomeBody extends React.Component {
 
   classes() {
     return {
@@ -113,4 +113,4 @@ HomeBody.contextTypes = {
   mobile: React.PropTypes.bool,
 };
 
-export default HomeBody;
+export default ReactCSS(HomeBody);

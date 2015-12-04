@@ -1,14 +1,14 @@
 'use strict'
 
-React = require('react')
-ReactCSS = require('reactcss')
+import React from 'react';
+import ReactCSS from 'reactcss';
 
 { Container } = require('../layout')
 { Animate } = require('../common')
 
 
 
-module.exports = class DocsFeature extends ReactCSS.Component
+export classDocsFeature extends ReactCSS.Component
 
   @contextTypes:
     mobile: React.PropTypes.bool

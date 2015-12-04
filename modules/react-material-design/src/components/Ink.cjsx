@@ -44,7 +44,7 @@ module.exports = class Ink extends React.Component
     top = Math.round(e.clientY - e.currentTarget.getBoundingClientRect().top)
     size = Math.max(e.currentTarget.clientWidth, e.currentTarget.clientHeight)
 
-    ripple = React.findDOMNode( @refs.ripple )
+    ripple = @refs.ripple
 
     ripple.style.left = left
     ripple.style.top = top
