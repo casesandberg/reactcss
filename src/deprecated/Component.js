@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const warning = _.once(() => console.warn('Extending ReactCSS.Component is deprecated in ReactCSS 1.0.0'));
 
-class ReactCSSComponent extends React.Component {
+export class ReactCSSComponent extends React.Component {
   css(obj) {
     warning();
     return inline.call(this, obj);
