@@ -1,7 +1,7 @@
 'use strict';
 
 import { expect } from './helpers';
-const merge = require('../src/merge');
+import merge from '../src/merge';
 
 describe('Merge', () => {
   it('return the same object if it is passed one', () => {

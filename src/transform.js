@@ -3,7 +3,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-const inline = require('./inline');
+import inline from './inline';
 
 const transformElement = (_this, element, classes) => {
   let newProps = {};

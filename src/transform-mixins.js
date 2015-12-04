@@ -1,7 +1,7 @@
 'use strict';
 
-const _ = require('lodash');
-const merge = require('merge');
+import _ from 'lodash';
+import merge from 'merge';
 
 /*
   Custom Props for the _mixins function
