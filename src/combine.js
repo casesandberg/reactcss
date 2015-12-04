@@ -3,7 +3,9 @@
 import merge from './merge';
 import mixins from './transform-mixins';
 
-module.exports = (styles, customMixins) => {
+export const combine = (styles, customMixins) => {
   const merged = merge(styles);
   return mixins(merged, customMixins);
 };
+
+export default combine;
