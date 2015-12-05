@@ -8,7 +8,7 @@ import inline from './inline';
 
 const transformElement = (_this, element, classes) => {
   let newProps = {};
-  let newChildren;
+  let newChildren = element.props.children;
 
   // If there are children
   const children = element.props.children;
