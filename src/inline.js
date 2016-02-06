@@ -1,6 +1,6 @@
 'use strict';
 
-const _ = require('lodash');
+const isObject = require('lodash.isobject');
 const checkClassStructure = require('./check-class-structure');
 let combine = require('./combine');
 
@@ -35,7 +35,7 @@ module.exports = function(declaredClasses) {
 
   for (var prop in this.props) {
     let value = this.props[prop];
-    if (!_.isObject(value)) {
+    if (!isObject(value)) {
 
       if (value === true) {
         activateClass(prop);

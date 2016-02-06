@@ -1,12 +1,13 @@
 'use strict';
 
 const merge = require('merge');
-const _ = require('lodash');
+const isObject = require('lodash.isobject');
+const isArray = require('lodash.isarray');
 
 module.exports = thingsToBeMerged => {
 
   // If its an object, lets just return it
-  if (_.isObject(thingsToBeMerged) && !_.isArray(thingsToBeMerged)) {
+  if (isObject(thingsToBeMerged) && !isArray(thingsToBeMerged)) {
     return thingsToBeMerged;
   }
 
