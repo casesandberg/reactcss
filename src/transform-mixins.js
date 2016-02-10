@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const isObject = require('lodash.isobject');
-const isArray = require('lodash.isarray');
-const merge = require('merge');
+const isObject = require('lodash.isobject')
+const isArray = require('lodash.isarray')
+const merge = require('merge')
 
 /*
   Custom Props for the _mixins function
@@ -18,7 +18,7 @@ const localProps = {
         OBorderRadius: value,
         WebkitBorderRadius: value,
         borderRadius: value,
-      };
+      }
     }
   },
 
@@ -30,7 +30,7 @@ const localProps = {
         OBoxShadow: value,
         WebkitBoxShadow: value,
         boxShadow: value,
-      };
+      }
     }
   },
 
@@ -43,7 +43,7 @@ const localProps = {
         msUserSelect: value,
         WebkitUserSelect: value,
         userSelect: value,
-      };
+      }
     }
   },
 
@@ -55,7 +55,7 @@ const localProps = {
         WebkitFlex: value,
         msFlex: value,
         flex: value,
-      };
+      }
     }
   },
 
@@ -64,7 +64,7 @@ const localProps = {
       return {
         WebkitFlexBasis: value,
         flexBasis: value,
-      };
+      }
     }
   },
 
@@ -73,7 +73,7 @@ const localProps = {
       return {
         WebkitJustifyContent: value,
         justifyContent: value,
-      };
+      }
     }
   },
 
@@ -85,7 +85,7 @@ const localProps = {
         OTransition: value,
         WebkitTransition: value,
         transition: value,
-      };
+      }
     }
   },
 
@@ -97,61 +97,61 @@ const localProps = {
         OTransform: value,
         WebkitTransform: value,
         transform: value,
-      };
+      }
     }
   },
 
   Absolute: value => {
     if (value !== null) {
-      const direction = value.split(" ");
+      const direction = value.split(" ")
       return {
         position: 'absolute',
         top: direction[0],
         right: direction[1],
         bottom: direction[2],
         left: direction[3],
-      };
+      }
     }
   },
 
   Extend: (name, otherElementStyles) => {
-    const otherStyle = otherElementStyles[name];
+    const otherStyle = otherElementStyles[name]
     if (otherStyle) {
-      return otherStyle;
+      return otherStyle
     }
   },
 
-};
+}
 
 const transform = (styleObject, customFuncs, parent) => {
 
-  const customProps = merge(customFuncs, localProps);
-  const obj = {};
+  const customProps = merge(customFuncs, localProps)
+  const obj = {}
 
   for (var key in styleObject) {
-    var value = styleObject[key];
+    var value = styleObject[key]
 
     // If its an object
     if (isObject(value) && !isArray(value)) {
       // Lets go ahead and run again
-      obj[key] = transform(value, customFuncs, styleObject);
+      obj[key] = transform(value, customFuncs, styleObject)
     } else {
       // Check to see if a custom prop exists for it
       if (customProps[key]) {
         // let loop though and save the results from the function
-        var customResults = customProps[key](value, parent);
+        var customResults = customProps[key](value, parent)
         for (var customKey in customResults) {
-          var customValue = customResults[customKey];
-          obj[customKey] = customValue;
+          var customValue = customResults[customKey]
+          obj[customKey] = customValue
         }
       } else {
         // If not, just copy it as-is
-        obj[key] = value;
+        obj[key] = value
       }
     }
   }
 
-  return obj;
-};
+  return obj
+}
 
-module.exports = (styleObject, customFuncs, parent) => transform(styleObject, customFuncs, parent);
+module.exports = (styleObject, customFuncs, parent) => transform(styleObject, customFuncs, parent)

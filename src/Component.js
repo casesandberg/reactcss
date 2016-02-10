@@ -1,23 +1,23 @@
-'use strict';
+'use strict'
 
-const React = require('react');
-const inline = require('./inline');
+const React = require('react')
+const inline = require('./inline')
 
 class ReactCSSComponent extends React.Component {
 
   css(obj) {
-    return inline.call(this, obj);
+    return inline.call(this, obj)
   }
 
   styles() {
-    return this.css();
+    return this.css()
   }
 
-};
+}
 
 // For New Mixins
 ReactCSSComponent.contextTypes = {
   mixins: React.PropTypes.object,
-};
+}
 
-module.exports = ReactCSSComponent;
+module.exports = ReactCSSComponent

@@ -1,4 +1,4 @@
-import gutil from 'gutil';
+import gutil from 'gutil'
 
 export default {
   src: {
@@ -11,4 +11,4 @@ export default {
   },
 
   onError: gutil.log,
-};
+}

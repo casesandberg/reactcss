@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   Component: require('./Component'),
@@ -6,4 +6,4 @@ module.exports = {
   mixin: {
     css: require('./inline'),
   },
-};
+}
