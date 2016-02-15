@@ -1,6 +1,6 @@
 'use strict'
 
-const merge = require('./merge')
+const merge = require('./merge-classes')
 const mixins = require('./transform-mixins')
 
 module.exports = (styles, customMixins) => {
