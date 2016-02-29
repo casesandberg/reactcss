@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const expect = require('chai').expect;
-const combine = require('../src/combine');
+const expect = require('chai').expect
+const combine = require('../src/combine')
 
 describe('Combine', () => {
 
@@ -24,7 +24,7 @@ describe('Combine', () => {
       card: {
         borderRadius: '2',
       },
-    },];
+    }, ]
 
     const after = {
       page: {
@@ -42,13 +42,13 @@ describe('Combine', () => {
         WebkitBorderRadius: '2',
         borderRadius: '2',
       },
-    };
+    }
 
-    expect(combine(before)).to.eql(after);
-  });
+    expect(combine(before)).to.eql(after)
+  })
 
   it('handle conditional styles', () => {
-    const two = 2;
+    const two = 2
 
     const before = [{
       page: {
@@ -72,7 +72,7 @@ describe('Combine', () => {
       element: {
         padding: '10px',
       },
-    },];
+    }, ]
 
     const after = {
       page: {
@@ -85,9 +85,9 @@ describe('Combine', () => {
       element: {
         padding: '10px',
       },
-    };
+    }
 
-    expect(combine(before)).to.eql(after);
-  });
+    expect(combine(before)).to.eql(after)
+  })
 
-});
+})

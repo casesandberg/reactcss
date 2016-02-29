@@ -47,6 +47,7 @@
     "lodash": "^3.6.0",
     "markdown-loader": "^0.1.2",
     "mocha": "^2.2.1",
+    "mocha-sinon": "^1.1.5",
     "normalize.css": "^3.0.3",
     "react-addons-test-utils": "^0.14.0",
     "react-hot-loader": "^1.2.5",
@@ -54,15 +55,16 @@
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "sinon": "^1.15.3",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.12.3",
     "testdom": "^2.0.0",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.2"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --compilers js:babel-register",
-    "tdd": "node_modules/.bin/mocha --compilers js:babel-register --watch",
-    "coverage": "istanbul cover mocha -- --compilers js:babel-register"
+    "test": "node_modules/.bin/mocha --compilers js:babel-register --recursive",
+    "tdd": "node_modules/.bin/mocha --compilers js:babel-register --recursive --watch",
+    "coverage": "istanbul cover mocha -- --compilers js:babel-register --recursive && node_modules/.bin/codecov -t 7a153dc3-8ecb-4c67-b846-9bf7397d9dec"
   },
   "license": "MIT"
 }

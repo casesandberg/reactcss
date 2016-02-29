@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-const expect = require('chai').expect;
-const inline = require('../../src/inline');
+const expect = require('chai').expect
+const inline = require('../../src/inline')
 
 describe('Plugins', () => {
 
   describe('React Bounds', () => {
 
-    it('Activates class names if active bound name matches', function() {
+    it('Activates class names if active bound name matches', function () {
       this.props = {
         activeBounds: ['some-bound', 'really-large'],
-      };
+      }
 
       this.classes = () => {
         return {
@@ -29,8 +29,8 @@ describe('Plugins', () => {
               fontSize: '24px',
             },
           },
-        };
-      };
+        }
+      }
 
       const after = {
         wrap: {
@@ -38,9 +38,9 @@ describe('Plugins', () => {
           color: '#333',
           fontSize: '24px',
         },
-      };
+      }
 
-      expect(inline.call(this)).to.eql(after);
-    });
-  });
-});
+      expect(inline.call(this)).to.eql(after)
+    })
+  })
+})
