@@ -10,21 +10,21 @@ let combine = require('./combine')
   @returns object
 */
 
-module.exports = function(declaredClasses) {
+module.exports = function (declaredClasses) {
   // What?
   combine = require('./combine')
 
   const arrayOfStyles = []
 
   if (!this.classes) {
-    throw console.warn(`Define this.classes on \`${ this.constructor.name }\``)
+    console.warn(`Define this.classes on \`${ this.constructor.name }\``)
   }
 
   // Checks structure and warns if its odd
-  checkClassStructure(this.classes())
+  checkClassStructure(this.classes && this.classes())
 
   const activateClass = (name, options) => {
-    if (this.classes()[name]) {
+    if (this.classes && this.classes()[name]) {
       arrayOfStyles.push(this.classes()[name])
     } else if (name && options && options.warn === true) {
       console.warn(`The \`${ name }\` css class does not exist on \`${ this.constructor.name }\``)

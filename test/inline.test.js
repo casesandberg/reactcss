@@ -1,9 +1,23 @@
 'use strict'
 
-const expect = require('chai').expect
+const chai = require('chai')
+const expect = chai.expect
 const inline = require('../src/inline')
 
+// chai.use(require('sinon-chai'))
+// require('mocha-sinon')
+
 describe('React Inline', () => {
+
+  // beforeEach(() => {
+  //   this.sinon.stub(console, 'warn')
+  // })
+  //
+  // it('should throw error if no classes', function () {
+  //   this.classes = false
+  //   inline.call(this, { foo: true })
+  //   expect(console.warn).to.have.been.called()
+  // })
 
   it('return a css object from a set of true class names', function () {
     this.classes = () => {
