@@ -10,30 +10,6 @@ const merge = require('merge')
 */
 
 const localProps = {
-  borderRadius: value => {
-    if (value !== null) {
-      return {
-        msBorderRadius: value,
-        MozBorderRadius: value,
-        OBorderRadius: value,
-        WebkitBorderRadius: value,
-        borderRadius: value,
-      }
-    }
-  },
-
-  boxShadow: value => {
-    if (value !== null) {
-      return {
-        msBoxShadow: value,
-        MozBoxShadow: value,
-        OBoxShadow: value,
-        WebkitBoxShadow: value,
-        boxShadow: value,
-      }
-    }
-  },
-
   userSelect: value => {
     if (value !== null) {
       return {

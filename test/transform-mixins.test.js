@@ -37,25 +37,6 @@ describe('Mixins', function () {
     expect(mixins(beforeArray)).to.eql(afterArray)
   })
 
-  it('expand basic custom props where the output is just values', function () {
-    const before = {
-      card: {
-        borderRadius: '2',
-      },
-    }
-    const after = {
-      card: {
-        msBorderRadius: '2',
-        MozBorderRadius: '2',
-        OBorderRadius: '2',
-        WebkitBorderRadius: '2',
-        borderRadius: '2',
-      },
-    }
-
-    expect(mixins(before)).to.eql(after)
-  })
-
   it('expand custom props where the output is a complex eval', function () {
     const before = {
       card: {

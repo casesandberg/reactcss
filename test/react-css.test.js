@@ -63,11 +63,7 @@ describe('ReactCSS', function () {
 
     expect(someComponent.styles()).to.eql({
       card: {
-        MozBoxShadow: '0 0 2px rgba(0,0,0,.1)',
-        OBoxShadow: '0 0 2px rgba(0,0,0,.1)',
-        WebkitBoxShadow: '0 0 2px rgba(0,0,0,.1)',
         boxShadow: '0 0 2px rgba(0,0,0,.1)',
-        msBoxShadow: '0 0 2px rgba(0,0,0,.1)',
       },
       title: {
         color: 'red',
