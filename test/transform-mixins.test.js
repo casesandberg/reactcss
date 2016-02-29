@@ -1,48 +1,48 @@
-'use strict';
+'use strict'
 
-const expect = require('chai').expect;
-const mixins = require('../src/transform-mixins');
+const expect = require('chai').expect
+const mixins = require('../src/transform-mixins')
 
-describe('Mixins', function() {
-  it('return the same object if nothing matches', function() {
+describe('Mixins', function () {
+  it('return the same object if nothing matches', function () {
     const before = {
       card: {
         position: 'absolute',
       },
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
       },
-    };
+    }
 
-    expect(mixins(before)).to.eql(after);
-  });
+    expect(mixins(before)).to.eql(after)
+  })
 
-  it('skip selectors whos values are strings or arrays', function() {
+  it('skip selectors whos values are strings or arrays', function () {
     const before = {
       button: 'bigger',
-    };
+    }
     const after = {
       button: 'bigger',
-    };
+    }
     const beforeArray = {
       button: ['bigger'],
-    };
+    }
     const afterArray = {
       button: ['bigger'],
-    };
+    }
 
-    expect(mixins(before)).to.eql(after);
-    expect(mixins(beforeArray)).to.eql(afterArray);
-  });
+    expect(mixins(before)).to.eql(after)
+    expect(mixins(beforeArray)).to.eql(afterArray)
+  })
 
-  it('expand basic custom props where the output is just values', function() {
+  it('expand basic custom props where the output is just values', function () {
     const before = {
       card: {
         borderRadius: '2',
       },
-    };
+    }
     const after = {
       card: {
         msBorderRadius: '2',
@@ -51,17 +51,17 @@ describe('Mixins', function() {
         WebkitBorderRadius: '2',
         borderRadius: '2',
       },
-    };
+    }
 
-    expect(mixins(before)).to.eql(after);
-  });
+    expect(mixins(before)).to.eql(after)
+  })
 
-  it('expand custom props where the output is a complex eval', function() {
+  it('expand custom props where the output is a complex eval', function () {
     const before = {
       card: {
         Absolute: '0 0 0 0',
       },
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
@@ -70,17 +70,17 @@ describe('Mixins', function() {
         bottom: '0',
         left: '0',
       },
-    };
-    expect(mixins(before)).to.eql(after);
-  });
+    }
+    expect(mixins(before)).to.eql(after)
+  })
 
-  it('expand custom props where the output is a complex eval v2', function() {
+  it('expand custom props where the output is a complex eval v2', function () {
     const before = {
       card: {
         Absolute: '0 0 0 0',
         background: '#fff',
       },
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
@@ -90,12 +90,12 @@ describe('Mixins', function() {
         left: '0',
         background: '#fff',
       },
-    };
+    }
 
-    expect(mixins(before)).to.eql(after);
-  });
+    expect(mixins(before)).to.eql(after)
+  })
 
-  it('extend mixin copies styles from another element', function() {
+  it('extend mixin copies styles from another element', function () {
     const before = {
       title: {
         fontFamily: 'Roboto',
@@ -108,7 +108,7 @@ describe('Mixins', function() {
         fontSize: '14px',
         color: 'rgba(0,0,0,.57)',
       },
-    };
+    }
     const after = {
       title: {
         fontFamily: 'Roboto',
@@ -122,12 +122,12 @@ describe('Mixins', function() {
         fontSize: '14px',
         color: 'rgba(0,0,0,.57)',
       },
-    };
+    }
 
-    expect(mixins(before)).to.eql(after);
-  });
+    expect(mixins(before)).to.eql(after)
+  })
 
-  it('be able to step through and epand a compex array properly', function() {
+  it('be able to step through and epand a compex array properly', function () {
     const before = {
       body: {
         sidebar: {
@@ -136,7 +136,7 @@ describe('Mixins', function() {
           },
         },
       },
-    };
+    }
     const after = {
       body: {
         sidebar: {
@@ -149,37 +149,37 @@ describe('Mixins', function() {
           },
         },
       },
-    };
+    }
 
-    expect(mixins(before)).to.eql(after);
-  });
+    expect(mixins(before)).to.eql(after)
+  })
 
-  return it('be able to pass through functions to transform', function() {
+  return it('be able to pass through functions to transform', function () {
     const customFunc = {
-      AddTogetherMargin: function(value) {
-        let total = 0;
-        const ref = value.split(' ');
+      AddTogetherMargin: function (value) {
+        let total = 0
+        const ref = value.split(' ')
         for (var i = 0, len = ref.length; i < len; i++) {
-          let number = ref[i];
-          total += parseInt(number);
+          let number = ref[i]
+          total += parseInt(number)
         }
 
         return {
           margin: total,
-        };
+        }
       },
-    };
+    }
     const before = {
       body: {
         AddTogetherMargin: '2 2',
       },
-    };
+    }
     const after = {
       body: {
         margin: 4,
       },
-    };
+    }
 
-    expect(mixins(before, customFunc)).to.eql(after);
-  });
-});
+    expect(mixins(before, customFunc)).to.eql(after)
+  })
+})

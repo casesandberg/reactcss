@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-const React = require('react');
-const TestUtils = require('react-addons-test-utils');
-const expect = require('chai').expect;
-require('testdom')('<html><body></body></html>');
+const React = require('react')
+const TestUtils = require('react-addons-test-utils')
+const expect = require('chai').expect
+require('testdom')('<html><body></body></html>')
 
-const ReactCSSComponent = require('../src/Component');
+const ReactCSSComponent = require('../src/Component')
 
-describe('ReactCSS', function() {
+describe('ReactCSS', function () {
 
-  it('should return simple css', function() {
+  it('should return simple css', function () {
 
     class SomeComponent extends ReactCSSComponent {
 
@@ -20,24 +20,24 @@ describe('ReactCSS', function() {
               background: '#fafafa',
             },
           },
-        };
+        }
       }
 
       render() {
-        return React.createElement('div');
+        return React.createElement('div')
       }
     }
 
-    var someComponent = TestUtils.renderIntoDocument(React.createElement(SomeComponent, {}, 'baz'));
+    var someComponent = TestUtils.renderIntoDocument(React.createElement(SomeComponent, {}, 'baz'))
 
     expect(someComponent.styles()).to.eql({
       body: {
         background: '#fafafa',
       },
-    });
-  });
+    })
+  })
 
-  it('should return complex css', function() {
+  it('should return complex css', function () {
 
     class SomeComponent extends ReactCSSComponent {
 
@@ -51,15 +51,15 @@ describe('ReactCSS', function() {
               boxShadow: '0 0 2px rgba(0,0,0,.1)',
             },
           },
-        };
+        }
       }
 
       render() {
-        return React.createElement('div');
+        return React.createElement('div')
       }
     }
 
-    var someComponent = TestUtils.renderIntoDocument(React.createElement(SomeComponent, { color: 'red' }));
+    var someComponent = TestUtils.renderIntoDocument(React.createElement(SomeComponent, { color: 'red' }))
 
     expect(someComponent.styles()).to.eql({
       card: {
@@ -72,6 +72,6 @@ describe('ReactCSS', function() {
       title: {
         color: 'red',
       },
-    });
-  });
-});
+    })
+  })
+})

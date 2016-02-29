@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const expect = require('chai').expect;
-const inline = require('../src/inline');
+const expect = require('chai').expect
+const inline = require('../src/inline')
 
 describe('React Inline', () => {
 
-  it('return a css object from a set of true class names', function() {
+  it('return a css object from a set of true class names', function () {
     this.classes = () => {
       return {
         'base': {
@@ -13,29 +13,29 @@ describe('React Inline', () => {
             position: 'absolute',
           },
         },
-      };
-    };
+      }
+    }
 
     const before = {
       foo: false,
       'base': true,
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
       },
-    };
+    }
 
-    expect(inline.call(this, before)).to.eql(after);
-  });
+    expect(inline.call(this, before)).to.eql(after)
+  })
 
-  it('return a css object from a bunch of class names', function() {
+  it('return a css object from a bunch of class names', function () {
     this.classes = () => {
       return {
         'base': {
           card: {
             position: 'absolute',
-          }
+          },
         },
         'outlined': {
           card: {
@@ -47,25 +47,25 @@ describe('React Inline', () => {
             display: 'none',
           },
         },
-      };
-    };
+      }
+    }
 
     const before = {
       'base': true,
       'outlined': true,
       'disabled': false,
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
         border: '2px solid #aeee00',
       },
-    };
+    }
 
-    expect(inline.call(this, before)).to.eql(after);
-  });
+    expect(inline.call(this, before)).to.eql(after)
+  })
 
-  it('include the `default` class', function() {
+  it('include the `default` class', function () {
     this.classes = () => {
       return {
         'default': {
@@ -73,23 +73,23 @@ describe('React Inline', () => {
             position: 'absolute',
           },
         },
-      };
-    };
+      }
+    }
 
     const after = {
       card: {
         position: 'absolute',
       },
-    };
+    }
 
-    expect(inline.call(this)).to.eql(after);
-  });
+    expect(inline.call(this)).to.eql(after)
+  })
 
-  it('include any true props that match class names', function() {
+  it('include any true props that match class names', function () {
     this.props = {
       isSelected: true,
       dark: true,
-    };
+    }
     this.classes = () => {
       return {
         'default': {
@@ -108,8 +108,8 @@ describe('React Inline', () => {
             color: '#333',
           },
         },
-      };
-    };
+      }
+    }
 
     const after = {
       card: {
@@ -117,16 +117,16 @@ describe('React Inline', () => {
         color: '#333',
         border: '2px solid #aeee00',
       },
-    };
+    }
 
-    expect(inline.call(this, before)).to.eql(after);
-  });
+    expect(inline.call(this, before)).to.eql(after)
+  })
 
-  it('check if props and values match a class', function() {
+  it('check if props and values match a class', function () {
     this.props = {
       isSelected: false,
       zDepth: 2,
-    };
+    }
     this.classes = () => {
       return {
         'default': {
@@ -144,8 +144,8 @@ describe('React Inline', () => {
             border: '2px solid #333',
           },
         },
-      };
-    };
+      }
+    }
 
     const after = {
       card: {
@@ -153,8 +153,8 @@ describe('React Inline', () => {
         background: 'grey',
         border: '2px solid #333',
       },
-    };
+    }
 
-    expect(inline.call(this, before)).to.eql(after);
-  });
-});
+    expect(inline.call(this, before)).to.eql(after)
+  })
+})
