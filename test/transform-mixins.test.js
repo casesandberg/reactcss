@@ -127,6 +127,115 @@ describe('Mixins', function () {
     expect(mixins(before)).to.eql(after)
   })
 
+  it('userSelect mixin expands properly', function () {
+    const before = {
+      body: {
+        userSelect: 'none',
+      },
+    }
+    const after = {
+      body: {
+        WebkitTouchCallout: 'none',
+        KhtmlUserSelect: 'none',
+        MozUserSelect: 'none',
+        msUserSelect: 'none',
+        WebkitUserSelect: 'none',
+        userSelect: 'none',
+      },
+    }
+
+    expect(mixins(before)).to.eql(after)
+  })
+
+  it('flex mixin expands properly', function () {
+    const before = {
+      body: {
+        flex: '1',
+      },
+    }
+    const after = {
+      body: {
+        WebkitBoxFlex: '1',
+        MozBoxFlex: '1',
+        WebkitFlex: '1',
+        msFlex: '1',
+        flex: '1',
+      },
+    }
+
+    expect(mixins(before)).to.eql(after)
+  })
+
+  it('flexBasis mixin expands properly', function () {
+    const before = {
+      body: {
+        flexBasis: '1',
+      },
+    }
+    const after = {
+      body: {
+        WebkitFlexBasis: '1',
+        flexBasis: '1',
+      },
+    }
+
+    expect(mixins(before)).to.eql(after)
+  })
+
+  it('justifyContent mixin expands properly', function () {
+    const before = {
+      body: {
+        justifyContent: '1',
+      },
+    }
+    const after = {
+      body: {
+        WebkitJustifyContent: '1',
+        justifyContent: '1',
+      },
+    }
+
+    expect(mixins(before)).to.eql(after)
+  })
+
+  it('transition mixin expands properly', function () {
+    const before = {
+      body: {
+        transition: 'all 200ms linear',
+      },
+    }
+    const after = {
+      body: {
+        msTransition: 'all 200ms linear',
+        MozTransition: 'all 200ms linear',
+        OTransition: 'all 200ms linear',
+        WebkitTransition: 'all 200ms linear',
+        transition: 'all 200ms linear',
+      },
+    }
+
+    expect(mixins(before)).to.eql(after)
+  })
+
+  it('transform mixin expands properly', function () {
+    const before = {
+      body: {
+        transform: 'scale(.5)',
+      },
+    }
+    const after = {
+      body: {
+        msTransform: 'scale(.5)',
+        MozTransform: 'scale(.5)',
+        OTransform: 'scale(.5)',
+        WebkitTransform: 'scale(.5)',
+        transform: 'scale(.5)',
+      },
+    }
+
+    expect(mixins(before)).to.eql(after)
+  })
+
   it('be able to step through and epand a compex array properly', function () {
     const before = {
       body: {
