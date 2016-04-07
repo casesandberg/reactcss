@@ -31,7 +31,8 @@ const transformElement = (_this, element, classes) => {
     let is = _.isObject(element.props.is) ? classnames(element.props.is) : element.props.is;
     let styles = {};
 
-    is.split(' ').map((elName, i) => {
+    const classes = is.split(' ');
+    const mapStyles = (elName) => {
       let toMerge = {};
       if (elName[0] === elName[0].toUpperCase()) {
         toMerge = findStyle(elName);
@@ -39,8 +40,16 @@ const transformElement = (_this, element, classes) => {
         toMerge = { style: findStyle(elName) };
       }
 
-      styles = Object.assign({}, styles, toMerge);
-    });
+      return toMerge;
+    };
+
+    if (classes.length === 1) {
+      styles = mapStyles(classes[0]);
+    } else {
+      classes.map((elName, i) => {
+        styles = _.merge({}, styles, mapStyles(elName));
+      });
+    }
 
     newProps = Object.assign({}, element.props, styles, { is: null });
   }

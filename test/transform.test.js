@@ -155,66 +155,66 @@ describe('transform', function() {
     expect(component).to.eql('<div style="background:#fafafa;"></div>');
   });
 
-  // it('should combine output when more than one element is in string', function() {
-  //
-  //   class SomeComponent extends React.Component {
-  //     classes() {
-  //       return {
-  //         'default': {
-  //           item: {
-  //             border: '1px solid #333',
-  //           },
-  //           last: {
-  //             borderBottom: 'none',
-  //           },
-  //         },
-  //       };
-  //     }
-  //
-  //     render() {
-  //       return <div is="item last" />;
-  //     }
-  //   }
-  //
-  //   var Component = ReactCSS(SomeComponent);
-  //   var component = TestUtils.renderIntoDocument(<Component />);
-  //   expect(component.render().props.style).to.eql({
-  //     border: '1px solid #333',
-  //     borderBottom: 'none',
-  //   });
-  // });
+  it('should combine output when more than one element is in string', function() {
 
-  // it('should combine output more than one element is in object', function() {
-  //
-  //   class SomeComponent extends React.Component {
-  //     classes() {
-  //       return {
-  //         'default': {
-  //           item: {
-  //             border: '1px solid #333',
-  //           },
-  //           last: {
-  //             borderBottom: 'none',
-  //           },
-  //           first: {
-  //             borderTop: 'none',
-  //           },
-  //         },
-  //       };
-  //     }
-  //
-  //     render() {
-  //       return <div is={{ item: true, last: true, first: false }} />;
-  //     }
-  //   }
-  //
-  //   var Component = ReactCSS(SomeComponent);
-  //   var component = TestUtils.renderIntoDocument(<Component />);
-  //   expect(component.render().props.style).to.eql({
-  //     border: '1px solid #333',
-  //     borderBottom: 'none',
-  //   });
-  // });
+    class SomeComponent extends React.Component {
+      classes() {
+        return {
+          'default': {
+            item: {
+              border: '1px solid #333',
+            },
+            last: {
+              borderBottom: 'none',
+            },
+          },
+        };
+      }
+
+      render() {
+        return <div is="item last" />;
+      }
+    }
+
+    var Component = ReactCSS(SomeComponent);
+    var component = TestUtils.renderIntoDocument(<Component />);
+    expect(component.render().props.style).to.eql({
+      border: '1px solid #333',
+      borderBottom: 'none',
+    });
+  });
+
+  it('should combine output more than one element is in object', function() {
+
+    class SomeComponent extends React.Component {
+      classes() {
+        return {
+          'default': {
+            item: {
+              border: '1px solid #333',
+            },
+            last: {
+              borderBottom: 'none',
+            },
+            first: {
+              borderTop: 'none',
+            },
+          },
+        };
+      }
+
+      render() {
+        return <div is={{ item: true, last: true, first: false }} />;
+      }
+    }
+
+    var Component = ReactCSS(SomeComponent);
+    var component = TestUtils.renderIntoDocument(<Component />);
+    expect(component.render().props.style).to.eql({
+      border: '1px solid #333',
+      borderBottom: 'none',
+    });
+  });
 
   it('should replace the is with a spread if Uppercase', function() {
     class SomeComponent extends React.Component {
