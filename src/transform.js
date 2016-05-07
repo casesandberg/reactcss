@@ -59,6 +59,8 @@ const transformElement = (_this, element, classes) => {
 
 export function ReactCSS(Component) {
   return class extends Component {
+    static displayName = Component.displayName || Component.name
+
     styles() {
       return inline.call(this, super.activations && super.activations());
     }
