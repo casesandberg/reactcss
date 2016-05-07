@@ -29,7 +29,7 @@
     "codecov": "^1.0.1",
     "coffee-jsx-loader": "^0.1.0",
     "coffee-loader": "^0.7.2",
-    "coffee-react": "^4.1.0",
+    "coffee-react": "^5.0.0",
     "coffee-script": "^1.9.1",
     "css-loader": "^0.23.1",
     "gulp": "^3.8.11",
