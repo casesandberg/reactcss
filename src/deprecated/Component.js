@@ -18,7 +18,7 @@ export class ReactCSSComponent extends React.Component {
 
   static contextTypes = {
     mixins: React.PropTypes.object,
-  }
+  };
 
 };
 

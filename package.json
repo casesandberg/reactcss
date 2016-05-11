@@ -62,8 +62,8 @@
     "webpack-dev-server": "^1.8.2"
   },
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script/register",
-    "tdd": "mocha --compilers coffee:coffee-script/register --watch"
+    "test": "mocha --compilers js:babel-register",
+    "tdd": "mocha --compilers js:babel-register --watch"
   },
   "license": "MIT"
 }
