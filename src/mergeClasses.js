@@ -1,10 +1,19 @@
 'use strict';
 
-export const mergeClasses = (classes, activeNames) => {
+import _ from 'lodash';
+
+export const mergeClasses = (classes, activeNames = []) => {
   const styles = classes.default && Object.assign({}, classes.default) || {};
   activeNames.map((name) => {
-    if (classes[name] !== null) {
-      Object.assign(styles, classes[name]);
+    const toMerge = classes[name];
+    if (!!toMerge) {
+      _.map(toMerge, (value, key) => {
+        if (!styles[key]) {
+          styles[key] = {};
+        }
+
+        Object.assign(styles[key], toMerge[key]);
+      });
     }
 
     return name;
