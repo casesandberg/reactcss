@@ -1,7 +1,7 @@
 'use strict';
 
-import { React, TestUtils, expect, sinon } from './helpers';
-import ReactCSS from '../src/react-css';
+// import { React, TestUtils, expect, sinon } from './helpers';
+// import ReactCSS from '../src/react-css';
 
 // describe('ReactCSS', function() {
 //
