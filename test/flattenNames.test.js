@@ -1,10 +1,9 @@
-'use strict';
+/* global describe, it */
 
 import { expect } from './helpers';
 import flattenNames from '../src/flattenNames';
 
 describe('Combine', () => {
-
   it('should return basic strings', () => {
     const before = ['foo', 'bar', 'baz'];
     const after = ['foo', 'bar', 'baz'];
@@ -46,5 +45,4 @@ describe('Combine', () => {
 
     expect(flattenNames(before)).to.eql(after);
   });
-
 });
