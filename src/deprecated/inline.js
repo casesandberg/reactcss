@@ -10,7 +10,7 @@ import combine from './combine';
   @returns object
 */
 
-module.exports = function(declaredClasses) {
+module.exports = function (declaredClasses) {
 
   const arrayOfStyles = [];
 
