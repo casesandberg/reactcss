@@ -41,14 +41,13 @@ export class DocsBody extends React.Component {
     window.removeEventListener('scroll', this.onScroll, false)
   }
 
-  onScroll() {
+  onScroll = () => {
     this.changeSelection()
     this.attachSidebar()
   }
 
-
-  attachSidebar() {
-    const sidebarTop = this.refs.docsSidebar.getBoundingClientRect().top
+  attachSidebar = () => {
+    const sidebarTop = React.findDOMNode( this.refs.docsSidebar ).getBoundingClientRect().top
 
     if (sidebarTop <= 0 && this.state.sidebarFixed === false) {
       this.setState({ sidebarFixed: true })
@@ -59,16 +58,16 @@ export class DocsBody extends React.Component {
     }
   }
 
-  changeSelection() {
+  changeSelection = () => {
     const top = document.body.scrollTop - 150
     let mostVisible = ''
-    let offset
-    for (offset of this.state.files) {
+
+    _.map(this.state.files, (offset) => {
       const id = this.state.files[offset]
       if (offset < top) {
         mostVisible = id
       }
-    }
+    })
 
     if (mostVisible !== this.state.visible) {
       this.setState({ visible: mostVisible })

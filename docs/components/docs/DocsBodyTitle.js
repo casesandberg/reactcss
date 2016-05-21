@@ -11,7 +11,7 @@ export class DocsBodyTitle extends React.Component {
     }
   }
 
-  handleHover(e) {
+  handleHover = (e) => {
     if (e.type === 'mouseenter') {
       this.setState({ hover: true })
     } else if (e.type === 'mouseleave') {
