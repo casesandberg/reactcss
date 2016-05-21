@@ -7,8 +7,8 @@ const markdown = require('../../helpers/markdown')
 
 const { Container, Grid } = require('../layout')
 const { Markdown, Animate } = require('../common')
-const DocsSidebar = require('./DocsSidebar')
-const DocsBodyTitle = require('./DocsBodyTitle')
+const { DocsSidebar } = require('./DocsSidebar')
+const { DocsBodyTitle } = require('./DocsBodyTitle')
 
 const docsFiles = require('../../docs')
 const commentedFile = require('../../docs/00-commented-file.md')
@@ -24,14 +24,16 @@ export class DocsBody extends React.Component {
   }
 
   componentDidMount() {
+    const files = {}
+    let file
+
     window.addEventListener('scroll', this.onScroll, false)
 
-    const files = {}
     for (file in this.refs.files.children) {
       files[file.offsetTop] = file.id
     }
 
-    this.setState({ files: files })
+    this.setState({ files })
   }
 
 
@@ -46,7 +48,7 @@ export class DocsBody extends React.Component {
 
 
   attachSidebar() {
-    const sidebarTop = React.findDOMNode(this.refs.docsSidebar).getBoundingClientRect().top
+    const sidebarTop = this.refs.docsSidebar.getBoundingClientRect().top
 
     if (sidebarTop <= 0 && this.state.sidebarFixed === false) {
       this.setState({ sidebarFixed: true })
@@ -60,6 +62,7 @@ export class DocsBody extends React.Component {
   changeSelection() {
     const top = document.body.scrollTop - 150
     let mostVisible = ''
+    let offset
     for (offset of this.state.files) {
       const id = this.state.files[offset]
       if (offset < top) {
@@ -110,13 +113,13 @@ export class DocsBody extends React.Component {
               />
             </Animate>
 
-            <div is="content">
+            <div style={ styles.content }>
               <Animate
                 inStartTransform="translateY(20px)"
                 inEndTransform="translateY(0)"
                 inDelay={ 400 }
               >
-                <div is="animate">
+                <div style={ styles.animate }>
                   <Markdown>{ commentedFile }</Markdown>
                 </div>
               </Animate>
@@ -134,7 +137,7 @@ export class DocsBody extends React.Component {
                       />
 
                       { body.trim() ? (
-                        <div is="file">
+                        <div style={ styles.file }>
                           <Markdown>{ body }</Markdown>
                         </div>
                       ) : null }
@@ -142,9 +145,7 @@ export class DocsBody extends React.Component {
                   )
                 }) }
               </div>
-
             </div>
-
           </Grid>
 
         </Container>
@@ -152,3 +153,5 @@ export class DocsBody extends React.Component {
     )
   }
 }
+
+export default DocsBody

@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import reactCSS from 'reactcss'
 
-import Header from './Header';
-import Feature from './Feature';
-import Body from './Body';
+import Header from './Header'
+import Feature from './Feature'
+import Body from './Body'
 
 export class Shell extends React.Component {
   static childContextTypes = {
@@ -13,40 +13,40 @@ export class Shell extends React.Component {
   }
 
   static getChildContext = () => {
-    return { mobile: this.state.mobile };
+    return { mobile: this.state.mobile }
   }
 
   constructor() {
-    super();
+    super()
     this.state = {
       mobile: false,
-    };
+    }
   }
 
   componentWillMount() {
-    this.handleResize();
+    this.handleResize()
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.handleResize, false);
+    window.addEventListener('resize', this.handleResize, false)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize, false);
+    window.removeEventListener('resize', this.handleResize, false)
   }
 
   handleResize = () => {
     if (document.body.clientWidth <= 700 && this.state.mobile === false) {
-      this.setState({ mobile: true });
+      this.setState({ mobile: true })
     }
 
     if (document.body.clientWidth > 701 && this.state.mobile === true) {
-      this.setState({ mobile: false });
+      this.setState({ mobile: false })
     }
   }
 
   render() {
-    const styles = ReactCSS({
+    const styles = reactCSS({
       'default': {
         shell: {
           fontFamily: 'Roboto',
@@ -62,7 +62,7 @@ export class Shell extends React.Component {
           zIndex: '2',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.shell }>
@@ -74,8 +74,8 @@ export class Shell extends React.Component {
           <Body component={ this.props.body } />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Shell;
+export default Shell

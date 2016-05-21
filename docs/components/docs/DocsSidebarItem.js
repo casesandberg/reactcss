@@ -48,3 +48,5 @@ export class DocsSidebarItem extends React.Component {
     )
   }
 }
+
+export default DocsSidebarItem
