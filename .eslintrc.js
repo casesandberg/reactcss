@@ -1,6 +1,6 @@
 module.exports = {
   extends: 'airbnb',
-
+  parser: 'babel-eslint',
   rules: {
     // "jsx-curly-spacing": [2, "always", {"alternative": true}], // https://github.com/yannickcr/eslint-plugin-react/issues/388
     'react/jsx-curly-spacing': [1, 'always'],
@@ -14,5 +14,6 @@ module.exports = {
     'constructor-super': 2,
     'quote-props': [2, 'consistent'],
     'no-underscore-dangle': [1],
+    'semi': [2, 'never']
   },
 };

@@ -1,16 +1,15 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
 import { Container } from '../layout';
 import { Animate } from '../common';
 import Particles from './Particles';
 
 export class HomeFeature extends React.Component {
-
-  classes() {
-    return {
+  render() {
+    const styles = reactCSS({
       'default': {
         homeFeature: {
           background: '#4A90E2',
@@ -58,30 +57,26 @@ export class HomeFeature extends React.Component {
           marginTop: '50px',
         },
       },
-    };
-  }
-
-  activations() {
-    return {
+    }, {
       'mobile': this.context.mobile,
-    };
-  }
+    });
 
-  render() {
     return (
-      <div is="homeFeature">
-
+      <div style={ styles.homeFeature }>
         <Container>
-
-          <div is="inside">
+          <div style={ styles.inside }>
 
             <Animate>
-              <div is="headline">Bringing Classes to Inline Styles</div>
+              <div style={ styles.headline }>Bringing Classes to Inline Styles</div>
             </Animate>
 
-            <Animate inStartTransform="translateY(70px)" inEndTransform="translateY(0)" inDelay={ 400 }>
-              <div is="install">
-                <span is="dollar">$</span>
+            <Animate
+              inStartTransform="translateY(70px)"
+              inEndTransform="translateY(0)"
+              inDelay={ 400 }
+            >
+              <div style={ styles.install }>
+                <span style={ styles.dollar }>$</span>
                 npm install reactcss
               </div>
             </Animate>
@@ -90,10 +85,9 @@ export class HomeFeature extends React.Component {
 
         </Container>
 
-        <div is="particles">
+        <div style={ styles.particles }>
           <Particles />
         </div>
-
       </div>
     );
   }
@@ -103,4 +97,4 @@ HomeFeature.contextTypes = {
   mobile: React.PropTypes.bool,
 };
 
-export default ReactCSS(HomeFeature);
+export default HomeFeature;

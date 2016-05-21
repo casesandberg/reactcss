@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
 import { Tabs } from 'react-material-design';
 
@@ -11,8 +11,8 @@ export class Header extends React.Component {
     mobile: React.PropTypes.bool,
   }
 
-  classes() {
-    return {
+  render() {
+    const styles = reactCSS({
       'default': {
         header: {
           padding: '14px 14px 14px 0',
@@ -32,7 +32,7 @@ export class Header extends React.Component {
           textTransform: 'uppercase',
           overflow: 'hidden',
         },
-        Tabs: {
+        tabs: {
           align: 'center',
         },
       },
@@ -50,32 +50,28 @@ export class Header extends React.Component {
           float: 'right',
         },
       },
-    };
-  }
-
-  activations() {
-    return {
+    }, {
       'mobile-header': this.context.mobile,
-    };
-  }
+    });
 
-  render() {
     return (
-      <div is="header" className="flexbox-fix">
-        <a href="/" is="logo">ReactCSS</a>
+      <div style={ styles.header } className="flexbox-fix">
+        <a href="/" style={ styles.logo }>ReactCSS</a>
 
-        <div is="nav">
-          <Tabs is="Tabs" selectedTab={ this.props.display === 'documentation' ? 1 : 0 }
-
-          tabs={[
-            { label: 'About', onClick: '/' },
-            { label: this.context.mobile ? 'Docs' : 'Documentation', onClick: '/documentation' },
-            { label: 'Github', selectable: false, onClick: 'https://github.com/casesandberg/reactcss', newTab: true },
-          ]} />
+        <div style={ styles.nav }>
+          <Tabs
+            { ...styles.tabs }
+            selectedTab={ this.props.display === 'documentation' ? 1 : 0 }
+            tabs={ [
+              { label: 'About', onClick: '/' },
+              { label: this.context.mobile ? 'Docs' : 'Documentation', onClick: '/documentation' },
+              { label: 'Github', selectable: false, onClick: 'https://github.com/casesandberg/reactcss', newTab: true },
+            ] }
+          />
         </div>
       </div>
     );
   }
 }
 
-export default ReactCSS(Header);
+export default Header;

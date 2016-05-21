@@ -1,12 +1,11 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
 export class Container extends React.Component {
-
-  classes() {
-    return {
+  render() {
+    const styles = reactCSS({
       'default': {
         cotainer: {
           maxWidth: '880px',
@@ -14,12 +13,10 @@ export class Container extends React.Component {
           margin: '0 auto',
         },
       },
-    };
-  }
+    });
 
-  render() {
-    return <div is="cotainer">{ this.props.children }</div>;
+    return <div style={ styles.cotainer }>{ this.props.children }</div>;
   }
 }
 
-export default ReactCSS(Container);
+export default Container;

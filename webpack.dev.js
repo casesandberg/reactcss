@@ -37,7 +37,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'reactcss': path.resolve(__dirname, './src/react-css.js'),
+      'reactcss': path.resolve(__dirname, './src/reactcss.js'),
     },
     extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
     fallback: [path.resolve(__dirname, './modules')],

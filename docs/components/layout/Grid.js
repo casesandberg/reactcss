@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
 export class Grid extends React.Component {
 
@@ -9,8 +9,8 @@ export class Grid extends React.Component {
     mobile: React.PropTypes.bool,
   }
 
-  classes() {
-    return {
+  render() {
+    const styles = reactCSS({
       'default': {
         grid: {
           display: 'flex',
@@ -49,27 +49,23 @@ export class Grid extends React.Component {
           display: 'none',
         },
       },
-    };
-  }
-
-  activations() {
-    return {
+    }, this.props, {
       'mobile': this.context.mobile,
       'docs-mobile': this.context.mobile && this.props.flex === '1-3',
-    };
-  }
+    });
 
-  render() {
     return (
-      <div is="grid" className="flexbox-fix">
+      <div style={ styles.grid } className="flexbox-fix">
         { this.props.children.map((child, i) => {
-          <div is={{ column: true, firstColumn: i === 0 }} key={ i }>
-            { child }
-          </div>;
+          return (
+            <div style={ styles.column } key={ i }> { /* { column: true, firstColumn: i === 0 } */ }
+              { child }
+            </div>
+          );
         }) }
       </div>
     );
   }
 }
 
-export default ReactCSS(Grid);
+export default Grid;

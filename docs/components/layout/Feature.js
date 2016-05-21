@@ -4,21 +4,18 @@ import React from 'react';
 import ReactCSS from 'reactcss';
 
 export class Feature extends React.Component {
-
-  classes() {
-    return {
+  render() {
+    const styles = ReactCSS({
       'default': {
         feature: {
           height: '440px',
           position: 'relative',
         },
       },
-    };
-  }
+    });
 
-  render() {
     return (
-      <div is="feature">
+      <div style={ styles.feature }>
         <this.props.component />
       </div>
     );
@@ -26,4 +23,4 @@ export class Feature extends React.Component {
 
 }
 
-export default ReactCSS(Feature);
+export default Feature;

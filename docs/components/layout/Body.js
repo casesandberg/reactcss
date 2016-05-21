@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export class Body extends React.Component {
 
   render() {
     return (
       <div>
-        <style>{`
+        <style>{ `
           .flexbox-fix {
             display: -webkit-box;
             display: -moz-box;
@@ -15,12 +15,12 @@ export class Body extends React.Component {
             display: -webkit-flex;
             display: flex;
           }
-        `}</style>
+        ` }</style>
 
         <this.props.component />
       </div>
-    );
+    )
   }
 }
 
-export default Body;
+export default Body
