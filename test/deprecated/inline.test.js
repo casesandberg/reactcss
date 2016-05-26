@@ -1,14 +1,14 @@
 /* global describe, it, beforeEach, afterEach */
 
-import { expect } from '../helpers';
-import inline from '../../src/deprecated/inline';
+import { expect } from '../helpers'
+import inline from '../../src/deprecated/inline'
 
 describe('React Inline', () => {
-  let that = {};
+  let that = {}
 
   beforeEach(() => {
-    that = {};
-  });
+    that = {}
+  })
 
   it('return a css object from a set of true class names', () => {
     that.classes = () => {
@@ -18,21 +18,21 @@ describe('React Inline', () => {
             position: 'absolute',
           },
         },
-      };
-    };
+      }
+    }
 
     const before = {
       'foo': false,
       'base': true,
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
       },
-    };
+    }
 
-    expect(inline.call(that, before)).to.eql(after);
-  });
+    expect(inline.call(that, before)).to.eql(after)
+  })
 
   it('return a css object from a bunch of class names', () => {
     that.classes = () => {
@@ -52,23 +52,23 @@ describe('React Inline', () => {
             display: 'none',
           },
         },
-      };
-    };
+      }
+    }
 
     const before = {
       'base': true,
       'outlined': true,
       'disabled': false,
-    };
+    }
     const after = {
       card: {
         position: 'absolute',
         border: '2px solid #aeee00',
       },
-    };
+    }
 
-    expect(inline.call(that, before)).to.eql(after);
-  });
+    expect(inline.call(that, before)).to.eql(after)
+  })
 
   it('include the `default` class', () => {
     that.classes = () => {
@@ -78,23 +78,23 @@ describe('React Inline', () => {
             position: 'absolute',
           },
         },
-      };
-    };
+      }
+    }
 
     const after = {
       card: {
         position: 'absolute',
       },
-    };
+    }
 
-    expect(inline.call(that)).to.eql(after);
-  });
+    expect(inline.call(that)).to.eql(after)
+  })
 
   it('include any true props that match class names', () => {
     that.props = {
       isSelected: true,
       dark: true,
-    };
+    }
     that.classes = () => {
       return {
         'default': {
@@ -113,8 +113,8 @@ describe('React Inline', () => {
             color: '#333',
           },
         },
-      };
-    };
+      }
+    }
 
     const after = {
       card: {
@@ -122,16 +122,16 @@ describe('React Inline', () => {
         color: '#333',
         border: '2px solid #aeee00',
       },
-    };
+    }
 
-    expect(inline.call(that)).to.eql(after);
-  });
+    expect(inline.call(that)).to.eql(after)
+  })
 
   it('check if props and values match a class', () => {
     that.props = {
       isSelected: false,
       zDepth: 2,
-    };
+    }
     that.classes = () => {
       return {
         'default': {
@@ -149,8 +149,8 @@ describe('React Inline', () => {
             border: '2px solid #333',
           },
         },
-      };
-    };
+      }
+    }
 
     const after = {
       card: {
@@ -158,8 +158,8 @@ describe('React Inline', () => {
         background: 'grey',
         border: '2px solid #333',
       },
-    };
+    }
 
-    expect(inline.call(that)).to.eql(after);
-  });
-});
+    expect(inline.call(that)).to.eql(after)
+  })
+})

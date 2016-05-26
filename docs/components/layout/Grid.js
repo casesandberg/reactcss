@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import reactCSS from 'reactcss';
+import React from 'react'
+import reactCSS, { m } from 'reactcss'
 
 export class Grid extends React.Component {
 
@@ -52,20 +52,23 @@ export class Grid extends React.Component {
     }, this.props, {
       'mobile': this.context.mobile,
       'docs-mobile': this.context.mobile && this.props.flex === '1-3',
-    });
+    })
 
     return (
       <div style={ styles.grid } className="flexbox-fix">
         { this.props.children.map((child, i) => {
           return (
-            <div style={ styles.column } key={ i }> { /* { column: true, firstColumn: i === 0 } */ }
+            <div
+              style={ Object.assign({}, styles.column, i === 0 && styles.firstColumn) }
+              key={ i }
+            >
               { child }
             </div>
-          );
+          )
         }) }
       </div>
-    );
+    )
   }
 }
 
-export default Grid;
+export default Grid

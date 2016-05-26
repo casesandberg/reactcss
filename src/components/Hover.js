@@ -1,22 +1,22 @@
-'use strict';
+'use strict'
 
-import React from 'react';
+import React from 'react'
 
 export const hover = Component => {
   return class Hover extends React.Component {
     constructor() {
-      super();
+      super()
       this.state = {
         hover: false,
-      };
+      }
     }
 
     handleMouseOver = () => {
-      this.setState({ hover: true });
+      this.setState({ hover: true })
     }
 
     handleMouseOut = () => {
-      this.setState({ hover: false });
+      this.setState({ hover: false })
     }
 
     render() {
@@ -30,9 +30,9 @@ export const hover = Component => {
             {...this.state}
           />
         </div>
-      );
+      )
     }
-  };
-};
+  }
+}
 
-export default hover;
+export default hover
