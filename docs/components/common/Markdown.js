@@ -1,30 +1,30 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import markdown from '../../helpers/markdown';
+import React from 'react'
+import markdown from '../../helpers/markdown'
 
-import Code from './Code';
+import Code from './Code'
 
 export class Markdown extends React.Component {
 
   shouldComponentUpdate() {
-    return false;
+    return false
   }
 
   render() {
-    let children = this.props.children;
+    let children = this.props.children
 
     // codeblocks on top of eachother
-    children = children.replace('```\n```', '======');
+    children = children.replace('```\n```', '======')
 
-    let newLines = children;
+    let newLines = children
 
-    const codes = [];
+    const codes = []
     markdown.isCode(children).map((codeBlock, i) => {
-      newLines = newLines.replace(codeBlock[1], '|Code:#{ i }|');
-      codes[i] = <Code file={ codeBlock[2] } condensed={ this.props.condensed } />;
-      return codeBlock;
-    });
+      newLines = newLines.replace(codeBlock[1], '|Code:#{ i }|')
+      codes[i] = <Code file={ codeBlock[2] } condensed={ this.props.condensed } />
+      return codeBlock
+    })
 
     return (
       <div>
@@ -70,7 +70,7 @@ export class Markdown extends React.Component {
 
         { newLines.split('\n').map((line, i) => {
           if (markdown.isCodeBlock(line)) {
-            return <div key={ i }>{ codes[markdown.codeNumber(line)] }</div>;
+            return <div key={ i }>{ codes[markdown.codeNumber(line)] }</div>
           }
 
           return (
@@ -79,11 +79,11 @@ export class Markdown extends React.Component {
               className="markdown"
               dangerouslySetInnerHTML={ { __html: markdown.render(line) } }
             />
-          );
+          )
         }) }
       </div>
-    );
+    )
   }
 }
 
-export default Markdown;
+export default Markdown

@@ -3,7 +3,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-const { Tile } = require('react-material-design')
+const { Tile } = require('../common')
 
 export class DocsSidebarItem extends React.Component {
   render() {
@@ -13,6 +13,8 @@ export class DocsSidebarItem extends React.Component {
           fontSize: '14px',
           textDecoration: 'none',
           color: 'rgba(0, 0, 0, .57)',
+          paddingTop: '14px',
+          display: 'block',
         },
         number: {
           fontSize: '14px',

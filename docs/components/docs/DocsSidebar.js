@@ -3,7 +3,7 @@
 import React from 'react'
 import _ from 'lodash'
 import reactCSS from 'reactcss'
-const markdown = require('../../helpers/markdown')
+import markdown from '../../helpers/markdown'
 
 const { DocsSidebarItem } = require('./DocsSidebarItem')
 
@@ -50,7 +50,7 @@ export class DocsSidebar extends React.Component {
             <DocsSidebarItem
               key={ fileName }
               sidebarNumber={ sectionNumber }
-              href={ "##{ args.id }" }
+              href={ `#${ args.id }` }
               active={ this.props.active === args.id }
               bold={ sectionNumber && true }
               label={ args.title }
