@@ -94,7 +94,7 @@ class Grid extends React.Component {
       'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
       'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
       'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500,
-    })
+    }, this.props)
 
     return (
       <div style={ styles.grid }>

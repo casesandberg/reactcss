@@ -55,7 +55,7 @@ export class Shell extends React.Component {
         },
         header: {
           zIndex: '3',
-          Absolute: '0 0 auto 0',
+          absolute: '0 0 auto 0',
         },
         body: {
           position: 'relative',

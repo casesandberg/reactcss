@@ -1,43 +1,12 @@
 'use strict'
 
 React = require('react')
-ReactCSS = require('reactcss')
-
-
+reactCSS = require('reactcss')
 
 module.exports = class Ink extends React.Component
 
   @defaultProps =
     color: 'dark'
-
-  css: ReactCSS.inline
-
-  classes: ->
-    'default':
-      ink:
-        position: 'relative'
-        cursor: 'pointer'
-        overflow: 'hidden'
-
-      ripple:
-        position: 'absolute'
-        width: '10px'
-        height: '10px'
-        transform: 'translate(-50%, -50%) scale(0)'
-        transition: 'transform 400ms cubic-bezier(.55,0,.3,1), opacity 200ms 200ms linear'
-        borderRadius: '50%'
-        opacity: '1'
-
-    'color-dark':
-      ripple:
-        background: 'rgba(0,0,0,.1)'
-
-    'color-light':
-      ripple:
-        background: 'rgba(255,255,255,.15)'
-
-  styles: -> @css()
-
 
   handleClick: (e) =>
     left = Math.round(e.clientX - e.currentTarget.getBoundingClientRect().left)
@@ -62,7 +31,32 @@ module.exports = class Ink extends React.Component
       ), 400
 
   render: ->
-    <div is="ink" onClick={ @handleClick }>
-      <div is="ripple" ref="ripple" />
+    styles = reactCSS.default({
+      'default':
+        ink:
+          position: 'relative'
+          cursor: 'pointer'
+          overflow: 'hidden'
+
+        ripple:
+          position: 'absolute'
+          width: '10px'
+          height: '10px'
+          transform: 'translate(-50%, -50%) scale(0)'
+          transition: 'transform 400ms cubic-bezier(.55,0,.3,1), opacity 200ms 200ms linear'
+          borderRadius: '50%'
+          opacity: '1'
+
+      'color-dark':
+        ripple:
+          background: 'rgba(0,0,0,.1)'
+
+      'color-light':
+        ripple:
+          background: 'rgba(255,255,255,.15)'
+    }, @props)
+
+    <div style={ styles.ink } onClick={ @handleClick }>
+      <div style={ styles.ripple } ref="ripple" />
       { @props.children }
     </div>
