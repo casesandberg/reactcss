@@ -5,7 +5,9 @@ import reactCSS from 'reactcss'
 
 import { Container } from '../layout'
 
-// const docsFiles = require('../../documentation')
+import Docs from '../../../modules/react-documentation'
+
+import docsFiles from '../../documentation'
 // const commentedFile = require('../../documentation/00-commented-file.md')
 
 export const DocsBody = () => {
@@ -22,6 +24,8 @@ export const DocsBody = () => {
       <Container>
 
         sdfasdfasd fasdf asdf
+
+        <Docs markdown={ docsFiles } />
 
       </Container>
     </div>
