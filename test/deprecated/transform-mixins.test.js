@@ -40,16 +40,16 @@ describe('Mixins', () => {
   it('expand basic custom props where the output is just values', () => {
     const before = {
       card: {
-        borderRadius: '2',
+        borderRadius: '2px',
       },
     }
     const after = {
       card: {
-        msBorderRadius: '2',
-        MozBorderRadius: '2',
-        OBorderRadius: '2',
-        WebkitBorderRadius: '2',
-        borderRadius: '2',
+        msBorderRadius: '2px',
+        MozBorderRadius: '2px',
+        OBorderRadius: '2px',
+        WebkitBorderRadius: '2px',
+        borderRadius: '2px',
       },
     }
 
@@ -59,16 +59,16 @@ describe('Mixins', () => {
   it('expand custom props where the output is a complex eval', () => {
     const before = {
       card: {
-        Absolute: '0 0 0 0',
+        Absolute: '0px 0px 0px 0px',
       },
     }
     const after = {
       card: {
         position: 'absolute',
-        top: '0',
-        right: '0',
-        bottom: '0',
-        left: '0',
+        top: '0px',
+        right: '0px',
+        bottom: '0px',
+        left: '0px',
       },
     }
     expect(mixins(before)).to.eql(after)
@@ -77,17 +77,17 @@ describe('Mixins', () => {
   it('expand custom props where the output is a complex eval v2', () => {
     const before = {
       card: {
-        Absolute: '0 0 0 0',
+        Absolute: '0px 0px 0px 0px',
         background: '#fff',
       },
     }
     const after = {
       card: {
         position: 'absolute',
-        top: '0',
-        right: '0',
-        bottom: '0',
-        left: '0',
+        top: '0px',
+        right: '0px',
+        bottom: '0px',
+        left: '0px',
         background: '#fff',
       },
     }
@@ -132,7 +132,7 @@ describe('Mixins', () => {
       body: {
         sidebar: {
           card: {
-            Absolute: '0 0 0 0',
+            Absolute: '0px 0px 0px 0px',
           },
         },
       },
@@ -142,10 +142,10 @@ describe('Mixins', () => {
         sidebar: {
           card: {
             position: 'absolute',
-            top: '0',
-            right: '0',
-            bottom: '0',
-            left: '0',
+            top: '0px',
+            right: '0px',
+            bottom: '0px',
+            left: '0px',
           },
         },
       },
