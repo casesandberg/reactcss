@@ -9,12 +9,14 @@ class Grid extends React.Component {
       'default': {
         grid: {
           position: 'relative',
+          height: '100%'
         },
       },
       'preset-default': {
         left: {
           position: 'absolute',
           width: '170px',
+          height: '100%'
         },
         main: {
           paddingLeft: '190px',

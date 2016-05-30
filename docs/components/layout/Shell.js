@@ -53,10 +53,6 @@ export class Shell extends React.Component {
           background: '#eee',
           minHeight: '100%',
         },
-        header: {
-          zIndex: '3',
-          absolute: '0 0 auto 0',
-        },
         body: {
           position: 'relative',
           zIndex: '2',
@@ -66,9 +62,6 @@ export class Shell extends React.Component {
 
     return (
       <div style={ styles.shell }>
-        <div style={ styles.header }>
-          <Header display={ this.props.nav } />
-        </div>
         <Feature component={ this.props.feature } />
         <div style={ styles.body }>
           <Body component={ this.props.body } />

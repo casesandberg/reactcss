@@ -5,6 +5,8 @@ import reactCSS from 'reactcss'
 
 const { Container } = require('../layout')
 const { Animate } = require('../common')
+import { Grid } from '../../../modules/react-basic-layout'
+import { Raised } from '../../../modules/react-material-design'
 
 
 export class DocsFeature extends React.Component {
@@ -20,12 +22,15 @@ export class DocsFeature extends React.Component {
           height: '100%',
         },
         title: {
-          paddingTop: '130px',
-          paddingLeft: '27.25%',
-          marginLeft: '20px',
-          fontSize: '34px',
+          paddingTop: '17px',
+          fontSize: '24px',
           color: 'rgba(255, 255, 255, .87)',
           WebkitFontSmoothing: 'antialiased',
+        },
+        star: {
+          position: 'absolute',
+          bottom: '14px',
+          left: '15px',
         },
       },
       'mobile-header': {
@@ -42,11 +47,21 @@ export class DocsFeature extends React.Component {
     return (
       <div style={ styles.docsFeature }>
         <Container>
+          <Grid>
+            <div>
+              <div style={ styles.star }>
+                <Animate inDelay={ 800 }>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+                </Animate>
+              </div>
+            </div>
 
-          <Animate>
-            <div style={ styles.title }>Documentation</div>
-          </Animate>
-
+            <div>
+              <Animate>
+                <div style={ styles.title }>ReactCSS</div>
+              </Animate>
+            </div>
+          </Grid>
         </Container>
       </div>
     )

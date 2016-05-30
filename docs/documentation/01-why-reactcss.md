@@ -1,7 +1,6 @@
 ---
 id: why-reactcss
 title: Why ReactCSS?
-
 ---
 ReactCSS builds upon the inline-css work the community has developed with a focus on:
 

@@ -1,5 +1,5 @@
 module.exports =
-
+  '': require('./00-intro.md')
   '01-why-reactcss': require('./01-why-reactcss.md')
   '02-preface': require('./02-preface.md')
   '03-getting-started': require('./03-getting-started.md')

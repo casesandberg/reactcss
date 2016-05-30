@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import reactCSS from 'reactcss';
+import React from 'react'
+import reactCSS from 'reactcss'
 
 export class Container extends React.Component {
   render() {
@@ -11,12 +11,13 @@ export class Container extends React.Component {
           maxWidth: '880px',
           padding: '0 14px',
           margin: '0 auto',
+          height: '100%',
         },
       },
-    });
+    })
 
-    return <div style={ styles.cotainer }>{ this.props.children }</div>;
+    return <div style={ styles.cotainer }>{ this.props.children }</div>
   }
 }
 
-export default Container;
+export default Container

@@ -1,26 +1,26 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class Feature extends React.Component {
   render() {
     const styles = ReactCSS({
       'default': {
         feature: {
-          height: '440px',
+          height: '64px',
           position: 'relative',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.feature }>
         <this.props.component />
       </div>
-    );
+    )
   }
 
 }
 
-export default Feature;
+export default Feature
