@@ -89,21 +89,26 @@ class Docs extends React.Component {
     for (var fileName in this.props.markdown) {
       if (this.props.markdown.hasOwnProperty(fileName)) {
         var file = this.props.markdown[fileName];
-        var args = markdown.getArgs(file);
-        var body = markdown.getBody(file);
+        if (file) {
+          var args = markdown.getArgs(file);
+          var body = markdown.getBody(file);
 
-        markdownFiles.push(
-          <div key={ fileName } id={ args.id } className="markdown">
+          markdownFiles.push(
+            <div key={ fileName } id={ args.id } className="markdown">
 
-            <MarkdownTitle
-              isHeadline={ markdown.isSubSection(fileName) ? true : false }
-              title={ args.title }
-              link={ args.id }
-              primaryColor={ this.props.primaryColor }/>
+              { args.title && (
+                <MarkdownTitle
+                  isHeadline={ markdown.isSubSection(fileName) ? true : false }
+                  title={ args.title }
+                  link={ args.id }
+                  primaryColor={ this.props.primaryColor }
+                />
+              ) }
 
-            <Markdown>{ body }</Markdown>
-          </div>
+              <Markdown>{ body }</Markdown>
+            </div>
           );
+        }
       }
     }
 
@@ -143,6 +148,7 @@ class Docs extends React.Component {
             margin: 0;
             padding-top: 54px;
             padding-bottom: 5px;
+            line-height: 46px;
           }
           .markdown h2{
             font-size: 26px;

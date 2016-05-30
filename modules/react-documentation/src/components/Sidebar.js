@@ -41,24 +41,26 @@ module.exports = class Sidebar extends React.Component {
     for (var fileName in this.props.files) {
       if (this.props.files.hasOwnProperty(fileName)) {
         var file = this.props.files[fileName];
-        var args = markdown.getArgs(file);
-        var sectionNumber;
-        if (markdown.isSubSection(fileName)) {
-          sectionNumber = fileName.split('-')[0];
-        } else {
-          sectionNumber = false;
-        }
+        if (file) {
+          var args = markdown.getArgs(file);
+          var sectionNumber;
+          if (markdown.isSubSection(fileName)) {
+            sectionNumber = fileName.split('-')[0];
+          } else {
+            sectionNumber = false;
+          }
 
-        sidebarItems.push(
-          <SidebarItem
-            key={ fileName }
-            sidebarNumber={ sectionNumber }
-            href={ '#' + args.id }
-            active={ this.props.active === args.id }
-            bold={ sectionNumber && true }
-            label={ args.title }
-            primaryColor={ this.props.primaryColor } />
-        );
+          fileName && sidebarItems.push(
+            <SidebarItem
+              key={ fileName }
+              sidebarNumber={ sectionNumber }
+              href={ '#' + args.id }
+              active={ this.props.active === args.id }
+              bold={ sectionNumber && true }
+              label={ args.title }
+              primaryColor={ this.props.primaryColor } />
+          );
+        }
       }
     }
 

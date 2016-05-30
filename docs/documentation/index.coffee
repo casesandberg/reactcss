@@ -1,8 +1,8 @@
 module.exports =
   '': require('./00-intro.md')
-  '01-why-reactcss': require('./01-why-reactcss.md')
-  '02-preface': require('./02-preface.md')
-  '03-getting-started': require('./03-getting-started.md')
+  # '01-why-reactcss': require('./01-why-reactcss.md')
+  # '02-preface': require('./02-preface.md')
+  '03-getting-started': null
   '03.01-install': require('./03.01-install.md')
   '03.02-include-it': require('./03.02-include-it.md')
   '03.03-default-class': require('./03.03-default-class.md')

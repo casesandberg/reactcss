@@ -22,7 +22,7 @@ export default {
   },
   getArgs: (code) => {
     const args = {}
-    if (code.indexOf('---') > -1) {
+    if (code && code.indexOf('---') > -1) {
       let i
       let len
       const match = /---([\s\S]*?)---\n([\s\S]*)/.exec(code)
@@ -37,7 +37,7 @@ export default {
     return args
   },
   getBody: (code) => {
-    if (code.indexOf('---') > -1) {
+    if (code && code.indexOf('---') > -1) {
       const match = /---([\s\S]*?)---\n([\s\S]*)/.exec(code)
       return match[2]
     }
@@ -59,7 +59,7 @@ export default {
     return false
   },
   isSubSection: (string) => {
-    if (string.split('-')[0].indexOf('.') === -1) {
+    if (string && string.split('-')[0].indexOf('.') === -1) {
       return true
     }
     return false
