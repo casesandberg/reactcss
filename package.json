@@ -15,8 +15,7 @@
   "dependencies": {
     "lodash.isarray": "^4.0.0",
     "lodash.isobject": "^3.0.2",
-    "merge": "^1.2.0",
-    "react": "^0.14.0 || ^15.0.0"
+    "merge": "^1.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.6.4",
@@ -60,6 +59,9 @@
     "testdom": "^2.0.0",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.2"
+  },
+  "peerDependencies": {
+    "react": "^15.0.2"
   },
   "scripts": {
     "test": "node_modules/.bin/mocha --compilers js:babel-register --recursive",
