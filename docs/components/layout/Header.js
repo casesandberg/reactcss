@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import reactCSS from 'reactcss';
+import React from 'react'
+import reactCSS from 'reactcss'
 
-import { Tabs } from 'react-material-design';
+import { Tabs } from 'react-material-design'
 
 export class Header extends React.Component {
 
@@ -52,11 +52,11 @@ export class Header extends React.Component {
       },
     }, {
       'mobile-header': this.context.mobile,
-    });
+    })
 
     return (
       <div style={ styles.header } className="flexbox-fix">
-        <a href="/" style={ styles.logo }>ReactCSS</a>
+        <a href="/" style={ styles.logo }>reactCSS</a>
 
         <div style={ styles.nav }>
           <Tabs
@@ -70,8 +70,8 @@ export class Header extends React.Component {
           />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

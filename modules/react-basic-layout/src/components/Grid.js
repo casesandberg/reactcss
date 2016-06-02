@@ -19,7 +19,7 @@ class Grid extends React.Component {
           height: '100%'
         },
         main: {
-          paddingLeft: '190px',
+          paddingLeft: '210px',
         },
       },
       'preset-one': {

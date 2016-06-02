@@ -96,7 +96,7 @@ class Docs extends React.Component {
           markdownFiles.push(
             <div key={ fileName } id={ args.id } className="markdown">
 
-              { args.title && (
+              { args.title && !args.hideTitle && (
                 <MarkdownTitle
                   isHeadline={ markdown.isSubSection(fileName) ? true : false }
                   title={ args.title }
@@ -138,11 +138,17 @@ class Docs extends React.Component {
             font-size: 85%;
             vertical-align: bottom;
           }
+          .markdown a {
+            color: #4A90E2;
+          }
+          .markdown a:visited {
+            color: #49535B;
+          }
           .markdown p{
             margin: 15px 24px 15px 0;
           }
           .markdown h1{
-            font-size: 38px;
+            font-size: 36px;
             font-weight: 200;
             color: rgba(0,0,0,.77);
             margin: 0;

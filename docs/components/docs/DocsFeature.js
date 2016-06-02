@@ -66,7 +66,7 @@ export class DocsFeature extends React.Component {
 
             <div style={ styles.head }>
               <Animate>
-                <div style={ styles.title }>ReactCSS</div>
+                <div style={ styles.title }>reactCSS</div>
               </Animate>
               <div style={ styles.github }>
                 <Animate inDelay={ 800 }>
