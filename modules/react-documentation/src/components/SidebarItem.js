@@ -42,7 +42,7 @@ module.exports = class SidebarItem extends React.Component {
 
     return (
       <div style={ styles.li }>
-        <Tile condensed>
+        <Tile condensed left-pad>
           <div style={ styles.number }>{ this.props.sidebarNumber }</div>
           <a href={ this.props.href } style={ styles.sidebarItem }>{ this.props.label }</a>
         </Tile>

@@ -38,7 +38,6 @@ export class DocsFeature extends React.Component {
         star: {
           position: 'absolute',
           bottom: '14px',
-          left: '15px',
         },
       },
       'mobile-header': {

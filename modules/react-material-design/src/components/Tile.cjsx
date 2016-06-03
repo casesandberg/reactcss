@@ -58,6 +58,10 @@ class Tile extends React.Component
           minWidth: '28px'
           maxWidth: '28px'
           flexBasis: '28'
+
+      'left-pad':
+        tile:
+          paddingLeft: '0'
     }, {
       'clickable': @props.onClick?
     }, @props)
