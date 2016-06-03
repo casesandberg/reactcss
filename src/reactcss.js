@@ -1,7 +1,7 @@
 'use strict'
 
 import Component from './deprecated/Component'
-export hover from './components/hover'
+export hover from './components/hover.js'
 import flattenNames from './flattenNames'
 import mergeClasses from './mergeClasses'
 import autoprefix from './autoprefix'
