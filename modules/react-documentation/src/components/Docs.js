@@ -94,7 +94,7 @@ class Docs extends React.Component {
           var body = markdown.getBody(file);
 
           markdownFiles.push(
-            <div key={ fileName } id={ args.id } className="markdown">
+            <div key={ fileName } id={ args.id } className="markdown file">
 
               { args.title && !args.hideTitle && (
                 <MarkdownTitle
@@ -137,6 +137,9 @@ class Docs extends React.Component {
             box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
             font-size: 85%;
             vertical-align: bottom;
+          }
+          .markdown.file:last-child {
+            min-height: 100vh;
           }
           .markdown a {
             color: #4A90E2;

@@ -20,16 +20,16 @@ module.exports = class SidebarItem extends React.Component {
           fontSize: '14px',
           color: 'rgba(0, 0, 0, .27)',
           fontWeight: 'bold',
-          paddingTop: '14px',
+          paddingTop: '12px',
         },
         li: {
-          paddingBottom: '8px',
+          paddingBottom: '5px',
         },
       },
       'bold': {
         sidebarItem: {
           fontWeight: 'bold',
-          paddingTop: '14px',
+          paddingTop: '12px',
           display: 'block',
         },
       },

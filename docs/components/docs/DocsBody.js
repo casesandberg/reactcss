@@ -4,11 +4,10 @@ import React from 'react'
 import reactCSS from 'reactcss'
 
 import { Container } from '../layout'
-import { Grid } from '../../../modules/react-basic-layout'
 const { Animate } = require('../common')
 import Docs from '../../../modules/react-documentation'
 
-import docsFiles from '../../documentation'
+import docsFiles from '../../documentation/index.js'
 
 export const DocsBody = () => {
   const styles = reactCSS({
