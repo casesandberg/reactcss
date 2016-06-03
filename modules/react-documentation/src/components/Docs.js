@@ -2,6 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import _ from 'lodash'
 import markdown from '../helpers/markdown'
 
 import { Grid } from '../../../react-basic-layout'
@@ -22,22 +23,11 @@ class Docs extends React.Component {
     this.changeSelection = this.changeSelection.bind(this);
     this.attachSidebar = this.attachSidebar.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleScroll = _.throttle(this.handleScroll, 200);
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, false);
-
-    var domFiles = this.refs.files && this.refs.files.children;
-
-    if (domFiles) {
-      var files = {};
-      for (var i = 0; i < domFiles.length; i++) {
-        var file = domFiles[i];
-        files[file.offsetTop] = file.id;
-      }
-
-      this.setState({ files: files });
-    }
   }
 
   componentWillUnmount() {
@@ -66,21 +56,18 @@ class Docs extends React.Component {
   }
 
   changeSelection() {
-    var top = document.body.scrollTop - 300;
-    var mostVisible = '';
-
-    for (var offset in this.state.files) {
-      if (this.state.files.hasOwnProperty(offset)) {
-        var id = this.state.files[offset];
-        if (offset < top) {
-          mostVisible = id;
+    const items = document.getElementsByClassName('file');
+    const doc = document.documentElement;
+    const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    _.map(items, (item) => {
+      const bottomOfItem = item.offsetTop + item.clientHeight;
+      if (item.offsetTop < top && bottomOfItem > top) {
+        if (this.state.visible !== item.id) {
+          console.log(item.id)
+          this.setState({ visible: item.id });
         }
       }
-    }
-
-    if (mostVisible !== this.state.visible) {
-      this.setState({ visible: mostVisible });
-    }
+    });
   }
 
   render() {
