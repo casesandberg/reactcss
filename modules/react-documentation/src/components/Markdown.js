@@ -16,7 +16,7 @@ module.exports = class Markdown extends React.Component {
       'default': {
         markdown: {
           fontSize: '17px',
-          lineHeight: '24px',
+          lineHeight: '26px',
           color: 'rgba(0,0,0,.47)',
         },
       },
