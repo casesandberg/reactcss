@@ -103,6 +103,13 @@ class Docs extends React.Component {
       <div>
 
         <style>{`
+          #intro em{
+            font-style: normal;
+            position: absolute;
+            margin-top: 25px;
+            color: #FF9800;
+          }
+
           .rendered{
             color: #607D8B; // blue grey 500
           }

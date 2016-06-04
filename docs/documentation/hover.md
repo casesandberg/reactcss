@@ -3,7 +3,7 @@ id: hover
 title: Hover
 ---
 
-Use the hover wrapper that is included with reactCSS to add hover styles to components. Wrap the export with the hover method and create a class in the styles object called hover:
+Use the hover wrapper that is included with reactCSS to add hover styles to a component. Wrap the export with the hover method and create a class in the styles object called hover:
 
 ```
 import reactCSS, { hover } from 'reactcss'
