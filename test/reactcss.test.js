@@ -88,31 +88,31 @@ describe('reactCSS', () => {
     expect(card._style._values).to.eql({ 'box-shadow': '0 4px 8px rgba(0,0,0,.15)' })
   })
 
-  it('should throw a deprecation warning for using the old extend', () => {
-    class SomeComponent extends reactCSS.Component {
-      classes() {
-        return {
-          'default': {
-            body: {
-              background: '#fafafa',
-            },
-            title: {
-              fontSize: '24px',
-            },
-          },
-        }
-      }
-
-      render() {
-        return (
-          <div style={ this.styles().body }>
-            <div style={ this.styles().title }>Title</div>
-          </div>
-        )
-      }
-    }
-
-    TestUtils.renderIntoDocument(<SomeComponent />)
-    sinon.assert.calledOnce(console.warn)
-  })
+  // it('should throw a deprecation warning for using the old extend', () => {
+  //   class SomeComponent extends reactCSS.Component {
+  //     classes() {
+  //       return {
+  //         'default': {
+  //           body: {
+  //             background: '#fafafa',
+  //           },
+  //           title: {
+  //             fontSize: '24px',
+  //           },
+  //         },
+  //       }
+  //     }
+  //
+  //     render() {
+  //       return (
+  //         <div style={ this.styles().body }>
+  //           <div style={ this.styles().title }>Title</div>
+  //         </div>
+  //       )
+  //     }
+  //   }
+  //
+  //   TestUtils.renderIntoDocument(<SomeComponent />)
+  //   sinon.assert.calledOnce(console.warn)
+  // })
 })
