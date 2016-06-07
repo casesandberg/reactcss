@@ -63,7 +63,6 @@ class Docs extends React.Component {
       const bottomOfItem = item.offsetTop + item.clientHeight;
       if (item.offsetTop < top && bottomOfItem > top) {
         if (this.state.visible !== item.id) {
-          console.log(item.id)
           this.setState({ visible: item.id });
         }
       }

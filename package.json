@@ -70,7 +70,10 @@
   "scripts": {
     "test": "npm run unit-test",
     "unit-test": "mocha test/** --compilers js:babel-register",
-    "tdd": "mocha test/** --compilers js:babel-register --watch"
+    "tdd": "mocha test/** --compilers js:babel-register --watch",
+    "docs-dev": "webpack-dev-server --config webpack.dev.js --port 2570",
+    "docs-dist": "webpack --config webpack.prod.js",
+    "dev": "npm run docs-dev"
   },
   "license": "MIT"
 }
