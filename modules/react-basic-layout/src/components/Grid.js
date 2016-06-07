@@ -57,7 +57,7 @@ class Grid extends React.Component {
 
       'mobile-default': {
         main: {
-          padding: '0',
+          paddingLeft: '0px',
         },
         left: {
           display: 'none',
@@ -92,16 +92,18 @@ class Grid extends React.Component {
         },
       },
     }, {
-      'mobile-default': this.props.preset === 'default' && document.getElementById('root').clientWidth < 500,
+      'mobile-default': document.getElementById('root').clientWidth < 500,
       'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
       'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
       'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500,
     }, this.props)
 
+    console.log(styles.main)
+
     return (
       <div style={ styles.grid }>
         <div style={ styles.left }>{ this.props.children[0] }</div>
-        <div style={ styles.main }>{ this.props.children[1] }</div>
+        <div style={ styles.main } className="main">{ this.props.children[1] }</div>
       </div>
     );
   }

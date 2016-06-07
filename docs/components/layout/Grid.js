@@ -50,8 +50,8 @@ export class Grid extends React.Component {
         },
       },
     }, this.props, {
-      'mobile': this.context.mobile,
-      'docs-mobile': this.context.mobile && this.props.flex === '1-3',
+      'mobile': document.getElementById('root').clientWidth < 500,
+      'docs-mobile': document.getElementById('root').clientWidth < 500 && this.props.flex === '1-3',
     })
 
     return (
