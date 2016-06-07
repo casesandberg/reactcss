@@ -12,11 +12,11 @@ import reactCSS, { loop } from 'reactcss'
 const List = () => {
   return (
     <div>
-      { this.props.items((item, i) => {
+      { this.props.items.map((item, i, items) => {
         return (
           <ListItem
             { ...item }
-            { ...loop(i, this.props.items.length) }
+            { ...loop(i, items.length) }
           />
         )
       }) }
