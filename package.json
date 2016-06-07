@@ -55,6 +55,7 @@
     "normalize.css": "^3.0.3",
     "npm": "^3.5.0",
     "react-addons-test-utils": "^0.14.0",
+    "react-context": "0.0.3",
     "react-dom": "^0.14.3",
     "react-hot-loader": "^1.2.5",
     "react-map-styles": "git://github.com/casesandberg/react-map-styles",
