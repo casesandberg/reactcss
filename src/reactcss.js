@@ -5,8 +5,8 @@ import mergeClasses from './mergeClasses'
 import autoprefix from './autoprefix'
 
 export Component from './deprecated/Component'
-export hover from './components/hover'
-export loop from './loop'
+export hover from './components/hover.js'
+export loop from './loop.js'
 
 export const ReactCSS = (classes, ...activations) => {
   const activeNames = flattenNames(activations)
