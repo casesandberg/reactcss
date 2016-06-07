@@ -11,7 +11,7 @@ import reactCSS, { loop } from 'reactcss'
 
 const List = () => {
   return (
-    <div style={ styles.list }>
+    <div>
       { this.props.items((item, i) => {
         return <ListItem { ...item } { ...loop(i) } />
       }) }
