@@ -1,10 +1,12 @@
 'use strict'
 
-import Component from './deprecated/Component'
-export hover from './components/hover.js'
 import flattenNames from './flattenNames'
 import mergeClasses from './mergeClasses'
 import autoprefix from './autoprefix'
+
+export Component from './deprecated/Component'
+export hover from './components/hover'
+export loop from './loop'
 
 export const ReactCSS = (classes, ...activations) => {
   const activeNames = flattenNames(activations)
@@ -12,7 +14,6 @@ export const ReactCSS = (classes, ...activations) => {
   return autoprefix(merged)
 }
 
-ReactCSS.Component = Component
 ReactCSS.m = Object.assign
 
 export default ReactCSS
