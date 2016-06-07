@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Bringing Classes to Inline Styles",
   "author": "case <case@casesandberg.com>",
-  "main": "lib/react-css.js",
+  "main": "lib/reactcss.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/casesandberg/reactcss"
