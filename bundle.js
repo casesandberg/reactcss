@@ -3380,7 +3380,7 @@
 /* 556 */
 /***/ function(module, exports) {
 
-	eval("module.exports = \"---\\nid: getting-started-style-object\\ntitle: Style Object\\n---\\n\\nDefine a default styles for your elements:\\n```javascript\\nimport reactCSS from 'reactcss'\\n\\nconst styles = reactCSS({\\n  'default': {\\n    card: {\\n      background: 'this.props.background',\\n      boxShadow: '0 2px 4px rgba(0,0,0,.15)',\\n    },\\n  },\\n})\\n```\\n\\nPass style definitions via inline styles:\\n```javascript\\n<div style={ styles.card } />\\n```\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./docs/documentation/intro-style-object.md\n ** module id = 556\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./docs/documentation/intro-style-object.md?");
+	eval("module.exports = \"---\\nid: getting-started-style-object\\ntitle: Style Object\\n---\\n\\nDefine a default styles for your elements:\\n```javascript\\nimport reactCSS from 'reactcss'\\n\\nconst styles = reactCSS({\\n  'default': {\\n    card: {\\n      background: this.props.background,\\n      boxShadow: '0 2px 4px rgba(0,0,0,.15)',\\n    },\\n  },\\n})\\n```\\n\\nPass style definitions via inline styles:\\n```javascript\\n<div style={ styles.card } />\\n```\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./docs/documentation/intro-style-object.md\n ** module id = 556\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./docs/documentation/intro-style-object.md?");
 
 /***/ },
 /* 557 */
