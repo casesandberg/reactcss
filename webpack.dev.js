@@ -4,7 +4,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: ['webpack-dev-server/client?http://localhost:2570', 'webpack/hot/dev-server', './docs/index.coffee'],
+  entry: ['webpack-dev-server/client?http://localhost:2570', 'webpack/hot/dev-server', './docs/index.js'],
   output: {
     path: path.join(__dirname, 'docs/build'),
     filename: 'bundle.js',
@@ -15,11 +15,11 @@ module.exports = {
       {
         exclude: /node_modules/,
         test: /\.js$/,
-        loaders: ['react-hot-loader'],
+        loaders: ['react-hot-loader', 'babel?presets[]=react', 'react-map-styles'],
       }, {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loaders: ['react-hot-loader', 'jsx-loader', 'babel-loader', 'react-map-styles'],
+        loaders: ['react-hot-loader', 'babel', 'react-map-styles'],
       }, {
         test: /\.coffee$/,
         loaders: ['coffee-loader'],
@@ -37,7 +37,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'reactcss': path.resolve(__dirname, './lib/react-css.js'),
+      'reactcss': path.resolve(__dirname, './src/reactcss.js'),
     },
     extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
     fallback: [path.resolve(__dirname, './modules')],

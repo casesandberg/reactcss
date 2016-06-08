@@ -123,11 +123,11 @@ class Tabs extends React.Component
   handleClick: (tab) => @setState( selectedTab: tab )
 
   slide: ->
-    containerNode = @refs.tabs.getDOMNode()
+    containerNode = @refs.tabs
     containerLeft = containerNode.scrollLeft
     containerRight = containerNode.offsetWidth + containerNode.scrollLeft
 
-    selectedNode = @refs["tab-#{ @state.selectedTab }"]?.getDOMNode()
+    selectedNode = @refs["tab-#{ @state.selectedTab }"]
     selectedLeft = selectedNode.getBoundingClientRect().left - containerNode.getBoundingClientRect().left + containerNode.scrollLeft
     selectedRight = selectedLeft + selectedNode.offsetWidth
 
@@ -138,10 +138,10 @@ class Tabs extends React.Component
     if selectedLeft < containerLeft
       containerNode.scrollLeft -= (containerLeft - selectedLeft)
     # slide the indicator
-    @refs.indicator.getDOMNode().style.left = selectedLeft
-    @refs.indicator.getDOMNode().style.width = selectedNode.offsetWidth
-    @refs.indicator.getDOMNode().style.webkitTransform = 'translateY(0)'
-    @refs.indicator.getDOMNode().style.transform = 'translateY(0)'
+    @refs.indicator.style.left = selectedLeft
+    @refs.indicator.style.width = selectedNode.offsetWidth
+    @refs.indicator.style.webkitTransform = 'translateY(0)'
+    @refs.indicator.style.transform = 'translateY(0)'
 
   componentDidMount: -> @slide()
 

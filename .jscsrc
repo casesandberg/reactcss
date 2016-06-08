@@ -1,8 +1,0 @@
-{
-  "preset": "airbnb",
-  "disallowQuotedKeysInObjects": null,
-  "excludeFiles": ["build/**", "node_modules/**", "package.json"],
-  "validateQuoteMarks": null,
-  "requireSemicolons": false,
-  "disallowSemicolons": true
-}

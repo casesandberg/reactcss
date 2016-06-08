@@ -1,72 +1,53 @@
 # [ReactCSS](http://reactcss.com/)
 
-* **"Pop" classes on and off:** Use a class-based data structure, similar to traditional modifier css, that can be applied conditionally.
-* **Keep styles in one place:** Html and components styles stay together. Separate the style logic from the display and business logic.
-* **Simple to attach to elements:** Use the "is" syntax to effortlessly attach inline styles to html elements and spreads to custom components.
+## Inline Styles in JS with support for [React](http://reactcss.com/#react), [Redux](http://reactcss.com/#redux), [React Native](http://reactcss.com/#react-native), [Autoprefixing](http://reactcss.com/#autoprefixing), [Hover](http://reactcss.com/#hover), [Pseudo-Elements](http://reactcss.com/#pseudo-elements) & [Media Queries](http://reactcss.com/#media-queries)
 
-#### Sample Component
-![Sample Component with ReactCSS](http://reactcss.com/reactcss-before-after.png)
-
-## Installation & Usage
+## Install
 
 ```
 npm install reactcss --save
 ```
 
-### Extend ReactCSS
-```javascript
-var ReactCSS = require('reactcss');
+## Style Object
 
-class Button extends ReactCSS.Component {
-  ...
-}
+Define a default styles for your elements:
+```javascript
+import reactCSS from 'reactcss'
+
+const styles = reactCSS({
+  'default': {
+    card: {
+      background: this.props.background,
+      boxShadow: '0 2px 4px rgba(0,0,0,.15)',
+    },
+  },
+})
 ```
 
-### Put in a Default Class
+Pass style definitions via inline styles:
 ```javascript
-var ReactCSS = require('reactcss');
-
-class Button extends ReactCSS.Component {
-
-  classes() {
-    return {
-      'default': {
-        modal: {
-          background: '#fff',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, .48)'
-        },
-        title: {
-          fontSize: '24px'
-        },
-        Content: {
-          type: 'modal-content',
-          padding: '20px'
-        }
-      }
-    }
-  }
-
-  ...
-}
+<div style={ styles.card } />
 ```
 
-### Attach styles to HTML
-See [react-map-styles](http://github.com/casesandberg/react-map-styles)
+## Activating Classes
+
+Activate additional classes by passing down objects as additional parameters to `reactCSS`:
 ```javascript
-var ReactCSS = require('reactcss');
-
-class Button extends ReactCSS.Component {
-  ...
-
-  render() {
-    return (
-      <div is="modal">
-        <div is="title">{ this.props.title }</div>
-        <Content is="Content" />
-      </div>
-    )
-  }
-}
+const styles = reactCSS({
+  'default': {
+    card: {
+      background: '#fff',
+      boxShadow: '0 2px 4px rgba(0,0,0,.15)',
+    },
+  },
+  'zIndex-2': {
+    card: {
+      boxShadow: '0 4px 8px rgba(0,0,0,.15)',
+    },
+  },
+}, {
+  'zIndex-2': props.zIndex === 2,
+})
 ```
 
 ## Documentation
