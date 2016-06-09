@@ -1,0 +1,9 @@
+# Changelog
+
+## 1.0.3 (8 June 2016)
+
+- Moved React to Peer Dependencies
+
+## 1.0.0 - 1.0.2 (7 June 2016)
+
+- Update API to to support React, Redux, React Native, Autoprefixing, Hover, Pseudo-Elements & Media Queries
