@@ -15,8 +15,7 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash": "^3.6.0",
-    "merge": "^1.2.0",
-    "react": "^0.14.0"
+    "merge": "^1.2.0"
   },
   "devDependencies": {
     "babel": "^6.0.15",
@@ -54,9 +53,10 @@
     "mocha-sinon": "^1.1.4",
     "normalize.css": "^3.0.3",
     "npm": "^3.5.0",
-    "react-addons-test-utils": "^0.14.0",
+    "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
     "react-context": "0.0.3",
-    "react-dom": "^0.14.3",
+    "react-dom": "^15.1.0",
     "react-hot-loader": "^1.2.5",
     "react-map-styles": "git://github.com/casesandberg/react-map-styles",
     "remarkable": "^1.6.0",
@@ -67,6 +67,11 @@
     "testdom": "^2.0.0",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.2"
+  },
+  "peerDependencies": {
+    "react": "^0.14.8 || ^15.1.0",
+    "react-dom": "^0.14.8 || ^15.1.0",
+    "react-addons-test-utils": "^0.14.8 || ^15.1.0"
   },
   "scripts": {
     "test": "npm run unit-test",
