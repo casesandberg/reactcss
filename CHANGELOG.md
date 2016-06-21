@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 (21 June 2016)
+
+- Fix case-sensitive import bug
+
 ## 1.0.3 (8 June 2016)
 
 - Moved React to Peer Dependencies
