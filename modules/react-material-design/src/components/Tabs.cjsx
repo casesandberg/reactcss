@@ -2,7 +2,7 @@
 
 React = require('react')
 css = require('reactcss')
-_ = require('lodash')
+isString = require('lodash/isString')
 
 Tab = require('./Tab')
 Link = require('./Link')
@@ -155,7 +155,7 @@ class Tabs extends React.Component
     <div is="tabs" ref="tabs">
       <div is="tabWrap" className="flexbox-fix">
         { for tab, i in @props.tabs
-            if _.isString(tab)
+            if isString(tab)
               label = tab
               callback = null
             else

@@ -1,17 +1,18 @@
 /* eslint no-console: 0 */
 
-import _ from 'lodash'
+import map from 'lodash/map'
+import isObject from 'lodash/isObject'
 
 export const checkClassStructure = (classes) => {
-  _.map(classes, (elements, className) => {
+  map(classes, (elements, className) => {
     if (classes.hasOwnProperty(className)) {
-      if (!_.isObject(elements)) {
+      if (!isObject(elements)) {
         console.warn(`Make sure the value of \`${ className }\` is an object of
           html elements. You passed it \`${ elements }\``)
       } else {
-        _.map(elements, (css, elementName) => {
+        map(elements, (css, elementName) => {
           if (elements.hasOwnProperty(elementName)) {
-            if (!_.isObject(css)) {
+            if (!isObject(css)) {
               console.warn(`Make sure the value of the element \`${ className }\`
                 is an object of css. You passed it \`${ elements }\``)
             }
