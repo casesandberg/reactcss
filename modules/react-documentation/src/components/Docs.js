@@ -2,7 +2,8 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
-import _ from 'lodash'
+import map from 'lodash/map'
+import throttle from 'lodash/throttle'
 import markdown from '../helpers/markdown'
 
 import { Grid } from '../../../react-basic-layout'
@@ -23,7 +24,7 @@ class Docs extends React.Component {
     this.changeSelection = this.changeSelection.bind(this);
     this.attachSidebar = this.attachSidebar.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.handleScroll = _.throttle(this.handleScroll, 200);
+    this.handleScroll = throttle(this.handleScroll, 200);
   }
 
   componentDidMount() {
@@ -59,7 +60,7 @@ class Docs extends React.Component {
     const items = document.getElementsByClassName('file');
     const doc = document.documentElement;
     const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-    _.map(items, (item) => {
+    map(items, (item) => {
       const bottomOfItem = item.offsetTop + item.clientHeight;
       if (item.offsetTop < top && bottomOfItem > top) {
         if (this.state.visible !== item.id) {

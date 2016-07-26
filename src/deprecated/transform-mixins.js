@@ -1,6 +1,6 @@
 'use strict'
 
-import _ from 'lodash'
+import isObject from 'lodash/isObject'
 import merge from 'merge'
 
 /*
@@ -131,7 +131,7 @@ const transform = (styleObject, customFuncs, parent) => {
     var value = styleObject[key]
 
     // If its an object
-    if (_.isObject(value) && !_.isArray(value)) {
+    if (isObject(value) && !Array.isArray(value)) {
       // Lets go ahead and run again
       obj[key] = transform(value, customFuncs, styleObject)
     } else {

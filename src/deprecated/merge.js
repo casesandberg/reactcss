@@ -1,11 +1,11 @@
 'use strict'
 
 import mrg from 'merge'
-import _ from 'lodash'
+import isObject from 'lodash/isObject'
 
 const merge = (toMerge) => {
   // If its an object, lets just return it
-  if (_.isObject(toMerge) && !_.isArray(toMerge)) {
+  if (isObject(toMerge) && !Array.isArray(toMerge)) {
     return toMerge
   }
 

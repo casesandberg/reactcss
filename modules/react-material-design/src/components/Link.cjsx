@@ -1,7 +1,7 @@
 'use strict'
 
 React = require('react')
-_ = require('lodash')
+isString = require('lodash/isString')
 
 
 module.exports = class Link extends React.Component
@@ -27,7 +27,7 @@ module.exports = class Link extends React.Component
   handleClick: (e) => @props.onClick?(e, @props.callbackValue)
 
   render: ->
-    if _.isString(@props.onClick)
+    if isString(@props.onClick)
       <a style={ textDecoration: 'none' } href={ @props.onClick } target={ '_blank' if @props.newTab }>{ @props.children }</a>
     else
       <a style={ textDecoration: 'none' } onClick={ @handleClick }>{ @props.children }</a>
