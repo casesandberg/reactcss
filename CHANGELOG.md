@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5 (21 June 2016)
+
+- Modularize lodash and upgrade to lodash 4
+
 ## 1.0.4 (21 June 2016)
 
 - Fix case-sensitive import bug
