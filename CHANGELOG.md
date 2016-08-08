@@ -1,6 +1,10 @@
 # Changelog
 
-## 1.0.5 (21 June 2016)
+## 1.0.6 (8 August 2016)
+
+- Add polyfill for Object.assign
+
+## 1.0.5 (25 July 2016)
 
 - Modularize lodash and upgrade to lodash 4
 
