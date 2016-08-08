@@ -1,9 +1,10 @@
 'use strict'
 
 import map from 'lodash/map'
+import objectAssign from 'object-assign';
 
 export const mergeClasses = (classes, activeNames = []) => {
-  const styles = classes.default && Object.assign({}, classes.default) || {}
+  const styles = classes.default && objectAssign({}, classes.default) || {}
   activeNames.map((name) => {
     const toMerge = classes[name]
     if (!!toMerge) {
@@ -12,7 +13,7 @@ export const mergeClasses = (classes, activeNames = []) => {
           styles[key] = {}
         }
 
-        Object.assign(styles[key], toMerge[key])
+        objectAssign(styles[key], toMerge[key])
       })
     }
 

@@ -1,5 +1,7 @@
 'use strict'
 
+import objectAssign from 'object-assign';
+
 import flattenNames from './flattenNames'
 import mergeClasses from './mergeClasses'
 import autoprefix from './autoprefix'
@@ -14,6 +16,6 @@ export const ReactCSS = (classes, ...activations) => {
   return autoprefix(merged)
 }
 
-ReactCSS.m = Object.assign
+ReactCSS.m = objectAssign
 
 export default ReactCSS

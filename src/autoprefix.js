@@ -1,6 +1,7 @@
 'use strict'
 
 import map from 'lodash/map'
+import objectAssign from 'object-assign';
 
 const transforms = {
   borderRadius: (value) => {
@@ -101,7 +102,7 @@ export const autoprefix = (elements) => {
     map(styles, (value, key) => {
       const transform = transforms[key]
       if (transform) {
-        Object.assign(expanded, transform(value))
+        objectAssign(expanded, transform(value))
       } else {
         expanded[key] = value
       }

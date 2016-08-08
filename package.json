@@ -15,7 +15,8 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash": "^4.0.1",
-    "merge": "^1.2.0"
+    "merge": "^1.2.0",
+    "object-assign": "^4.1.0"
   },
   "devDependencies": {
     "babel": "^6.0.15",
