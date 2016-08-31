@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.7 (31 August 2016)
+
+- Prevent classes.default from being mutated
+
 ## 1.0.6 (8 August 2016)
 
 - Add polyfill for Object.assign
