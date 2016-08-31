@@ -75,6 +75,7 @@
     "react-addons-test-utils": "^0.14.8 || ^15.1.0"
   },
   "scripts": {
+    "lib": "gulp js:dist",
     "test": "npm run unit-test",
     "unit-test": "mocha test/** --compilers js:babel-register",
     "tdd": "mocha test/** --compilers js:babel-register --watch",

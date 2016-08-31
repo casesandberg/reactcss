@@ -106,4 +106,35 @@ describe('Combine', () => {
 
     expect(mergeClasses(classes, names)).to.eql(after)
   })
+
+  it('should not mutate default classes when merging', () => {
+    const classes = {
+      default: {
+        header: {
+          margin: '0px',
+        },
+      },
+      active: {
+        header: {
+          color: '#333',
+        },
+      },
+    }
+    const names = ['active']
+    const after1 = {
+      header: {
+        margin: '0px',
+        color: '#333',
+      },
+    }
+    const after2 = {
+      header: {
+        margin: '0px',
+      },
+    }
+
+    expect(mergeClasses(classes, names)).to.eql(after1)
+    expect(mergeClasses(classes, [])).to.eql(after2)
+  })
+
 })
