@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
   entry: ['webpack-dev-server/client?http://localhost:2570', 'webpack/hot/dev-server', './docs/index.js'],
   output: {
-    path: path.join(__dirname, 'docs/build'),
+    path: './docs/build',
     filename: 'bundle.js',
     publicPath: 'http://localhost:2570/docs/build/',
   },
@@ -48,4 +48,4 @@ module.exports = {
   ],
   devtool: 'eval',
   quiet: true,
-};
+}
