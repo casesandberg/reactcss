@@ -31,7 +31,7 @@
     "coffee-loader": "^0.7.2",
     "coffee-react": "^2.1.2",
     "coffee-script": "^1.9.1",
-    "css-loader": "^0.14.5",
+    "css-loader": "^0.25.0",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.0",
