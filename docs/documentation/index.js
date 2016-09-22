@@ -13,6 +13,6 @@ module.exports = {
   '03.01-props': require('./react-native-props.md'),
   '04-autoprefixing': require('./autoprefixing.md'),
   '05-hover': require('./hover.md'),
-  '06-pseudo-elements': require('./pseudo-elements.md'),
+  '06-pseudo-classes': require('./pseudo-classes.md'),
   '07-media-queries': require('./media-queries.md'),
 }
