@@ -1,4 +1,4 @@
-'use strict'
+'use strict' /* eslint-disable */
 
 import React from 'react'
 import inline from './inline'
