@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.8 (21 September 2016)
+
+- Remove `react-addons-test-utils` from peerDependencies
+
 ## 1.0.7 (31 August 2016)
 
 - Prevent classes.default from being mutated
