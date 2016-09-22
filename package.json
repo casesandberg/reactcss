@@ -71,8 +71,7 @@
   },
   "peerDependencies": {
     "react": "^0.14.8 || ^15.1.0",
-    "react-dom": "^0.14.8 || ^15.1.0",
-    "react-addons-test-utils": "^0.14.8 || ^15.1.0"
+    "react-dom": "^0.14.8 || ^15.1.0"
   },
   "scripts": {
     "lib": "gulp js:dist",
