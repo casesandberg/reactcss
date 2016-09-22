@@ -1,6 +1,6 @@
 ---
-id: pseudo-elements
-title: Pseudo Elements
+id: pseudo-classes
+title: Pseudo Classes
 ---
 
 When looping through components, spread the `loop` method provided by ReactCSS and call it with the iterator and length of items to pass down list-specific props, like: `first-child` `last-child` `even` `odd` `nth-child-*`
