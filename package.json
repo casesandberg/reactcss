@@ -82,7 +82,8 @@
     "docs-dist": "webpack --config webpack.prod.js",
     "dev": "npm run docs",
     "prepublish": "npm run lib",
-    "eslint": "node_modules/.bin/eslint src/**/*.js"
+    "eslint": "node_modules/.bin/eslint src/**/*.js",
+    "posttest": "npm run eslint"
   },
   "license": "MIT"
 }

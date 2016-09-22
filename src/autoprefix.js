@@ -1,7 +1,7 @@
 'use strict'
 
 import map from 'lodash/map'
-import objectAssign from 'object-assign';
+import objectAssign from 'object-assign'
 
 const transforms = {
   borderRadius: (value) => {

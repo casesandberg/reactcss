@@ -1,4 +1,4 @@
-'use strict'
+'use strict' /* eslint-disable */
 
 import isObject from 'lodash/isObject'
 import merge from 'merge'
