@@ -21,7 +21,7 @@ class Button extends React.Component {
           background: '#333',
         },
       },
-    })
+    }, this.props)
 
     return (
       <div style={ styles.button }>
