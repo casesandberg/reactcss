@@ -53,7 +53,7 @@
     "markdown-loader": "^0.1.2",
     "mocha": "^2.2.1",
     "mocha-sinon": "^1.1.4",
-    "normalize.css": "^3.0.3",
+    "normalize.css": "^5.0.0",
     "npm": "^3.5.0",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
