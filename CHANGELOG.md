@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.9 (21 September 2016)
+
+- Blank to fix peerDependency publish?
+
 ## 1.0.8 (21 September 2016)
 
 - Remove `react-addons-test-utils` from peerDependencies
