@@ -1,6 +1,6 @@
 'use strict'
 
-import objectAssign from 'object-assign';
+import objectAssign from 'object-assign'
 
 import flattenNames from './flattenNames'
 import mergeClasses from './mergeClasses'
@@ -8,6 +8,8 @@ import autoprefix from './autoprefix'
 
 export Component from './deprecated/Component'
 export hover from './components/hover'
+export handleHover from './components/hover'
+export handleActive from './components/active'
 export loop from './loop'
 
 export const ReactCSS = (classes, ...activations) => {
