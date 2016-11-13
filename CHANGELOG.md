@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+
+- Update Documentation And Add Examples (#136)
+- Add RN Support to Overwrite Spans on Active and Hover (#137)
+
 ## 1.0.9 (21 September 2016)
 
 - Blank to fix peerDependency publish?
