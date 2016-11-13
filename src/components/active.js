@@ -1,15 +1,15 @@
 import React from 'react'
 
-export const active = Component => {
+export const active = (Component, Span = 'span') => {
   return class Active extends React.Component {
     state = { active: false }
     handleMouseDown = () => this.setState({ active: true })
     handleMouseUp = () => this.setState({ active: false })
 
     render = () => (
-      <span onMouseDown={ this.handleMouseDown } onMouseUp={ this.handleMouseUp }>
+      <Span onMouseDown={ this.handleMouseDown } onMouseUp={ this.handleMouseUp }>
         <Component { ...this.props } { ...this.state } />
-      </span>
+      </Span>
     )
   }
 }
