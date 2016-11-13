@@ -3,7 +3,7 @@ id: react-native
 title: React Native
 ---
 
-Define styles in the render method and attach them to the JSX via inline styles:
+Using reactCSS in React Native works exactly the same as you would for the web! Define styles in the render method and attach them to the JSX via inline styles:
 ```
 class Game2048 extends React.Component {
   render() {

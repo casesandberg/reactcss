@@ -6,7 +6,7 @@
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
 
-## Inline Styles in JS with support for [React](http://reactcss.com/#react), [Redux](http://reactcss.com/#redux), [React Native](http://reactcss.com/#react-native), [Autoprefixing](http://reactcss.com/#autoprefixing), [Hover](http://reactcss.com/#hover), [Pseudo-Elements](http://reactcss.com/#pseudo-elements) & [Media Queries](http://reactcss.com/#media-queries)
+## Inline Styles in JS with support for [React](http://reactcss.com/#react), [React Native](http://reactcss.com/#react-native), [Autoprefixing](http://reactcss.com/#autoprefixing), [Hover](http://reactcss.com/#hover), [Pseudo-Elements](http://reactcss.com/#pseudo-elements) & [Media Queries](http://reactcss.com/#media-queries)
 
 ## Install
 
@@ -58,6 +58,16 @@ const styles = reactCSS({
 
 ## Documentation
 See the [Full Documentation](http://reactcss.com)
+
+## Examples
+
+Examples and projects built with reactCSS:
+
+[Felony](https://github.com/henryboldi/felony) - Next Level PGP Desktop App
+[React Color](https://github.com/casesandberg/react-color) - Color Pickers from Sketch, Photoshop, Chrome, Github, Twitter & more
+[Buffer App Components](https://www.npmjs.com/package/@bufferapp/components) - A shared set of UI Components
+[React Reactions](https://github.com/casesandberg/react-reactions) - Use Reactions from Slack, Facebook, Pokemon, Github and Youtube
+
 
 [travis-svg]: https://travis-ci.org/casesandberg/reactcss.svg
 [travis-url]: https://travis-ci.org/casesandberg/reactcss
