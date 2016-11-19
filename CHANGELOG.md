@@ -1,9 +1,13 @@
 # Changelog
 
+## 1.1.1
+
+- Remove Peer Deps [#138](https://github.com/casesandberg/reactcss/pull/138)
+
 ## 1.1.0
 
-- Update Documentation And Add Examples (#136)
-- Add RN Support to Overwrite Spans on Active and Hover (#137)
+- Update Documentation And Add Examples [#136](https://github.com/casesandberg/reactcss/pull/136)
+- Add RN Support to Overwrite Spans on Active and Hover [#137](https://github.com/casesandberg/reactcss/pull/137)
 
 ## 1.0.9 (21 September 2016)
 
