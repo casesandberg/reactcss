@@ -1,7 +1,7 @@
 'use strict'
 
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: ['webpack-dev-server/client?http://localhost:2570', 'webpack/hot/dev-server', './docs/index.js'],
@@ -31,7 +31,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'reactcss': path.resolve(__dirname, './src/reactcss.js'),
+      'reactcss': path.resolve(__dirname, './src/index.js'),
     },
     extensions: ['', '.js', '.jsx', '.cjsx'],
     fallback: [path.resolve(__dirname, './modules')],
