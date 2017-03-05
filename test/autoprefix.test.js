@@ -1,10 +1,7 @@
-/* global describe, it */
-
-import { expect } from './helpers'
 import autoprefix from '../src/autoprefix'
 
 describe('Autoprefix', () => {
-  it('should prefix borderRadius', () => {
+  test('should prefix borderRadius', () => {
     const before = {
       box: {
         borderRadius: '2px',
@@ -19,10 +16,10 @@ describe('Autoprefix', () => {
         borderRadius: '2px',
       },
     }
-    expect(autoprefix(before)).to.eql(after)
+    expect(autoprefix(before)).toEqual(after)
   })
 
-  it('should prefix absolute', () => {
+  test('should prefix absolute', () => {
     const before = {
       box: {
         absolute: '0px 0px 0px 0px',
@@ -37,6 +34,6 @@ describe('Autoprefix', () => {
         left: '0px',
       },
     }
-    expect(autoprefix(before)).to.eql(after)
+    expect(autoprefix(before)).toEqual(after)
   })
 })

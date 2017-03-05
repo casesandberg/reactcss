@@ -1,6 +1,3 @@
-/* global describe, it */
-
-import { expect } from './helpers'
 import mergeClasses from '../src/mergeClasses'
 
 describe('Combine', () => {
@@ -17,8 +14,7 @@ describe('Combine', () => {
         margin: '0px',
       },
     }
-
-    expect(mergeClasses(classes)).to.eql(after)
+    expect(mergeClasses(classes)).toEqual(after)
   })
 
   it('should not return merged classes that are not active', () => {
@@ -40,8 +36,7 @@ describe('Combine', () => {
         margin: '0px',
       },
     }
-
-    expect(mergeClasses(classes, names)).to.eql(after)
+    expect(mergeClasses(classes, names)).toEqual(after)
   })
 
   it('should return basic merged css', () => {
@@ -64,8 +59,7 @@ describe('Combine', () => {
         color: '#333',
       },
     }
-
-    expect(mergeClasses(classes, names)).to.eql(after)
+    expect(mergeClasses(classes, names)).toEqual(after)
   })
 
   it('should return overlaping css', () => {
@@ -103,8 +97,7 @@ describe('Combine', () => {
         color: 'blue',
       },
     }
-
-    expect(mergeClasses(classes, names)).to.eql(after)
+    expect(mergeClasses(classes, names)).toEqual(after)
   })
 
   it('should not mutate default classes when merging', () => {
@@ -132,9 +125,7 @@ describe('Combine', () => {
         margin: '0px',
       },
     }
-
-    expect(mergeClasses(classes, names)).to.eql(after1)
-    expect(mergeClasses(classes, [])).to.eql(after2)
+    expect(mergeClasses(classes, names)).toEqual(after1)
+    expect(mergeClasses(classes, [])).toEqual(after2)
   })
-
 })

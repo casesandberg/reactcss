@@ -1,48 +1,39 @@
-/* global describe, it */
-
-import { expect } from './helpers'
 import flattenNames from '../src/flattenNames'
 
 describe('Combine', () => {
-  it('should return basic strings', () => {
+  test('should return basic strings', () => {
     const before = ['foo', 'bar', 'baz']
     const after = ['foo', 'bar', 'baz']
-
-    expect(flattenNames(before)).to.eql(after)
+    expect(flattenNames(before)).toEqual(after)
   })
 
-  it('should flatten arrays', () => {
+  test('should flatten arrays', () => {
     const before = [['foo', 'bar'], [[['baz']]]]
     const after = ['foo', 'bar', 'baz']
-
-    expect(flattenNames(before)).to.eql(after)
+    expect(flattenNames(before)).toEqual(after)
   })
 
-  it('should return key and key-true when value is true', () => {
+  test('should return key and key-true when value is true', () => {
     const before = [{ foo: true }]
     const after = ['foo', 'foo-true']
-
-    expect(flattenNames(before)).to.eql(after)
+    expect(flattenNames(before)).toEqual(after)
   })
 
-  it('should return key-false when value is false', () => {
+  test('should return key-false when value is false', () => {
     const before = [{ foo: false }]
     const after = ['foo-false']
-
-    expect(flattenNames(before)).to.eql(after)
+    expect(flattenNames(before)).toEqual(after)
   })
 
-  it('should return key-value when value is a string', () => {
+  test('should return key-value when value is a string', () => {
     const before = [{ foo: 'bar' }]
     const after = ['foo-bar']
-
-    expect(flattenNames(before)).to.eql(after)
+    expect(flattenNames(before)).toEqual(after)
   })
 
-  it('should return key-value when value is a number', () => {
+  test('should return key-value when value is a number', () => {
     const before = [{ foo: 2 }]
     const after = ['foo-2']
-
-    expect(flattenNames(before)).to.eql(after)
+    expect(flattenNames(before)).toEqual(after)
   })
 })

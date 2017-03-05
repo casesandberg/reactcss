@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reactCSS should return complex css 1`] = `
+<div>
+  <div
+    className="card"
+    style={
+      Object {
+        "MozBoxShadow": "0 4px 8px rgba(0,0,0,.15)",
+        "OBoxShadow": "0 4px 8px rgba(0,0,0,.15)",
+        "WebkitBoxShadow": "0 4px 8px rgba(0,0,0,.15)",
+        "boxShadow": "0 4px 8px rgba(0,0,0,.15)",
+        "msBoxShadow": "0 4px 8px rgba(0,0,0,.15)",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`reactCSS should return multiple css 1`] = `
+<div>
+  <div
+    className="title"
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  />
+  <div
+    className="card"
+    style={
+      Object {
+        "MozBoxShadow": "0 0 2px rgba(0,0,0,.1)",
+        "OBoxShadow": "0 0 2px rgba(0,0,0,.1)",
+        "WebkitBoxShadow": "0 0 2px rgba(0,0,0,.1)",
+        "boxShadow": "0 0 2px rgba(0,0,0,.1)",
+        "msBoxShadow": "0 0 2px rgba(0,0,0,.1)",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`reactCSS should return simple css 1`] = `
+<div
+  className="body"
+  style={
+    Object {
+      "backgroundColor": "#fafafa",
+    }
+  }
+/>
+`;

@@ -1,1 +1,6 @@
-module.exports = { extends: '@case/eslint-config' }
+module.exports = {
+  extends: '@case/eslint-config',
+  env: {
+    jest: true
+  }
+}
