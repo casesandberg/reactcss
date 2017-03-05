@@ -1,17 +1,15 @@
-import map from 'lodash/map'
-import isPlainObject from 'lodash/isPlainObject'
-import isString from 'lodash/isString'
+import _ from 'lodash'
 
 export const flattenNames = (things) => {
   const names = []
 
   things.map((thing) => {
     Array.isArray(thing) && flattenNames(thing).map(name => names.push(name))
-    isPlainObject(thing) && map(thing, (value, key) => {
+    _.isPlainObject(thing) && _.forOwn(thing, (value, key) => {
       value === true && names.push(key)
       names.push(`${ key }-${ value }`)
     })
-    isString(thing) && names.push(thing)
+    _.isString(thing) && names.push(thing)
     return thing
   })
 

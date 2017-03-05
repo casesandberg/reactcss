@@ -1,4 +1,4 @@
-import map from 'lodash/map'
+import _ from 'lodash'
 
 const transforms = {
   borderRadius: (value) => {
@@ -94,9 +94,9 @@ const transforms = {
 
 export const autoprefix = (elements) => {
   const prefixed = {}
-  map(elements, (styles, element) => {
+  _.forOwn(elements, (styles, element) => {
     let expanded = {}
-    map(styles, (value, key) => {
+    _.forOwn(styles, (value, key) => {
       const transform = transforms[key]
       if (transform) {
         expanded = { ...expanded, ...transform(value) }
