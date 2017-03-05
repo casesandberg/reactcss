@@ -1,6 +1,5 @@
 import map from 'lodash/map'
 import cloneDeep from 'lodash/cloneDeep'
-import objectAssign from 'object-assign'
 
 export const mergeClasses = (classes, activeNames = []) => {
   const styles = (classes.default && cloneDeep(classes.default)) || {}
@@ -12,7 +11,7 @@ export const mergeClasses = (classes, activeNames = []) => {
           styles[key] = {}
         }
 
-        objectAssign(styles[key], toMerge[key])
+        styles[key] = { ...styles[key], ...toMerge[key] }
       })
     }
 

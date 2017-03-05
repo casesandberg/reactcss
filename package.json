@@ -13,8 +13,7 @@
     "reactcss"
   ],
   "dependencies": {
-    "lodash": "^4.0.1",
-    "object-assign": "^4.1.0"
+    "lodash": "^4.0.1"
   },
   "devDependencies": {
     "@case/eslint-config": "^0.1.4",
