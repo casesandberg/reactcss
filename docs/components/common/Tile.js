@@ -27,9 +27,9 @@ export const Tile = (props) => {
         paddingTop: '0',
       },
       sidebar: {
-        minWidth: '28px',
-        maxWidth: '28px',
-        flexBasis: '28',
+        minWidth: 28,
+        maxWidth: 28,
+        flexBasis: 28,
       },
     },
   }, props)
