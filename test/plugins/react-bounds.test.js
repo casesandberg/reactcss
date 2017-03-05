@@ -1,5 +1,3 @@
-// 'use strict';
-//
 // import { expect } from '../helpers';
 // const inline = require('../../src/inline');
 //
