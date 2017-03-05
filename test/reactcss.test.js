@@ -5,7 +5,7 @@
 /* eslint no-console: 0 */
 
 import { React, TestUtils, expect, sinon } from './helpers'
-import reactCSS from '../src/reactcss'
+import reactCSS from '../src'
 
 describe('reactCSS', () => {
   const sandbox = sinon.sandbox.create()
