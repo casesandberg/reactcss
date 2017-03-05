@@ -15,17 +15,11 @@ module.exports = {
       {
         exclude: /node_modules/,
         test: /\.js$/,
-        loaders: ['react-hot-loader', 'babel?presets[]=react', 'react-map-styles'],
+        loaders: ['react-hot-loader', 'babel?presets[]=react'],
       }, {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loaders: ['react-hot-loader', 'babel', 'react-map-styles'],
-      }, {
-        test: /\.coffee$/,
-        loaders: ['coffee-loader'],
-      }, {
-        test: /\.cjsx$/,
-        loaders: ['react-hot-loader', 'coffee-jsx-loader', 'react-map-styles'],
+        loaders: ['react-hot-loader', 'babel'],
       }, {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],
@@ -39,7 +33,7 @@ module.exports = {
     alias: {
       'reactcss': path.resolve(__dirname, './src/reactcss.js'),
     },
-    extensions: ['', '.js', '.coffee', '.jsx', '.cjsx'],
+    extensions: ['', '.js', '.jsx', '.cjsx'],
     fallback: [path.resolve(__dirname, './modules')],
   },
   plugins: [
