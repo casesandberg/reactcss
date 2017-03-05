@@ -19,6 +19,7 @@
     "object-assign": "^4.1.0"
   },
   "devDependencies": {
+    "@case/eslint-config": "^0.1.4",
     "babel": "^6.0.15",
     "babel-core": "^6.1.2",
     "babel-eslint": "^6.1.2",

@@ -1,4 +1,4 @@
-'use strict' /* eslint-disable */
+/* eslint-disable consistent-return, guard-for-in, no-restricted-syntax, no-lonely-if */
 
 import isObject from 'lodash/isObject'
 import merge from 'merge'
@@ -9,7 +9,7 @@ import merge from 'merge'
 */
 
 const localProps = {
-  borderRadius: value => {
+  borderRadius: (value) => {
     if (value !== null) {
       return {
         msBorderRadius: value,
@@ -21,7 +21,7 @@ const localProps = {
     }
   },
 
-  boxShadow: value => {
+  boxShadow: (value) => {
     if (value !== null) {
       return {
         msBoxShadow: value,
@@ -33,7 +33,7 @@ const localProps = {
     }
   },
 
-  userSelect: value => {
+  userSelect: (value) => {
     if (value !== null) {
       return {
         WebkitTouchCallout: value,
@@ -46,7 +46,7 @@ const localProps = {
     }
   },
 
-  flex: value => {
+  flex: (value) => {
     if (value !== null) {
       return {
         WebkitBoxFlex: value,
@@ -58,7 +58,7 @@ const localProps = {
     }
   },
 
-  flexBasis: value => {
+  flexBasis: (value) => {
     if (value !== null) {
       return {
         WebkitFlexBasis: value,
@@ -67,7 +67,7 @@ const localProps = {
     }
   },
 
-  justifyContent: value => {
+  justifyContent: (value) => {
     if (value !== null) {
       return {
         WebkitJustifyContent: value,
@@ -76,7 +76,7 @@ const localProps = {
     }
   },
 
-  transition: value => {
+  transition: (value) => {
     if (value !== null) {
       return {
         msTransition: value,
@@ -88,7 +88,7 @@ const localProps = {
     }
   },
 
-  transform: value => {
+  transform: (value) => {
     if (value !== null) {
       return {
         msTransform: value,
@@ -100,7 +100,7 @@ const localProps = {
     }
   },
 
-  Absolute: value => {
+  Absolute: (value) => {
     if (value !== null) {
       const direction = value.split(' ')
       return {
@@ -123,12 +123,11 @@ const localProps = {
 }
 
 const transform = (styleObject, customFuncs, parent) => {
-
   const customProps = merge(customFuncs, localProps)
   const obj = {}
 
-  for (var key in styleObject) {
-    var value = styleObject[key]
+  for (const key in styleObject) {
+    const value = styleObject[key]
 
     // If its an object
     if (isObject(value) && !Array.isArray(value)) {
@@ -138,9 +137,9 @@ const transform = (styleObject, customFuncs, parent) => {
       // Check to see if a custom prop exists for it
       if (customProps[key]) {
         // let loop though and save the results from the function
-        var customResults = customProps[key](value, parent)
-        for (var customKey in customResults) {
-          var customValue = customResults[customKey]
+        const customResults = customProps[key](value, parent)
+        for (const customKey in customResults) {
+          const customValue = customResults[customKey]
           obj[customKey] = customValue
         }
       } else {

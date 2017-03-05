@@ -1,5 +1,3 @@
-'use strict' /* eslint-disable */
-
 import mrg from 'merge'
 import isObject from 'lodash/isObject'
 

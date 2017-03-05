@@ -1,5 +1,3 @@
-'use strict' /* eslint-disable */
-
 import merge from './merge'
 import mixins from './transform-mixins'
 

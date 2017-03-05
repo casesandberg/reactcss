@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-prototype-builtins, no-console */
 
 import map from 'lodash/map'
 import isObject from 'lodash/isObject'

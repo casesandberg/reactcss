@@ -1,5 +1,3 @@
-'use strict'
-
 const loopable = (i, length) => {
   const props = {}
   const setProp = (name, value = true) => {
