@@ -4,6 +4,18 @@
   "description": "Bringing Classes to Inline Styles",
   "author": "case <case@casesandberg.com>",
   "main": "lib/index.js",
+  "scripts": {
+    "lib": "gulp js:dist",
+    "test": "npm run unit-test",
+    "unit-test": "mocha test/** --compilers js:babel-register",
+    "tdd": "mocha test/** --compilers js:babel-register --watch",
+    "docs": "webpack-dev-server --config webpack.dev.js --port 2570",
+    "docs-dist": "webpack --config webpack.prod.js",
+    "dev": "npm run docs",
+    "prepublish": "npm run lib",
+    "eslint": "node_modules/.bin/eslint src/**/*.js",
+    "posttest": "npm run eslint"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/casesandberg/reactcss"
@@ -12,6 +24,7 @@
     "react",
     "reactcss"
   ],
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.0.1"
   },
@@ -58,18 +71,5 @@
     "testdom": "^2.0.0",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.2"
-  },
-  "scripts": {
-    "lib": "gulp js:dist",
-    "test": "npm run unit-test",
-    "unit-test": "mocha test/** --compilers js:babel-register",
-    "tdd": "mocha test/** --compilers js:babel-register --watch",
-    "docs": "webpack-dev-server --config webpack.dev.js --port 2570",
-    "docs-dist": "webpack --config webpack.prod.js",
-    "dev": "npm run docs",
-    "prepublish": "npm run lib",
-    "eslint": "node_modules/.bin/eslint src/**/*.js",
-    "posttest": "npm run eslint"
-  },
-  "license": "MIT"
+  }
 }
