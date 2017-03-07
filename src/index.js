@@ -2,7 +2,7 @@ import flattenNames from './flattenNames'
 import mergeClasses from './mergeClasses'
 import autoprefix from './autoprefix'
 
-export { handleHover as hover } from './components/hover'
+export hover from './components/hover'
 export handleHover from './components/hover'
 export handleActive from './components/active'
 export loop from './loop'
