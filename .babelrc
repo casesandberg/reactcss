@@ -5,6 +5,6 @@
     "react"
   ],
   "plugins": [
-    "lodash"
+    "babel-plugin-lodash"
   ]
 }
