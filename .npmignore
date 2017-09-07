@@ -2,3 +2,4 @@ docs
 gulp
 src
 test
+.babelrc
